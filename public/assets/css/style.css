@@ -1,0 +1,22 @@
+/* navbar style */
+
+.navbar {
+    background-color: #212121;
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fafafa;
+}
+
+.logo_navbar {
+    height: 50px;
+    width: auto;
+}
+/* navbar style end */
+
