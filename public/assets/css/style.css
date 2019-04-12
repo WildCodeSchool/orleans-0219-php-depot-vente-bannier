@@ -1,17 +1,17 @@
 /******Jumbotron******/
 
-#jumbotron .jumbotron {
+.jumbotron {
     background-image: url('/assets/images/jumbotron-furniture.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#jumbotron .jumbotron div .text-jumbotron {
+.jumbotron div .text-jumbotron {
     margin: auto 0 auto auto;
     width: 55%;
 }
 
-#jumbotron .jumbotron div .text-jumbotron h2.card-title {
+.jumbotron div .text-jumbotron h2.card-title {
     font-size: 4.3vw;
     color: #E6844C;
     font-family: 'Raleway', sans-serif;
@@ -19,7 +19,7 @@
     margin-right: 7%;
 }
 
-#jumbotron .jumbotron div .text-jumbotron h2.card-title + p {
+.jumbotron div .text-jumbotron h2.card-title + p {
     font-family: 'Great Vibes', cursive;
     font-size: 3vw;
     font-weight: 100;
@@ -30,18 +30,12 @@
     text-align: right;
 }
 
-#jumbotron .jumbotron div .text-jumbotron h2.card-title strong {
+.jumbotron div .text-jumbotron h2.card-title strong {
     text-align: right;
 }
 
-#jumbotron .jumbotron div .text-jumbotron .card-title {
+.jumbotron div .text-jumbotron .card-title {
     margin-bottom: 0;
-}
-
-@media screen and (max-width: 700px) {
-    #jumbotron .jumbotron {
-        display: none;
-    }
 }
 
 /******End of Jumbotron******/
