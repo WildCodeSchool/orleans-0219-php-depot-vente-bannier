@@ -4,19 +4,53 @@
     background-color: #212121;
     font-family: 'Raleway', sans-serif;
     font-size: 25px;
-}
 
+}
+/* text centered on burger navigation */
 .navbar-nav {
     text-align: center;
 }
-
+/* color of link text */
 .navbar-dark .navbar-nav .nav-link {
-    color: #fafafa;
+    color: #FAFAFA;
 }
 
+/* size of logo */
 .logo_navbar {
     height: 50px;
+    position: relative;
+}
+
+.logo_size {
+    width: 371px;
+}
+
+/* style for large dropdown */
+.dropdown.has-megamenu {
+    position: static;
+}
+
+.dropdown-toggle::after {
+    vertical-align: .1em;
+}
+
+.megamenu-li {
+    position: static;
+}
+
+.megamenu {
+    background-color: #FAFAFA;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 73px;
+    padding: 15px;
+}
+
+.form-inline .form-control {
     width: auto;
 }
+
 /* navbar style end */
 
