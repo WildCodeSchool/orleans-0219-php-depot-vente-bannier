@@ -140,6 +140,7 @@ section.container-fluid.contactForm {
 
 .contactForm div div button {
     margin: 40px;
+    color: black;
 }
 
 .contactForm div div button.btn:hover {

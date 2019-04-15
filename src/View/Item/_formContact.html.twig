@@ -10,7 +10,7 @@
             <form action="" method="post" autocomplete="on" novalidate class="contactForm">
                 <div class="form-group">
                     <label for="message"></label>
-                    <textarea name="message" id="message" placeholder="Votre message" class="form-control" rows="8"></textarea>
+                    <textarea name="message" id="message" placeholder="Votre message" class="form-control" rows="8" required></textarea>
                 </div>
                 <div class="form-group form-row">
                     <div class="col-lg-6">
@@ -19,7 +19,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-volume"></i></span>
                             </div>
-                            <input type="tel" class="form-control" id="telephone" aria-describedby="inputGroupPrepend" name="telephone" value="" required>
+                            <input type="tel" class="form-control" id="telephone" aria-describedby="inputGroupPrepend" pattern="^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$" name="telephone" value="" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -37,7 +37,7 @@
                         <option value="">Je vous contacte pour...</option>
                         <option value="acheter">Acheter</option>
                         <option value="vendre">Vendre</option>
-                        <option value="se_debarrasser">Me débarraser</option>
+                        <option value="se_debarrasser">Me débarrasser</option>
                         <option value="reinseignments">Renseignements</option>
                     </select>
                 </div><br>
