@@ -1,0 +1,51 @@
+<section class="container-fluid">
+    <div class="col-12">
+        <h2 class="contactNousAccueil">Contactez-nous</h2>
+    </div>
+    <div class="col-12">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium assumenda ipsum sint magnam eum sapiente, doloremque, reiciendis vero. Ad hic placeat laborum a autem perspiciatis culpa necessitatibus corrupti fugiat perferendis!</p>
+    </div>
+    <div class="col-12 row mt-5 justify-content-center align-content-center">
+        <div class="col-lg-8">
+            <form action="" method="post" autocomplete="on" novalidate>
+                <div class="form-group">
+                    <label for="message"></label>
+                    <textarea name="message" id="message" placeholder="Votre message" class="form-control" rows="8"></textarea>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-lg-6">
+                        <label for="telephone"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-volume"></i></span>
+                            </div>
+                            <input type="tel" class="form-control" id="telephone" aria-describedby="inputGroupPrepend" name="telephone" value="" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="email"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="inputGroupPrepend" value="" required>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <select class="form-control mt-4" id="civility_id" name="civility_id">
+                        <option value="">Je vous contacte pour...</option>
+                        <option value="1">Sujet 1</option>
+                        <option value="2">Sujet 2</option>
+                        <option value="2">Sujet 3</option>
+                    </select>
+                </div><br>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-outline-secondary btn-lg" name="submit">Envoyer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
