@@ -25,7 +25,6 @@ class HomeController extends AbstractController
     {
         $categoriesManager = new CategoriesManager();
         $categories = $categoriesManager -> selectAll();
-
         return $this->twig->render('Home/index.html.twig', ['categories' => $categories]);
     }
 }
