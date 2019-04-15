@@ -1,5 +1,42 @@
 {% extends 'layout.html.twig' %}
 
+
+
+{% block title %}Nos articles tendances{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/public/assets/css/style.css" >
+{% endblock %}
+
+
+
 {% block content %}
+
+
+
+    <h2>Nos articles tendances</h2>
+
+    <div class="row">
+
+        {% for product in products %}
+
+            <div class="card col-lg-3 col-sm-8 col-md-4">
+
+                <img src="{{ pictures["name"] }}" class="card-img-top img-thumbnail">
+                <div class="badge-pill badge-info">{{ product['price'] }}</div>
+
+                <div class="card-body">
+
+                    <h5 class="card-title"> {{ product['name'] }} </h5>
+
+                    <p class="card-text"> {{ product['description'] }}</p>
+
+
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
 
 {% endblock %}
