@@ -1,3 +1,54 @@
+/******Navbar******/
+.navbar {
+    background-color: #212121;
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+
+}
+.navbar-nav {
+    text-align: center;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #FAFAFA;
+}
+
+.logo_navbar {
+    height: 50px;
+    position: relative;
+}
+
+.logo_size {
+    width: 371px;
+}
+
+.dropdown.has-megamenu {
+    position: static;
+}
+
+.dropdown-toggle::after {
+    vertical-align: .1em;
+}
+
+.megamenu-li {
+    position: static;
+}
+
+.megamenu {
+    background-color: #FAFAFA;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 73px;
+    padding: 15px;
+}
+
+.form-inline .form-control {
+    width: auto;
+}
+
+/******End of Jumbotron******/
+
 /******Jumbotron******/
 
 .jumbotron {
@@ -39,4 +90,5 @@
 }
 
 /******End of Jumbotron******/
+
 
