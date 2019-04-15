@@ -1,13 +1,13 @@
-<section class="container-fluid">
-    <div class="col-12">
+<section class="container-fluid contactForm">
+    <div class="col-12 title-contactForm">
         <h2 class="contactNousAccueil">Contactez-nous</h2>
     </div>
-    <div class="col-12">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium assumenda ipsum sint magnam eum sapiente, doloremque, reiciendis vero. Ad hic placeat laborum a autem perspiciatis culpa necessitatibus corrupti fugiat perferendis!</p>
+    <div class="col-12 text-contactForm">
+        <p>Pour toute question concernant l'achat, la vente, un débarras ou que vous ayez besoin d'informations, n'hésitez pas à nous contacter via le formulaire ci-après</p>
     </div>
     <div class="col-12 row mt-5 justify-content-center align-content-center">
         <div class="col-lg-8">
-            <form action="" method="post" autocomplete="on" novalidate>
+            <form action="" method="post" autocomplete="on" novalidate class="contactForm">
                 <div class="form-group">
                     <label for="message"></label>
                     <textarea name="message" id="message" placeholder="Votre message" class="form-control" rows="8"></textarea>
@@ -35,15 +35,14 @@
                 <div>
                     <select class="form-control mt-4" id="civility_id" name="civility_id">
                         <option value="">Je vous contacte pour...</option>
-                        <option value="1">Sujet 1</option>
-                        <option value="2">Sujet 2</option>
-                        <option value="2">Sujet 3</option>
+                        <option value="acheter">Acheter</option>
+                        <option value="vendre">Vendre</option>
+                        <option value="se_debarrasser">Me débarraser</option>
+                        <option value="reinseignments">Renseignements</option>
                     </select>
                 </div><br>
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-outline-secondary btn-lg" name="submit">Envoyer</button>
-                    </div>
+                <div class="form-group row d-flex justify-content-center">
+                    <button type="submit" class="btn btn-outline-secondary btn-lg" name="submit">Envoyer</button>
                 </div>
             </form>
         </div>

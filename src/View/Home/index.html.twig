@@ -1,5 +1,21 @@
 {% extends 'layout.html.twig' %}
 
-{% block formContact %}
-{% include('Item/_formContact.html.twig') %}
+{% block content %}
+    <section class="container-fluid d-none d-sm-block">
+        <div class="jumbotron">
+            <div class="text-white text-center py-5 px-4 my-5 row">
+                <div class="text-jumbotron col-md-6">
+                    <h2 class="card-title pt-3">
+                        <strong>RETRO ON SALE</strong></h2>
+                    <p>Antiquities Passion
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'Item/_formContact.html.twig' %}
+
 {% endblock %}
+
+
