@@ -1,40 +1,40 @@
+{% extends 'layout.html.twig' %}
 
 <!--Card -->
+
+{% block content %}
+
 <h2 class="produits ">Nos articles tendances</h2>
 
 <section class="section1">
 
     <div class="card-group row">
 
+        {% for product in products %}
+
         <div class="card col-md-12 mx-auto">
 
             <div class="card-body text-center">
                 <div class="card-img">
-                    <img class=" img-thumbnail" src="{{ product.picture_id }}">
+
+                    <!-- Ajout de l'image -->
+
+                    <img class=" img-thumbnail" src="{{ }}" alt="">
                 </div>
+
                 <h5 class="card-title"> {{ product['name'] }} </h5>
                 <p class="text">{{ product['price'] }}</p>
 
                 <p class="card-text"> {{ product['description'] }}</p>
+
                 <a href="#" class="btn ">+ d'infos</a>
             </div>
         </div>
-
-        <div class="card col-md-12 mx-auto">
-
-            <div class="card-body text-center">
-                <div class="card-img">
-                    <img class=" img-thumbnail" src="{{ product.picture_id }}">
-                </div>
-
-                <h5 class="card-title"> {{ product['name'] }} </h5>
-
-
-                <p class="text">{{ product['price'] }}</p>
-                <p class="card-text"> {{ product['description'] }}</p>
-                <a href="#" class="btn">+ d'infos</a>
-
-            </div>
-        </div>
+    {% endfor %}
+    </div>
+    <div class="row d-flex justify-content-center">
+        <button class="btn btn2" type="button">Tous nos produits</button>
     </div>
 </section>
+
+{% endblock %}
