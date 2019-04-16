@@ -8,9 +8,9 @@
 
 namespace App\Controller;
 
-use App\Model\CategoriesManager;
+use App\Model\CategoryManager;
 
-class AdminController extends AbstractController
+class AdminCategoryController extends AbstractController
 {
     /**
      * Display categories administration page
@@ -20,10 +20,10 @@ class AdminController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function categories()
+    public function list()
     {
-        $categoriesManager = new CategoriesManager();
-        $categories = $categoriesManager -> selectAll();
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager -> selectAll();
         return $this->twig->render('Admin/categories.html.twig', ['categories' => $categories]);
     }
 }
