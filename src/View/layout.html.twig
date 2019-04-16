@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-          
+
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Raleway:200,300,400,700" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -18,8 +18,8 @@
 </head>
 <body>
 <div class="container-fluid px-0">
-{% include '_navbar.html.twig' %}
-{% block content %}{% endblock %}
+    {% block navbar %}{% endblock %}
+    {% block content %}{% endblock %}
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -35,4 +35,3 @@
 {% block javascript %}{% endblock %}
 </body>
 </html>
-
