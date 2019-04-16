@@ -17,9 +17,11 @@
                 <div class="card-img">
 
                     <!-- Ajout de l'image -->
+                    {%  for picture in pictures %}
 
-                    <img class=" img-thumbnail" src="{{ }}" alt="">
+                    <img class=" img-thumbnail" src="{{ picture.name.product_id }}" alt="">
                 </div>
+                {% endfor %}
 
                 <h5 class="card-title"> {{ product['name'] }} </h5>
                 <p class="text">{{ product['price'] }}</p>
