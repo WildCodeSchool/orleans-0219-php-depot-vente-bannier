@@ -69,7 +69,7 @@
 /******Jumbotron******/
 
 .jumbotron {
-    background-image: url('/assets/images/jumbotron-furniture.png');
+    background-image: url('../images/jumbotron-furniture.png');
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 0;
