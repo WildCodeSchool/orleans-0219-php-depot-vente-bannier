@@ -5,9 +5,11 @@
     font-size: 25px;
 
 }
+
 .navbar-nav {
     text-align: center;
 }
+
 .navbar-dark .navbar-nav .nav-link {
     color: #FAFAFA;
 }
@@ -91,4 +93,52 @@
 
 /******End of Jumbotron******/
 
+/******Footer******/
+.logo_footer {
+    height: auto;
+    max-width: 80%
 
+}
+
+footer {
+    background-color: #212121;
+}
+
+.text-footer a {
+    font-size: 13px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.text-footer ul {
+    margin-top: 14px;
+    margin-bottom: 1rem;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+ul .horizontal-list li {
+    display: inline;
+}
+
+.text-footer {
+    font-size: 13px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+p {
+    margin: -3px;
+}
+
+.text-center-footer {
+    text-align: center;
+}
+
+.img-responsive .centree {
+    margin: 0 auto;
+}
+
+/******End of Footer******/
