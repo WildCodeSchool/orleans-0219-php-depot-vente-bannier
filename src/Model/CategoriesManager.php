@@ -7,6 +7,7 @@
  * PHP version 7
  */
 namespace App\Model;
+
 /**
  *
  */
@@ -16,6 +17,7 @@ class CategoriesManager extends AbstractManager
      *
      */
     const TABLE = 'categories';
+
     /**
      *  Initializes this class.
      */

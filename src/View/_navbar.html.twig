@@ -17,12 +17,14 @@
             <li class="nav-item dropdown megamenu-li">
                 <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">Acheter</a>
-                <div class="dropdown-menu megamenu" aria-labelledby="dropdown acheter">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <a class="dropdown-item" href="#"></a>
-                        </div>
-                    </div>
+                <div class="dropdown-menu megamenu py-0" aria-labelledby="dropdown acheter">
+                            <ul class="list-inline">
+                                {% for categorie in categories %}
+                                    <li class="list-inline-item">
+                                        <a class="dropdown-item" href="/products/show/{{ categorie.id }}">{{ categorie.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                 </div>
             </li>
 
