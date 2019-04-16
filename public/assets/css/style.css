@@ -52,9 +52,10 @@
 /******Jumbotron******/
 
 .jumbotron {
-    background-image: url('/assets/images/jumbotron-furniture.png');
+    background-image: url('image/jumbotron-furniture.png');
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: 0px;
 }
 
 .jumbotron div .text-jumbotron {
@@ -92,3 +93,67 @@
 /******End of Jumbotron******/
 
 
+
+/****Card****/
+
+.img-thumbnail {
+    height: 300px;
+    width: 400px;
+    object-fit: contain;
+
+}
+
+.card {
+    border: #FAFAFA;
+    background-color: #FAFAFA;
+}
+
+h2:nth-child(even){
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #212121;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+
+.section1 {
+    background-color: #FAFAFA;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.btn {
+    border: solid #212121 2px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+}
+
+.btn2 {
+    font-size: 25px;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.btn:hover {
+    background-color: #8e8477;
+    color: #FAFAFA;
+}
+
+.card-body {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.card-title {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/**En card**/
