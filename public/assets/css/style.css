@@ -113,6 +113,7 @@
 
 /****Card****/
 
+
 .img-thumbnail {
     height: 300px;
     width: 400px;
@@ -135,22 +136,33 @@ h2:nth-child(even){
     color: #FAFAFA;
     font-size: 50px;
 }
-
-.section1 {
-    background-color: #FAFAFA;
+.produits {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #212121;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+.container {
     padding-top: 80px;
     padding-bottom: 80px;
 }
 
-.btn {
+.btn-info {
     border: solid #212121 2px;
+    background-color: #FAFAFA;
+    color: #212121;
     padding: 15px;
     font-size: 15px;
     font-weight: bold;
     font-family: 'Raleway', sans-serif;
 }
 
-.btn2 {
+.btn-product {
+    border: solid #212121 2px;
     font-size: 25px;
     border-radius: 15px;
     font-weight: bold;
@@ -160,6 +172,7 @@ h2:nth-child(even){
 .btn:hover {
     background-color: #8e8477;
     color: #FAFAFA;
+    border-color: #212121;
 }
 
 .card-body {
@@ -173,4 +186,8 @@ h2:nth-child(even){
     margin-top: 30px;
 }
 
-/**End card**/
+body {
+    background-color: #FAFAFA;
+}
+
+/**end cards**/
