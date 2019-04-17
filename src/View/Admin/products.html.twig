@@ -1,0 +1,53 @@
+{% extends 'adminLayout.html.twig' %}
+
+{% block title %}Mes produits{% endblock %}
+{% block content %}
+    <h1 class="text-center my-5">Gestion des produits</h1>
+    <section class="row justify-content-center">
+        <table class="table col-lg-10 text-center">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ref</th>
+                <th scope="col">Catégories</th>
+                <th scope="col">Nom des produits</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Mis en vente</th>
+                <th scope="col">En avant</th>
+                <th scope="col">Vendu</th>
+                <th scope="col">Date de vente</th>
+                <th scope="col">Editer</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <th scope="row">{{ product.id }}</th>
+                    <td>{{ product.categories }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }} €</td>
+                    <td>{{ product.date_added|date("d/m/y") }}</td>
+                    <td>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" {% if product.ahead == true %}checked{% endif %}
+                                   class="custom-control-input" id="aheadSwitch{{ product.id }}">
+                            <label class="custom-control-label" for="aheadSwitch{{ product.id }}"></label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox"  {% if product.date_saled is not null %}checked{% endif %}
+                                   class="custom-control-input" id="saledSwitch{{ product.id }}">
+                            <label class="custom-control-label" for="saledSwitch{{ product.id }}"></label>
+                        </div>
+                    </td>
+                    <td>{% if product.date_saled is not null %}{{ product.date_saled|date("d/m/y") }}
+                        {% endif %}</td>
+                    <td><a href="/adminProduct/update"><img src="https://img.icons8.com/ios/25/000000/edit-filled.png"></a></td>
+                    <td><a href="/adminProduct/delete"><img src="https://img.icons8.com/ios/25/000000/delete-filled.png"></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
