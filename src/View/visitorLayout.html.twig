@@ -1,8 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block navbar %}
-{% endblock %}
+
+{% block navbar %}{% include '_navbar.html.twig' %}{% endblock %}
 {% block content %}{% endblock %}
-{% block footer %}
-    {% include 'Item/_footer.html.twig' %}
-{% endblock %}
+{% block footer %}{% include 'Item/_footer.html.twig' %}{% endblock %}
