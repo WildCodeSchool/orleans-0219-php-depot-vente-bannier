@@ -12,7 +12,6 @@ use App\Model\CategoryManager;
 
 class AdminCategoryController extends AbstractController
 {
-
     /**
      * Display categories administration page
      *
