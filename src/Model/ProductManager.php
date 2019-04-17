@@ -32,10 +32,19 @@ class ProductManager extends AbstractManager
      *
      * @return array
      */
-    public function showAllWithJoin(): array
+    public function showAllWithCategories(): array
     {
-        return $this->pdo->query("SELECT product.id, product.name, product.price, product.date_added, 
-product.date_saled, ahead, category.name as categories FROM $this->table inner join bannier.category 
-on product.categories_id = category.id order by category.name ASC, product.name ASC;")->fetchAll();
+        $query = "SELECT product.id, 
+                    product.name, 
+                    product.price, 
+                    product.date_added, 
+                    product.date_saled, 
+                    ahead, 
+                    category.name as categories 
+                    FROM $this->table 
+                    inner join bannier.category 
+                    on product.categories_id = category.id 
+                    order by category.name ASC, product.name ASC;";
+        return $this->pdo->query($query)->fetchAll();
     }
 }

@@ -24,7 +24,7 @@ class AdminProductController extends AbstractController
     public function list()
     {
         $productManager = new ProductManager();
-        $products = $productManager -> showAllWithJoin();
+        $products = $productManager -> showAllWithCategories();
         return $this->twig->render('Admin/products.html.twig', ['products' => $products]);
     }
 }
