@@ -1,4 +1,4 @@
-<section class="container-fluid contactForm">
+<section class="contactForm">
     <div class="col-12 title-contactForm">
         <h2 class="contactNousAccueil">Contactez-nous</h2>
     </div>
@@ -11,36 +11,63 @@
                 <div class="form-group">
                     <label for="message"></label>
                     <textarea name="message" id="message" placeholder="Votre message" class="form-control" rows="8" required></textarea>
-                </div>
-                <div class="form-group form-row">
-                    <div class="col-lg-6">
-                        <label for="telephone"></label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-volume"></i></span>
-                            </div>
-                            <input type="tel" class="form-control" id="telephone" aria-describedby="inputGroupPrepend" pattern="^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$" name="telephone" value="" required>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="email"></label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-at"></i></span>
-                            </div>
-                            <input type="email" class="form-control" id="email" name="email" aria-describedby="inputGroupPrepend" value="" required>
-                        </div>
-                    </div>
+                    <div class="text-danger">{{ errors.message }}</div>
                 </div>
                 <div>
-                    <select class="form-control mt-4" id="civility_id" name="civility_id">
+                    <select class="form-control mt-4" id="select_form" name="select_form" value="{{ data.select_form|striptags ? '' }}" required>
                         <option value="">Je vous contacte pour...</option>
                         <option value="acheter">Acheter</option>
                         <option value="vendre">Vendre</option>
                         <option value="se_debarrasser">Me débarrasser</option>
                         <option value="reinseignments">Renseignements</option>
                     </select>
-                </div><br>
+                    <div class="text-danger">{{ errors.select_form }}</div>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-12 col-sm-6">
+                        <label for="name"></label>
+                        <div class="input-group">
+                            <select class="form-control mt-6" id="civility" name="civility" value="{{ data.civility|striptags ? '' }}" required>
+                                <option value="">Mme / Mr.</option>
+                                <option value="Mme.">Mme.</option>
+                                <option value="Mr.">Mr.</option>
+                            </select>
+                            <div class="text-danger">{{ errors.civility }}</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label for="name"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="name" aria-describedby="inputGroupPrepend" name="name" value="{{ data.name|striptags ? '' }}" required>
+                            <div class="text-danger">{{ errors.name }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-12 col-sm-6">
+                        <label for="telephone"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-volume"></i></span>
+                            </div>
+                            <input type="tel" class="form-control" id="telephone" aria-describedby="inputGroupPrepend" pattern="^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$" name="telephone" value="{{ data.telephone|striptags ? '' }}" required>
+                            <div class="text-danger">{{ errors.telephone }}</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label for="email"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="inputGroupPrepend" value="{{ data.email|striptags ? '' }}" required>
+                            <div class="text-danger">{{ errors.email }}</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group row d-flex justify-content-center">
                     <button type="submit" class="btn btn-outline-secondary btn-lg" name="submit">Envoyer</button>
                 </div>
