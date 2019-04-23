@@ -19,23 +19,17 @@
                 <input type="number" class="form-control" id="price" name="price">
             </div>
             <div class="col-md-6">
+                <label for="date">Date d'entrée en magasin</label>
+                <input type="date" class="form-control" id="date" name="date_added">
+            </div>
+            <div class="col-md-12">
                 <label for="category">Categories</label>
-                <select id="category" class="form-control" name="category">
+                <select id="category" class="form-control" name="categories_id">
                     <option selected>Choisissez ...</option>
                     {% for category in categories %}
                         <option>{{ category }}</option>
                     {% endfor %}
                 </select>
-            </div>
-            <div class="col-md-2">
-                <label for="date">Date d'entrée en magasin</label>
-                <input type="date" class="form-control" id="date" name="date_added">
-            </div>
-            <div class="input-group mb-3">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="file[]" id="pictures" multiple="multiple">
-                    <label class="custom-file-label" for="inputGroupFile01">Cliquez ici pour choisir vos photos à insérer</label>
-                </div>
             </div>
             <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
