@@ -6,12 +6,13 @@
  * Time: 18:40
  */
 
-namespace App\Controller;
+namespace App\AdminAddController;
 
-use App\Model\AbstractManager;
+use App\Controller\AbstractController;
+use App\Model\ProductManager;
 use App\Model\CategoryManager;
 
-class AdminCategoryController extends AbstractController
+class AdminAddController extends AbstractController
 {
     /**
      * Display categories administration page
@@ -21,7 +22,7 @@ class AdminCategoryController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function list()
+    public function add()
     {
         $categoryManager = new CategoryManager();
         $categories = $categoryManager -> selectAll();
