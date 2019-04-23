@@ -8,6 +8,7 @@
  */
 
 namespace App\Model;
+
 use utils\CleanData;
 
 /**
@@ -37,6 +38,8 @@ class ProductManager extends AbstractManager
     {
         $query = "SELECT product.id, product.name, product.price, product.date_added, product.date_saled, ahead
                     ,category.name AS categories FROM $this->table 
+                    ,category.name AS categories 
+                    FROM $this->table 
                     INNER JOIN bannier.category 
                     ON product.categories_id = category.id 
                     ORDER BY category.name ASC, product.name ASC;";
@@ -45,9 +48,9 @@ class ProductManager extends AbstractManager
 
     /**
      *
-     * Insert new products in table
+     *  insert new product in BDD
      *
-     * @param array $item
+     * @param array $data
      * @return int
      */
     public function insert(array $data): int
