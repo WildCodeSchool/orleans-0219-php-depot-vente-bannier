@@ -3,7 +3,7 @@
 <!--Logo -->
 <nav class="navbar navbar-expand-xl navbar-dark">
     <div class="logo_size">
-        <a class="navbar-brand" href="#"><img class="logo_navbar" src="assets/images/logo.png" alt="logo du site"></a>
+        <a class="navbar-brand" href="#"><img class="logo_navbar" src="/assets/images/logo.png" alt="logo du site"></a>
     </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
@@ -18,11 +18,11 @@
                 <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">Acheter</a>
                 <div class="dropdown-menu megamenu" aria-labelledby="dropdown acheter">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <a class="dropdown-item" href="#"></a>
-                        </div>
-                    </div>
+                            <div class="categories-list navbar-link text-center">
+                                {% for categorie in categories %}
+                                        <a class="dropdown-item pb-0" href="/products/show/{{ categorie.id }}">{{ categorie.name }}</a>
+                                {% endfor %}
+                            </div>
                 </div>
             </li>
 
@@ -34,7 +34,7 @@
                    aria-expanded="false">Notre boutique</a>
                 <div class="dropdown-menu megamenu" aria-labelledby="dropdown notre boutique">
                     <div class="row justify-content-center text-center">
-                        <div class="col-sm-6 col-lg-3">
+                        <div class="col navbar-link">
                             <a class="dropdown-item" href="#">Notre histoire</a>
                             <a class="dropdown-item" href="#">Visite de la boutique</a>
                             <a class="dropdown-item" href="#">Fonctionnement du dépôt-vente</a>

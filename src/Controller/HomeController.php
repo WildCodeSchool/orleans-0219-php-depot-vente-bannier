@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\utils\CleanData;
+use App\Model\CategoryManager;
 
 class HomeController extends AbstractController
 {
@@ -24,6 +25,8 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager -> selectAll();
         $messageSent = false;
         $errors = array();
 
@@ -94,6 +97,6 @@ class HomeController extends AbstractController
                 };
             }
         }
-        return $this->twig->render('Home/index.html.twig', ['errors' => $errors, $messageSent]);
+        return $this->twig->render('Home/index.html.twig', ['errors' => $errors, 'categories' => $categories]);
     }
 }
