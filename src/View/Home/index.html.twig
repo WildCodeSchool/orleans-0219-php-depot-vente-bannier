@@ -21,7 +21,7 @@
 
 
         <div class="row">
-            {% for product in var.products|slice (0,3) if product.ahead == 1 %}
+            {% for product in products if product.ahead == 1 %}
                 {% include 'Item/_card.html.twig' %}
             {% endfor %}
         </div>

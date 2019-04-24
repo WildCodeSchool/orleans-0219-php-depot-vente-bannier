@@ -45,12 +45,13 @@ class ProductManager extends AbstractManager
 
     public function showAllWithPictures(): array
     {
-        $query = "SELECT product.id, product.name, product.price,  product.description, product.date_added, ahead
+        $query = "SELECT product.id, product.name, product.price,  product.description, ahead
                     ,picture.name AS picture 
                     FROM $this->table 
                     INNER JOIN bannier.picture 
                     ON picture.product_id = product.id
-                    ORDER BY product.id ASC;";
+                    ORDER BY product.id ASC
+                    LIMIT 3;";
         return $this->pdo->query($query)->fetchAll();
     }
 }

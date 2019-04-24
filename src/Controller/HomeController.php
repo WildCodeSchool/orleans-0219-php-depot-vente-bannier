@@ -8,7 +8,6 @@
 
 namespace App\Controller;
 
-use App\Model\CardManager;
 use App\Model\CategoryManager;
 use App\Model\ProductManager;
 
@@ -31,9 +30,9 @@ class HomeController extends AbstractController
         $productManager = new ProductManager();
         $products= $productManager->showAllWithPictures();
 
-        return $this->twig->render('Home/index.html.twig', ['var' => [
+        return $this->twig->render('Home/index.html.twig', [
             'categories' => $categories,
             'products' => $products
-        ]]);
+        ]);
     }
 }
