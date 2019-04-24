@@ -45,6 +45,18 @@ class ProductManager extends AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 
+    public function showAllWithPictures(): array
+    {
+        $query = "SELECT product.id, product.name, product.price,  product.description, ahead
+                    ,picture.name AS picture 
+                    FROM $this->table 
+                    INNER JOIN bannier.picture 
+                    ON picture.product_id = product.id
+                    ORDER BY product.id ASC
+                    LIMIT 3;";
+        return $this->pdo->query($query)->fetchAll();
+    }
+  
     /**
      *
      *  insert new product in BDD
@@ -73,5 +85,4 @@ class ProductManager extends AbstractManager
             $id = (int)$this->pdo->lastInsertId();
             return $id;
         }
-    }
 }

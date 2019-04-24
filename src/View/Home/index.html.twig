@@ -15,8 +15,22 @@
         </div>
     </section>
 
-    {% include 'Item/_formContact.html.twig' %}
+    <h2 class="produits">Nos articles tendances</h2>
+
+    <section class="container">
+
+
+        <div class="row">
+            {% for product in products if product.ahead == 1 %}
+                {% include 'Item/_card.html.twig' %}
+            {% endfor %}
+        </div>
+        <div class="row d-flex justify-content-center">
+            <button class="btn btn-product px-5" type="button">Tous nos produits</button>
+        </div>
+
+    </section>
+
+{% include 'Item/_formContact.html.twig' %}
 
 {% endblock %}
-
-
