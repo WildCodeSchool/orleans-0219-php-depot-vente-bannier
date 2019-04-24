@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\utils\CleanData;
 use App\Model\CategoryManager;
+use App\Model\ProductManager;
 
 class HomeController extends AbstractController
 {
@@ -27,6 +28,16 @@ class HomeController extends AbstractController
     {
         $categoryManager = new CategoryManager();
         $categories = $categoryManager -> selectAll();
+
+
+        $productManager = new ProductManager();
+        $products= $productManager->showAllWithPictures();
+
+        return $this->twig->render('Home/index.html.twig', [
+            'categories' => $categories,
+            'products' => $products
+        ]);
+
         $messageSent = false;
         $errors = array();
 
