@@ -3,35 +3,64 @@
 {% block title %}Ajouter un produit{% endblock %}
 
 {% block content %}
-    <h1 class="text-center my-5">Ajout de produit</h1>
-    <section>
-        <form class="row">
-            <div class="col-md-12">
-                <label for="productName">Nom du produit:</label>
-                <input type="text" class="form-control" id="productName" placeholder="" name="name">
+    <h1 class="text-center mt-5 mb-3">Ajout de produit</h1>
+    {% if var.post %}<h2 class="text-center mt-5 mb-3">Votre produit à été enregistré</h2>{% endif %}
+    <section class="container">
+        <form class="form-row" action="/adminProduct/add" method="post">
+            <div class="form-group col-md-12">
+                <label for="productName">Nom du produit: {% if var.errors.name %}
+                        <span class="text-danger">{{ var.errors.name }}</span>{% endif %}
+                </label>
+                <input type="text" class="form-control" id="productName" value="{{ var.data.name }}" name="name">
             </div>
-            <div class="col-md-12">
-                <label for="description">Description du produit</label>
-                <input type="text" class="form-control" id="description" placeholder="" name="description">
+            <div class="form-group col-md-12">
+                <label for="description">Description du produit: {% if var.errors.description %}
+                        <span class="text-danger">{{ var.errors.description }}</span>{% endif %}
+                </label>
+                <textarea class="form-control" id="description" name="description"
+                          rows="6">{{ var.data.description }}</textarea>
             </div>
-            <div class="col-md-6">
-                <label for="price">Prix</label>
-                <input type="number" class="form-control" id="price" name="price">
+            <div class="form-row col-md-12 mx-auto">
+                <div class="form col-md-4">
+                    <label for="category">Categories: {% if var.errors.categories_id %}
+                            <span class="text-danger">{{ var.errors.categories_id }}</span>{% endif %}
+                    </label>
+                    <select id="category" class="form-control" name="categories_id">
+                        <option value="" selected>Choisissez ...</option>
+                        {% for category in var.categories %}
+                            <option value="{{ category.id }}"
+                                    {% if category.id is same as(var.data.categories_id) %} selected {% endif %}>
+                                {{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form col-md-4">
+                    <label for="price">Prix:{% if var.errors.price %}
+                        <span class="text-danger">{{ var.errors.price }}</span>{% endif %}
+                    </label>
+                    <input type="number" class="form-control" id="price" name="price" value="{{ var.data.price }}">
+                </div>
+                <div class="form col-md-4">
+                    <label for="date">Date d'entrée en magasin:{% if var.errors.date_added %}
+                        <span class="text-danger">{{ var.errors.date_added }}</span>{% endif %}
+                    </label>
+                    <input type="date" class="form-control" id="date" name="date_added"
+                           value="{{ var.data.date_added }}">
+                </div>
             </div>
-            <div class="col-md-6">
-                <label for="date">Date d'entrée en magasin</label>
-                <input type="date" class="form-control" id="date" name="date_added">
+            <div class="form-check ml-1 text-center mt-5 col-md-12">
+                <input class="form-check-input" type="checkbox" id="ahead" name="ahead"
+                       {% if var.data.ahead == 1 %}checked{% endif %}>
+                <label class="form-check-label" for="ahead">
+                    Mettre le produit en avant
+                </label>
             </div>
-            <div class="col-md-12">
-                <label for="category">Categories</label>
-                <select id="category" class="form-control" name="categories_id">
-                    <option selected>Choisissez ...</option>
-                    {% for category in categories %}
-                        <option>{{ category }}</option>
-                    {% endfor %}
-                </select>
+            <div class="text-center mt-5 col-md-12">
+                <button type="submit" class="btn btn-dark justify-content-center">Enregistrer le produit</button>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+
+
         </form>
+
     </section>
 {% endblock %}

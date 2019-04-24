@@ -9,7 +9,7 @@
 
 namespace App\Model;
 
-use utils\CleanData;
+use App\utils\CleanData;
 
 /**
  *
@@ -37,7 +37,6 @@ class ProductManager extends AbstractManager
     public function showAllWithCategories(): array
     {
         $query = "SELECT product.id, product.name, product.price, product.date_added, product.date_saled, ahead
-                    ,category.name AS categories FROM $this->table 
                     ,category.name AS categories 
                     FROM $this->table 
                     INNER JOIN bannier.category 
@@ -50,13 +49,13 @@ class ProductManager extends AbstractManager
      *
      *  insert new product in BDD
      *
-     * @param array $data
+     * @param array $dirtyData
      * @return int
      */
-    public function insert(array $data): int
+    public function insert(array $dirtyData): int
     {
-        $cleanData = new CleanData($data);
-
+        $cleanData = new CleanData();
+        $data = $cleanData->dataCleaner($dirtyData);
 
         $query = "INSERT INTO $this->table 
                 (`name`, `categories_id`, `description`, `price`, 
@@ -74,6 +73,7 @@ class ProductManager extends AbstractManager
 
         if ($statement->execute()) {
             $id = (int)$this->pdo->lastInsertId();
+            return $id;
         }
     }
 }
