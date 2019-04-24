@@ -43,16 +43,14 @@ class AdminProductController extends AbstractController
     {
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAll();
+        $data = [];
+        $errors = [];
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $validCategories = [];
-            foreach ($categories as $key => $category) {
-                $validCategories[$key] = $category['id'];
-            }
+            $validCategories = array_column($categories, 'id');
             $cleanData = new CleanData();
             $data = $cleanData->dataCleaner($_POST);
-            $errors = [];
             if (empty($data['name'])) {
                 $errors['name'] = 'Veuillez indiquer le nom du produit';
             }
@@ -79,19 +77,16 @@ class AdminProductController extends AbstractController
                 $data['ahead'] = 0;
             }
 
-
             if (empty($errors)) {
                 $productManager = new ProductManager();
                 $productManager->insert($data);
                 header('location: /AdminProduct/confirmAdding');
-            } else {
-                return $this->twig->render('Admin/add.html.twig', ['categories' => $categories,
-                    'data' => $data, 'errors' => $errors]);
             }
-        } else {
-            return $this->twig->render('Admin/add.html.twig', ['categories' => $categories]);
         }
+        return $this->twig->render('Admin/add.html.twig', ['categories' => $categories,
+            'data' => $data, 'errors' => $errors]);
     }
+
 
     /**
      * confirm product as been added in BDD

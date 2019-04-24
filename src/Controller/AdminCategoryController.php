@@ -8,7 +8,6 @@
 
 namespace App\Controller;
 
-use App\Model\AbstractManager;
 use App\Model\CategoryManager;
 
 class AdminCategoryController extends AbstractController

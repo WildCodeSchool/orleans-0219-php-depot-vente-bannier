@@ -49,13 +49,11 @@ class ProductManager extends AbstractManager
      *
      *  insert new product in BDD
      *
-     * @param array $dirtyData
+     * @param array $data
      * @return int
      */
-    public function insert(array $dirtyData): int
+    public function insert(array $data): int
     {
-        $cleanData = new CleanData();
-        $data = $cleanData->dataCleaner($dirtyData);
 
         $query = "INSERT INTO $this->table 
                 (`name`, `categories_id`, `description`, `price`, 
