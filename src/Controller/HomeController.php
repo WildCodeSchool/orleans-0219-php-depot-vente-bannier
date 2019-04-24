@@ -31,12 +31,7 @@ class HomeController extends AbstractController
 
 
         $productManager = new ProductManager();
-        $products= $productManager->showAllWithPictures();
-
-        return $this->twig->render('Home/index.html.twig', [
-            'categories' => $categories,
-            'products' => $products
-        ]);
+        $products= $productManager->showAhead();
 
         $messageSent = false;
         $errors = array();
@@ -105,9 +100,10 @@ class HomeController extends AbstractController
             if (empty($errors)) {
                 if ($mailer->send($message)) {
                     $messageSent = true;
-                };
+                }
             }
         }
-        return $this->twig->render('Home/index.html.twig', ['errors' => $errors, 'categories' => $categories]);
+        return $this->twig->render('Home/index.html.twig', ['errors' => $errors, 'categories' => $categories,
+            'products' => $products,]);
     }
 }
