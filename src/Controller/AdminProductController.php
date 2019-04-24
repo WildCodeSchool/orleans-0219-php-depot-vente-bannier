@@ -85,12 +85,11 @@ class AdminProductController extends AbstractController
                 $productManager->insert($data);
                 header('location: /AdminProduct/confirmAdding');
             } else {
-                return $this->twig->render('Admin/add.html.twig', ['var' =>
-                    ['categories' => $categories, 'data' => $data, 'errors' => $errors]]);
+                return $this->twig->render('Admin/add.html.twig', ['categories' => $categories,
+                    'data' => $data, 'errors' => $errors]);
             }
         } else {
-            return $this->twig->render('Admin/add.html.twig', ['var' =>
-                ['categories' => $categories]]);
+            return $this->twig->render('Admin/add.html.twig', ['categories' => $categories]);
         }
     }
 
@@ -104,9 +103,8 @@ class AdminProductController extends AbstractController
      */
     public function confirmAdding()
     {
-        $productManager = new ProductManager();
-        $products = $productManager->showAllWithCategories();
-        return $this->twig->render('Admin/add.html.twig', ['var' =>
-            ['products' => $products, 'post' => true]]);
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAll();
+        return $this->twig->render('Admin/add.html.twig', ['categories' => $categories, 'post' => true]);
     }
 }

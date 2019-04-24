@@ -4,53 +4,53 @@
 
 {% block content %}
     <h1 class="text-center mt-5 mb-3">Ajout de produit</h1>
-    {% if var.post %}<h2 class="text-center mt-5 mb-3">Votre produit à été enregistré</h2>{% endif %}
+    {% if post %}<h2 class="text-center mt-5 mb-3">Votre produit à été enregistré</h2>{% endif %}
     <section class="container">
         <form class="form-row" action="/adminProduct/add" method="post">
             <div class="form-group col-md-12">
-                <label for="productName">Nom du produit: {% if var.errors.name %}
-                        <span class="text-danger">{{ var.errors.name }}</span>{% endif %}
+                <label for="productName">Nom du produit: {% if errors.name %}
+                        <span class="text-danger">{{ errors.name }}</span>{% endif %}
                 </label>
-                <input type="text" class="form-control" id="productName" value="{{ var.data.name }}" name="name">
+                <input type="text" class="form-control" id="productName" value="{{ data.name }}" name="name">
             </div>
             <div class="form-group col-md-12">
-                <label for="description">Description du produit: {% if var.errors.description %}
-                        <span class="text-danger">{{ var.errors.description }}</span>{% endif %}
+                <label for="description">Description du produit: {% if errors.description %}
+                        <span class="text-danger">{{ errors.description }}</span>{% endif %}
                 </label>
                 <textarea class="form-control" id="description" name="description"
-                          rows="6">{{ var.data.description }}</textarea>
+                          rows="6">{{ data.description }}</textarea>
             </div>
             <div class="form-row col-md-12 mx-auto">
                 <div class="form col-md-4">
-                    <label for="category">Categories: {% if var.errors.categories_id %}
-                            <span class="text-danger">{{ var.errors.categories_id }}</span>{% endif %}
+                    <label for="category">Categories: {% if errors.categories_id %}
+                            <span class="text-danger">{{ errors.categories_id }}</span>{% endif %}
                     </label>
                     <select id="category" class="form-control" name="categories_id">
                         <option value="" selected>Choisissez ...</option>
-                        {% for category in var.categories %}
+                        {% for category in categories %}
                             <option value="{{ category.id }}"
-                                    {% if category.id is same as(var.data.categories_id) %} selected {% endif %}>
+                                    {% if category.id is same as(data.categories_id) %} selected {% endif %}>
                                 {{ category.name }}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form col-md-4">
-                    <label for="price">Prix:{% if var.errors.price %}
-                        <span class="text-danger">{{ var.errors.price }}</span>{% endif %}
+                    <label for="price">Prix:{% if errors.price %}
+                        <span class="text-danger">{{ errors.price }}</span>{% endif %}
                     </label>
-                    <input type="number" class="form-control" id="price" name="price" value="{{ var.data.price }}">
+                    <input type="number" class="form-control" id="price" name="price" value="{{ data.price }}">
                 </div>
                 <div class="form col-md-4">
-                    <label for="date">Date d'entrée en magasin:{% if var.errors.date_added %}
-                        <span class="text-danger">{{ var.errors.date_added }}</span>{% endif %}
+                    <label for="date">Date d'entrée en magasin:{% if errors.date_added %}
+                        <span class="text-danger">{{ errors.date_added }}</span>{% endif %}
                     </label>
                     <input type="date" class="form-control" id="date" name="date_added"
-                           value="{{ var.data.date_added }}">
+                           value="{{ data.date_added }}">
                 </div>
             </div>
             <div class="form-check ml-1 text-center mt-5 col-md-12">
                 <input class="form-check-input" type="checkbox" id="ahead" name="ahead"
-                       {% if var.data.ahead == 1 %}checked{% endif %}>
+                       {% if data.ahead == 1 %}checked{% endif %}>
                 <label class="form-check-label" for="ahead">
                     Mettre le produit en avant
                 </label>
