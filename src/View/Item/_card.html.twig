@@ -1,41 +1,26 @@
 <!--Card -->
-{% block card %}
 
-<h2 class="produits">Nos articles tendances</h2>
+<div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
 
-<section class="container">
-
-    <div class="row">
+    <div class="card-body text-center">
+        <div class="card-img">
 
 
-        {% for product in products|slice (0,3) if product.ahead == 1  %}
+            <img class="img-thumbnail" src="{{ product.picture }}" alt=""/>
 
 
-        <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
+        </div>
 
-                <div class="card-body text-center">
-                    <div class="card-img">
+        <h5 class="card-title">{{ product.name }} </h5>
+        <p class="text">{{ product.price }}</p>
 
-                        <img class="img-thumbnail" src="{{ pic.id.product_id }}" alt=""/>
-
-                    </div>
-
-                    <h5 class="card-title">{{ product.name }} </h5>
-                    <p class="text">{{ product.price }}</p>
-
-                    <p class="card-text pl-5">{{ product.description }}</p>
+        <p class="card-text pl-5">{{ product.description }}</p>
 
 
-                    <a href="/products/show/{{ product.id }}" class="btn btn-info">+ d'infos</a>
-                </div>
-            </div>
-            {% endfor %}
-
+        <a href="/products/show/{{ product.id }}" class="btn btn-info">+ d'infos</a>
     </div>
+</div>
 
-    <div class="row d-flex justify-content-center">
-        <button class="btn btn-product px-5" type="button">Tous nos produits</button>
-    </div>
-</section>
 
-{% endblock %}
+
+
