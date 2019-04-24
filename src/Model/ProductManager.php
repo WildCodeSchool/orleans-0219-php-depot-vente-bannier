@@ -9,6 +9,8 @@
 
 namespace App\Model;
 
+use App\utils\CleanData;
+
 /**
  *
  */
@@ -54,4 +56,33 @@ class ProductManager extends AbstractManager
                     LIMIT 3;";
         return $this->pdo->query($query)->fetchAll();
     }
+  
+    /**
+     *
+     *  insert new product in BDD
+     *
+     * @param array $data
+     * @return int
+     */
+    public function insert(array $data): int
+    {
+
+        $query = "INSERT INTO $this->table 
+                (`name`, `categories_id`, `description`, `price`, 
+                `date_added`, `ahead`)
+                VALUES (:name, :categories_id, :description, :price, 
+                :date_added, :ahead)";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('name', $data['name'], \PDO::PARAM_STR);
+        $statement->bindValue('categories_id', $data['categories_id'], \PDO::PARAM_STR);
+        $statement->bindValue('description', $data['description'], \PDO::PARAM_STR);
+        $statement->bindValue('price', $data['price'], \PDO::PARAM_STR);
+        $statement->bindValue('date_added', $data['date_added'], \PDO::PARAM_STR);
+        $statement->bindValue('ahead', $data['ahead'], \PDO::PARAM_STR);
+
+        if ($statement->execute()) {
+            $id = (int)$this->pdo->lastInsertId();
+            return $id;
+        }
 }
