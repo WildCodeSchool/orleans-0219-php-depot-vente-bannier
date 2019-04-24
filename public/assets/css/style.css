@@ -1,6 +1,22 @@
+/*****General Style****/
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+section.container-fluid {
+    background-color: #fafafa;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 body {
     background-color: #FAFAFA;
 }
+
+/*****End of General Style****/
+
+
 
 /******Navbar******/
 .navbar {
@@ -127,6 +143,58 @@ body {
 }
 
 /******End of Jumbotron******/
+
+/******Contact Form******/
+
+section.container-fluid.contactForm {
+    background-color: #fafafa;
+    padding-left: 0;
+    padding-right: 0;
+}
+.contactForm div.title-contactForm {
+    background-color: #8E8477;
+}
+
+.contactForm div.title-contactForm, .contactForm div.text-contactForm {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.contactForm div h2.contactNousAccueil {
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+.contactForm div.text-contactForm p {
+    padding: 80px 10% 0 10%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.contactForm textarea, .contactForm input.form-control, .contactForm select.form-control {
+    border: 1px solid #212121;
+    box-shadow: 1px 1px 1px gray;
+}
+
+.contactForm div div button {
+    margin: 40px;
+    color: black;
+}
+
+.contactForm div div button.btn:hover {
+    background-color: #8E8477;
+}
+
+.text-danger {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: -ms-fill-available;
+    width: -o-fill-available;
+}
+
+/******End of Contact Form******/
 
 /****Card****/
 
