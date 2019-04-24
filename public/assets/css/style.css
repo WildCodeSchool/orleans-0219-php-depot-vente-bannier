@@ -1,6 +1,22 @@
+/*****General Style****/
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+section.container-fluid {
+    background-color: #fafafa;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 body {
     background-color: #FAFAFA;
 }
+
+/*****End of General Style****/
+
+
 
 /******Navbar******/
 .navbar {
@@ -9,9 +25,11 @@ body {
     font-size: 25px;
 
 }
+
 .navbar-nav {
     text-align: center;
 }
+
 .navbar-dark .navbar-nav .nav-link {
     color: #FAFAFA;
 }
@@ -38,7 +56,7 @@ body {
 }
 
 .megamenu {
-    background-color: rgb(33, 33, 33, 0.8);
+    background-color: rgba(250, 250, 250, 0.3);
     position: absolute;
     width: 100%;
     left: 0;
@@ -128,6 +146,58 @@ body {
 
 /******End of Jumbotron******/
 
+/******Contact Form******/
+
+section.container-fluid.contactForm {
+    background-color: #fafafa;
+    padding-left: 0;
+    padding-right: 0;
+}
+.contactForm div.title-contactForm {
+    background-color: #8E8477;
+}
+
+.contactForm div.title-contactForm, .contactForm div.text-contactForm {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.contactForm div h2.contactNousAccueil {
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+.contactForm div.text-contactForm p {
+    padding: 80px 10% 0 10%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.contactForm textarea, .contactForm input.form-control, .contactForm select.form-control {
+    border: 1px solid #212121;
+    box-shadow: 1px 1px 1px gray;
+}
+
+.contactForm div div button {
+    margin: 40px;
+    color: black;
+}
+
+.contactForm div div button.btn:hover {
+    background-color: #8E8477;
+}
+
+.text-danger {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: -ms-fill-available;
+    width: -o-fill-available;
+}
+
+/******End of Contact Form******/
+
 /****Card****/
 
 
@@ -213,49 +283,75 @@ body {
 .logo_footer {
     height: auto;
     max-width: 60%
-
 }
 
-footer {
+.footer-bs {
     background-color: #212121;
+    padding: 15px 10px;
+    color: rgba(255, 255, 255, 1.00);
 }
 
-.text-footer a {
-    font-size: 17px;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    list-style-type: none;
+
+.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns {
+    border-color: transparent;
+}
+
+.footer-bs .footer-brand p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.footer-bs .footer-nav ul.pages {
+    list-style: none;
+    padding: 0px;
+}
+
+.footer-bs .footer-nav ul.pages li {
+    padding: 5px 0px;
+}
+
+.footer-bs .footer-nav ul.pages a {
+    color: rgba(255, 255, 255, 1.00);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.footer-bs .footer-nav ul.pages a:hover {
+    color: rgba(255, 255, 255, 0.80);
     text-decoration: none;
 }
 
-.text-footer ul {
-    margin-top: 14px;
-    margin-bottom: 1rem;
-    list-style-type: none;
+.footer-bs .footer-nav ul.list {
+    list-style: none;
+    padding: 0px;
+}
+
+.footer-bs .footer-nav ul.list li {
+    padding: 9px 65px;
+}
+
+.footer-bs .footer-nav ul.list a {
+    color: rgba(255, 255, 255, 0.80);
+}
+
+.footer-bs .footer-nav ul.list a:hover {
+    color: rgba(255, 255, 255, 0.60);
     text-decoration: none;
 }
 
-ul .horizontal-list li {
-    display: inline;
+.footer-bs .footer-social a {
+    color: rgba(255, 255, 255, 1.00);
 }
 
-.text-footer {
-    font-size: 13px;
-    color: white;
-    font-family: 'Raleway', sans-serif;
+.footer-bs .footer-social a:hover {
+    color: rgba(255, 255, 255, 0.80);
+    text-decoration: none;
 }
 
-.footer-map p {
-    margin: -3px;
+.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns {
+    border-left: solid 1px rgba(255, 255, 255, 0.10);
 }
 
-.text-center-footer {
-    text-align: center;
-}
-
-.img-responsive .centree {
-    margin: 0 auto;
-}
 
 /******End of Footer******/
 
