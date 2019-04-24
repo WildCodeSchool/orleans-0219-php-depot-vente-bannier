@@ -109,6 +109,7 @@ body {
     background-image: url('../images/jumbotron-furniture.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-y: center;
     margin-bottom: 0;
 }
 
@@ -125,11 +126,14 @@ body {
     margin-right: 7%;
 }
 
+.jumbotron div .text-jumbotron h2.card-title strong {
+    border-bottom: 1px solid #E6844C;
+}
+
 .jumbotron div .text-jumbotron h2.card-title + p {
     font-family: 'Great Vibes', cursive;
     font-size: 3vw;
     font-weight: 100;
-    border-top: 1px solid #E6844C;
     width: 76%;
     margin: auto 7% auto auto;
     padding: 2% 0 5% 1%;
@@ -153,6 +157,7 @@ section.container-fluid.contactForm {
     padding-left: 0;
     padding-right: 0;
 }
+
 .contactForm div.title-contactForm {
     background-color: #8E8477;
 }
@@ -229,6 +234,7 @@ h2:nth-child(even){
     color: #FAFAFA;
     font-size: 50px;
 }
+
 .produits {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -239,6 +245,7 @@ h2:nth-child(even){
     color: #FAFAFA;
     font-size: 50px;
 }
+
 .container {
     padding-top: 80px;
     padding-bottom: 80px;
