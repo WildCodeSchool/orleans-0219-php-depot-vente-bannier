@@ -54,4 +54,22 @@ class ProductManager extends AbstractManager
                     LIMIT 3;";
         return $this->pdo->query($query)->fetchAll();
     }
+
+    /**
+     * Select 3 products ahead
+     *
+     * @return array
+     */
+    public function showAhead(): array
+    {
+        $query = "SELECT product.*
+	                ,picture.name AS picture 
+	                FROM $this->table 
+	                INNER JOIN bannier.picture 
+	                ON picture.product_id = product.id
+	                WHERE product.ahead = 1
+	                ORDER BY product.id ASC
+	                LIMIT 3;";
+        return $this->pdo->query($query)->fetchAll();
+    }
 }
