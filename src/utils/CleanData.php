@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\utils;
 
 class CleanData
@@ -15,9 +14,8 @@ class CleanData
     {
         $cleanData = [];
         foreach ($dirtyData as $datum => $value) {
-            $cleanData[$datum] = strip_tags(stripslashes(trim($value)));
+            $cleanData[$datum] = trim($value);
         }
         return $cleanData;
     }
 }
-
