@@ -45,7 +45,7 @@ class ProductManager extends AbstractManager
 
     public function showAllWithPictures(): array
     {
-        $query = "SELECT product.id, product.name, product.price, product.date_added, product.date_saled, ahead
+        $query = "SELECT product.id, product.name, product.price,  product.description, product.date_added, ahead
                     ,picture.name AS picture 
                     FROM $this->table 
                     INNER JOIN bannier.picture 
