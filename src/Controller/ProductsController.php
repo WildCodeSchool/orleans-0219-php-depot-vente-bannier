@@ -36,6 +36,7 @@ class ProductsController extends AbstractController
             'products' => $products,]);
     }
 
+
     /**
      * Return product page filter by categories
      *
