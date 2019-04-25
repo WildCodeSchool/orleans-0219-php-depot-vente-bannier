@@ -17,7 +17,6 @@ body {
 /*****End of General Style****/
 
 
-
 /******Navbar******/
 .navbar {
     background-color: #212121;
@@ -95,7 +94,9 @@ body {
         width: auto;
     }
 
-}@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 1200px) {
     .categories-list {
         column-count: initial;
     }
@@ -224,7 +225,7 @@ section.container-fluid.contactForm {
     overflow: scroll;
 }
 
-h2:nth-child(even){
+h2:nth-child(even) {
     padding-top: 40px;
     padding-bottom: 40px;
     font-family: 'Raleway', sans-serif;
@@ -370,3 +371,17 @@ body {
 
 /******End of Footer******/
 
+/******Fonctionnement du depot vente******/
+
+.fonctionnementdepotvente {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #212121;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+
+/******End of Fonctionnement du depot vente******/
