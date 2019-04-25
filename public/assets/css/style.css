@@ -17,7 +17,6 @@ body {
 /*****End of General Style****/
 
 
-
 /******Navbar******/
 .navbar {
     background-color: #212121;
@@ -95,7 +94,9 @@ body {
         width: auto;
     }
 
-}@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 1200px) {
     .categories-list {
         column-count: initial;
     }
@@ -153,6 +154,7 @@ section.container-fluid.contactForm {
     padding-left: 0;
     padding-right: 0;
 }
+
 .contactForm div.title-contactForm {
     background-color: #8E8477;
 }
@@ -219,7 +221,7 @@ section.container-fluid.contactForm {
     overflow: scroll;
 }
 
-h2:nth-child(even){
+h2:nth-child(even) {
     padding-top: 40px;
     padding-bottom: 40px;
     font-family: 'Raleway', sans-serif;
@@ -229,6 +231,7 @@ h2:nth-child(even){
     color: #FAFAFA;
     font-size: 50px;
 }
+
 .produits {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -239,6 +242,7 @@ h2:nth-child(even){
     color: #FAFAFA;
     font-size: 50px;
 }
+
 .container {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -362,4 +366,3 @@ body {
 
 
 /******End of Footer******/
-
