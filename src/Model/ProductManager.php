@@ -45,6 +45,11 @@ class ProductManager extends AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 
+    /**
+     * Show all products with pictures Association
+     *
+     * @return array
+     */
     public function showAllWithPictures(): array
     {
         $query = "SELECT product.id, product.name, product.price,  product.description, ahead
@@ -56,25 +61,6 @@ class ProductManager extends AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 
-
-    /**
-     * Show all products with categories and pictures assoc
-     *
-     * @return array
-     */
-    public function showAllWithAssociation(): array
-    {
-        $query = "SELECT product.id, product.name, product.price,  product.description, 
-		            ahead, product.date_added, product.date_saled
-		            ,picture.name AS picture , category.name as category
-		            FROM $this->table 
-		            INNER JOIN bannier.picture 
-		            ON picture.product_id = product.id
-                    INNER JOIN bannier.category 
-		            ON product.categories_id = category.id
-		            ORDER BY product.id ASC;";
-        return $this->pdo->query($query)->fetchAll();
-    }
 
     /**
      * Select 3 random products ahead
@@ -122,5 +108,23 @@ class ProductManager extends AbstractManager
             $id = (int)$this->pdo->lastInsertId();
             return $id;
         }
+    }
+
+    /**
+     * Select Products filtered by categories
+     *
+     * @param int $id
+     * @return array
+     */
+    public function productsFilteredByCategories(int $id): array
+    {
+        $query = "SELECT product.*
+	                ,picture.name AS picture 
+	                FROM $this->table 
+	                INNER JOIN bannier.picture 
+	                ON picture.product_id = product.id
+	                WHERE categories_id = $id
+	                ORDER BY product.id ASC";
+        return $this->pdo->query($query)->fetchAll();
     }
 }

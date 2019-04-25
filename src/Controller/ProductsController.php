@@ -35,4 +35,25 @@ class ProductsController extends AbstractController
         return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
             'products' => $products,]);
     }
+
+    /**
+     * Return product page filter by categories
+     *
+     * @param int $id
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function categories(int $id)
+    {
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager -> selectAll();
+
+        $productManager = new ProductManager();
+        $products = $productManager -> productsFilteredByCategories($id);
+
+        return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
+            'products' => $products,]);
+    }
 }

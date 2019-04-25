@@ -104,6 +104,6 @@ class HomeController extends AbstractController
             }
         }
         return $this->twig->render('Home/index.html.twig', ['errors' => $errors, 'categories' => $categories,
-            'products' => $products,]);
+            'products' => $products, 'messageSent' => $messageSent,]);
     }
 }
