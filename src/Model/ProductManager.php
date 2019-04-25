@@ -120,9 +120,12 @@ class ProductManager extends AbstractManager
     {
         $query = "SELECT product.*
 	                ,picture.name AS picture 
+	                ,category.name AS categories
 	                FROM $this->table 
 	                INNER JOIN bannier.picture 
 	                ON picture.product_id = product.id
+	                INNER JOIN bannier.category 
+                    ON product.categories_id = category.id
 	                WHERE categories_id = $id
 	                ORDER BY product.id ASC";
         return $this->pdo->query($query)->fetchAll();
