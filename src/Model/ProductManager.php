@@ -9,8 +9,6 @@
 
 namespace App\Model;
 
-use App\utils\CleanData;
-
 /**
  *
  */

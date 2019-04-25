@@ -11,7 +11,7 @@ namespace App\Controller;
 use App\Model\CategoryManager;
 use App\Model\ProductManager;
 
-class ProductsController extends AbstractController
+class ProductController extends AbstractController
 {
     /**
      * Display home page
@@ -32,7 +32,7 @@ class ProductsController extends AbstractController
         $products= $productManager->showAllWithPictures();
 
 
-        return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
+        return $this->twig->render('Product/index.html.twig', ['categories' => $categories,
             'products' => $products,]);
     }
 
@@ -54,7 +54,7 @@ class ProductsController extends AbstractController
         $productManager = new ProductManager();
         $products = $productManager -> productsFilteredByCategories($id);
 
-        return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
+        return $this->twig->render('Product/index.html.twig', ['categories' => $categories,
             'products' => $products,]);
     }
 }
