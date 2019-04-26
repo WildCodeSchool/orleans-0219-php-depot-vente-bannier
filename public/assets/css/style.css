@@ -24,9 +24,11 @@ body {
     font-size: 25px;
 
 }
+
 .navbar-nav {
     text-align: center;
 }
+
 .navbar-dark .navbar-nav .nav-link {
     color: #FAFAFA;
 }
@@ -99,7 +101,6 @@ body {
         column-count: initial;
     }
 }
-
 
 
 /******End of Navbar******/
@@ -388,6 +389,22 @@ body {
     color: #FAFAFA;
     font-size: 50px;
 }
+
+/******End of Notre boutique******/
+
+/******Fonctionnement du depot vente******/
+.fonctionnementdepotvente {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #212121;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+
+/******End of Fonctionnement du depot vente******/
 
 /******End of Notre boutique******/
 
