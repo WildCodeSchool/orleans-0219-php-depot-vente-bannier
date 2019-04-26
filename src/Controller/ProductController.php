@@ -13,32 +13,9 @@ use App\Model\ProductManager;
 
 class ProductController extends AbstractController
 {
-    /**
-     * Display home page
-     * Validate Contact form
-     * Send Message to owners'email
-     *
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
-    public function index()
-    {
-        $categoryManager = new CategoryManager();
-        $categories = $categoryManager -> selectAll();
-
-        $productManager = new ProductManager();
-        $products= $productManager->showAllWithPictures();
-
-
-        return $this->twig->render('Product/index.html.twig', ['categories' => $categories,
-            'products' => $products,]);
-    }
-
 
     /**
-     * Return product page filter by categories
+     * Return product page filter by category or All categories
      *
      * @param int $id
      * @return string
@@ -46,15 +23,19 @@ class ProductController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function categories(int $id)
+    public function showCategory(int $id = 0)
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager -> selectAll();
+        $categories = $categoryManager->selectAll();
 
-        $productManager = new ProductManager();
-        $products = $productManager -> productsFilteredByCategories($id);
-
-        return $this->twig->render('Product/index.html.twig', ['categories' => $categories,
+        if ($id === 0) {
+            $productManager = new ProductManager();
+            $products = $productManager->showAllWithPictures();
+        } else {
+            $productManager = new ProductManager();
+            $products = $productManager->productsFilteredByCategories($id);
+        }
+        return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
             'products' => $products,]);
     }
 }

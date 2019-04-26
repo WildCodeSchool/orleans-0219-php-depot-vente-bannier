@@ -7,8 +7,11 @@
     <section class="container">
             <select  onchange="location = this.value;" class="form-control text-align-center">
                 <option selected>Catégories</option>
+                <option value="/product/showCategory/0">
+                    Tous nos produits
+                </option>
                 {% for category in categories %}
-                    <option value="/products/categories/{{ category.id }}">
+                    <option value="/product/showCategory/{{ category.id }}">
                         {{ category.name }}</option>
                 {% endfor %}
             </select>

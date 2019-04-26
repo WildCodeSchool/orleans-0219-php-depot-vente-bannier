@@ -37,7 +37,7 @@ class ProductManager extends AbstractManager
         $query = "SELECT product.id, product.name, product.price, product.date_added, product.date_saled, ahead
                     ,category.name AS categories 
                     FROM $this->table 
-                    INNER JOIN bannier.category 
+                    JOIN bannier.category 
                     ON product.categories_id = category.id 
                     ORDER BY category.name ASC, product.name ASC";
         return $this->pdo->query($query)->fetchAll();
@@ -53,7 +53,7 @@ class ProductManager extends AbstractManager
         $query = "SELECT product.id, product.name, product.price,  product.description, ahead
                     ,picture.name AS picture 
                     FROM $this->table 
-                    INNER JOIN bannier.picture 
+                    JOIN bannier.picture 
                     ON picture.product_id = product.id
                     ORDER BY product.id ASC";
         return $this->pdo->query($query)->fetchAll();
@@ -67,11 +67,9 @@ class ProductManager extends AbstractManager
      */
     public function showAhead(): array
     {
-        $query = "SELECT product.*
-	                ,picture.name AS picture 
+        $query = "SELECT product.* ,picture.name AS picture 
 	                FROM $this->table 
-	                INNER JOIN bannier.picture 
-	                ON picture.product_id = product.id
+	                JOIN bannier.picture ON picture.product_id = product.id
 	                WHERE product.ahead = 1
 	                ORDER BY product.id ASC
 	                LIMIT 3";
@@ -116,14 +114,10 @@ class ProductManager extends AbstractManager
      */
     public function productsFilteredByCategories(int $id): array
     {
-        $query = "SELECT product.*
-	                ,picture.name AS picture 
-	                ,category.name AS categories
+        $query = "SELECT product.* ,picture.name AS picture ,category.name AS categories
 	                FROM $this->table 
-	                INNER JOIN bannier.picture 
-	                ON picture.product_id = product.id
-	                INNER JOIN bannier.category 
-                    ON product.categories_id = category.id
+	                JOIN bannier.picture ON picture.product_id = product.id
+	                JOIN bannier.category ON product.categories_id = category.id
 	                WHERE categories_id = $id
 	                ORDER BY product.id ASC";
         return $this->pdo->query($query)->fetchAll();
