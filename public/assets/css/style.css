@@ -390,3 +390,30 @@ body {
 }
 
 /******End of Notre boutique******/
+
+/***FAQ***/
+
+h6 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.faq {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.listfaq:hover {
+    background-color: #212121;
+    color: #fafafa;
+    font-weight: bold;
+}
+
+.list-group-item {
+    border: transparent;
+    background: #fafafa;
+}
+
+/**End faq**/
