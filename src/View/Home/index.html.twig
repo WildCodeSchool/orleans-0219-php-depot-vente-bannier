@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <section class="d-none d-sm-block">
+    <section class="d-none d-sm-block" xmlns="http://www.w3.org/1999/html">
         <div class="jumbotron">
             <div class="text-white text-center py-5 px-4 my-5 row">
                 <div class="text-jumbotron col-md-6">
@@ -33,8 +33,9 @@
 
     <section>
         <h2 class="fonctionnementdepotvente">Fonctionnement du depot vente</h2>
-        <div class="container text-center">
-            <p> <span class="text-center">Le DEPOT VENTE, comment ça marche?</span><br>
+        <div class="container pb-3">
+            <p class="text-justify">
+                <span class="textdepotvente">Le DEPOT VENTE, comment ça marche?</span><br>
                 Vous héritez, votre maison est encombrée, vous souhaitez que votre intérieur évolue - bref, vous avez
                 des meubles et des bibelots à vendre.<br>
                 Profitez de notre expérience ! Vendez !<br>
@@ -43,7 +44,7 @@
                 Vous restez propriétaire de vos biens jusque la complète réalisation de votre vente<br>
                 Vos biens peuvent être repris sans frais dans la limite (période) de notre contrat<br>
                 Vos biens sont assurés dans l'enceinte de nos établissements<br>
-                Notre contrat<br>
+                <span class="textdepotvente">Notre contrat :</span><br>
                 Nous signons un contrat pour une période de 120 jours (4 mois) durant laquelle les prix ne baissent pas
                 sans votre accord. Passé ce délai, les articles invendus devront simplement être repris ou leur prix
                 baissé.<br>
@@ -55,9 +56,13 @@
                 Vous êtes réglé par chèque 15 jours après la vente. Contactez nous régulièrement, nous vous donnerons
                 l'état de votre vente.
             </p>
-            <a href="#" class="btn btn-primary">+ d'infos</a>
+
+            <div class="form-group row d-flex justify-content-center pt-2">
+                <button type="submit" class="btn btn-outline-secondary btn-lg" name="submit">+ d'infos</button>
+            </div>
         </div>
     </section>
+
     {% include 'Item/_formContact.html.twig' %}
 
 {% endblock %}
