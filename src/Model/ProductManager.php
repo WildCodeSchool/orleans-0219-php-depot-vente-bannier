@@ -34,15 +34,13 @@ class ProductManager extends AbstractManager
      */
     public function showAllWithPictures(): array
     {
-        $query = "SELECT product.id, product.name, product.price,  product.description, ahead
-                    ,picture.name AS picture 
-                    FROM $this->table 
-                    JOIN bannier.picture 
-                    ON picture.product_id = product.id
-                    ORDER BY product.id ASC";
+        $query = "SELECT DISTINCT pr.id, pr.name, pr.price,  pr.description, pr.ahead ,min(pi.name) AS picture 
+                    FROM $this->table pr
+                    JOIN picture pi ON pi.product_id = pr.id
+                    GROUP BY pr.id
+                    ORDER BY pr.id ASC";
         return $this->pdo->query($query)->fetchAll();
     }
-
 
     /**
      * Select 3 random products ahead
@@ -51,11 +49,11 @@ class ProductManager extends AbstractManager
      */
     public function showAhead(): array
     {
-        $query = "SELECT product.* ,picture.name AS picture 
-	                FROM $this->table 
-	                JOIN bannier.picture ON picture.product_id = product.id
-	                WHERE product.ahead = 1
-	                ORDER BY product.id ASC
+        $query = "SELECT pr.* , pi.name AS picture
+	                FROM $this->table pr
+	                JOIN picture pi ON pi.product_id = pr.id
+	                WHERE pr.ahead = 1
+	                ORDER BY pr.id ASC
 	                LIMIT 3";
         return $this->pdo->query($query)->fetchAll();
     }
@@ -99,11 +97,11 @@ class ProductManager extends AbstractManager
     public function productsFilteredByCategories(int $id): array
     {
         $query = "SELECT product.* ,picture.name AS picture ,category.name AS categories
-	                FROM $this->table 
-	                JOIN bannier.picture ON picture.product_id = product.id
-	                JOIN bannier.category ON product.categories_id = category.id
+	                FROM $this->table pr
+	                JOIN picture pi ON pi.product_id = pr.id
+	                JOIN category ca ON pr.categories_id = ca.id
 	                WHERE categories_id = $id
-	                ORDER BY product.id ASC";
+	                ORDER BY pr.id ASC";
         return $this->pdo->query($query)->fetchAll();
     }
 }

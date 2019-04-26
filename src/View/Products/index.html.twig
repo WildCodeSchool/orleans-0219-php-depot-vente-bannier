@@ -5,16 +5,7 @@
     <h2 class="produits">{{ products[0].categories ? products[0].categories : 'Tous nos produits' }}</h2>
 
     <section class="container">
-            <select  onchange="location = this.value;" class="form-control text-align-center">
-                <option selected>Catégories</option>
-                <option value="/product/showCategory/0">
-                    Tous nos produits
-                </option>
-                {% for category in categories %}
-                    <option value="/product/showCategory/{{ category.id }}">
-                        {{ category.name }}</option>
-                {% endfor %}
-            </select>
+
         <div class="row">
             {% for product in products %}
                 {% include 'Item/_card.html.twig' %}

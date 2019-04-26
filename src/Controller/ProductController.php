@@ -13,28 +13,22 @@ use App\Model\ProductManager;
 
 class ProductController extends AbstractController
 {
-
     /**
-     * Return product page filter by category or All categories
      *
-     * @param int $id
+     * Return product page filter by category or All categories
      * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function showCategory(int $id = 0)
+    public function list()
     {
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAll();
 
-        if ($id === 0) {
-            $productManager = new ProductManager();
-            $products = $productManager->showAllWithPictures();
-        } else {
-            $productManager = new ProductManager();
-            $products = $productManager->productsFilteredByCategories($id);
-        }
+        $productManager = new ProductManager();
+        $products = $productManager->showAllWithPictures();
+
         return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
             'products' => $products,]);
     }
