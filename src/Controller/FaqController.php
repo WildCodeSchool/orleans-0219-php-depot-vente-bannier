@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Model\CategoryManager;
 use App\Model\ProductManager;
+
 class FaqController extends AbstractController
 {
 
@@ -20,5 +21,3 @@ class FaqController extends AbstractController
             'products' => $products]);
     }
 }
-
-
