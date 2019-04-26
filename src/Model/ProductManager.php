@@ -71,7 +71,54 @@ class ProductManager extends AbstractManager
 	                ON picture.product_id = product.id
 	                WHERE product.ahead = 1
 	                ORDER BY product.id ASC
-	                LIMIT 3;";
+	                LIMIT 3";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Select 3 random products
+     *
+     * @return array
+     */
+    public function showRandom(): array
+    {
+        $query = "SELECT product.name, picture.name AS image, product.description, product.price, product.date_saled
+                    FROM picture
+                    INNER JOIN bannier.product 
+                    ON picture.product_id = product.id
+                    ORDER BY RAND()
+                    LIMIT 3";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Select all by id
+     *
+     * @return array
+     */
+    public function showAllById($id): array
+    {
+        $query = "SELECT product.id, product.name, product.price,  product.description,
+                    ahead, product.date_added, product.date_saled, category.name as category
+                    FROM $this->table
+                   INNER JOIN bannier.category
+                    ON product.categories_id = category.id
+                    WHERE product.id = $id";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Select images of one product
+     *
+     * @return array
+     */
+    public function showProductImagesById($id): array
+    {
+        $query = "SELECT product.id, picture.name
+                    FROM $this->table
+                    INNER JOIN bannier.picture
+                    ON picture.product_id = product.id
+                    WHERE product.id = $id";
         return $this->pdo->query($query)->fetchAll();
     }
 
