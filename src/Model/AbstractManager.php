@@ -46,7 +46,7 @@ abstract class AbstractManager
      *
      * @return array
      */
-    public function selectAll(): array
+    public function selectAllByAsc(): array
     {
         return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll();
     }

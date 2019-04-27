@@ -25,4 +25,16 @@ class CategoryManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
+
+
+    /**
+     * Get all row from database order by name ASC.
+     *
+     * @return array
+     */
+    public function selectAllByAsc(): array
+    {
+        $query = "SELECT * FROM $this->table ORDER BY name ASC";
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

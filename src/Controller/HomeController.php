@@ -27,7 +27,7 @@ class HomeController extends AbstractController
     public function index()
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager -> selectAll();
+        $categories = $categoryManager -> selectAllByAsc();
 
 
         $productManager = new ProductManager();
