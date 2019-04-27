@@ -25,4 +25,19 @@ class CategoryManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
+
+    /**
+     * @param string $category
+     * @return int
+     */
+    public function insert(string $category): int
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`) VALUES (:name)");
+        $statement->bindValue('name', $category, \PDO::PARAM_STR);
+
+        if ($statement->execute()) {
+            return (int)$this->pdo->lastInsertId();
+        }
+    }
 }
