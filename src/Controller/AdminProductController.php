@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Model\CategoryManager;
 use App\Model\ProductManager;
+use App\Model\PictureManager;
 use App\utils\CleanData;
 use DateTime;
 
@@ -101,5 +102,14 @@ class AdminProductController extends AbstractController
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAll();
         return $this->twig->render('Admin/add.html.twig', ['categories' => $categories, 'post' => true]);
+    }
+
+    public function delete(int $id)
+    {
+        $pictureManager = new PictureManager();
+        $pictureManager->delete($id);
+        $productManager = new ProductManager();
+        $productManager->delete($id);
+        header('location: /adminProduct/list');
     }
 }

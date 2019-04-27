@@ -28,7 +28,7 @@
                     <td>{% if product.date_saled is not null %}{{ product.date_saled|date("d/m/y") }}
                         {% endif %}</td>
                     <td><a href="/adminProduct/update"><img src="/assets/images/edit-filled.png"></a></td>
-                    <td><a href="/adminProduct/delete"><img src="/assets/images//delete-filled.png"></a></td>
+                    <td><a href="/adminProduct/delete/{{ product.id }}"><img src="/assets/images//delete-filled.png"></a></td>
                 </tr>
             {% endfor %}
             </tbody>
