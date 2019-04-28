@@ -19,8 +19,9 @@
                    aria-expanded="false">Acheter</a>
                 <div class="dropdown-menu megamenu" aria-labelledby="dropdown acheter">
                             <div class="categories-list navbar-link text-center">
+                                <a class="dropdown-item pb-0" href="/product/list">Tous nos produits</a>
                                 {% for categorie in categories %}
-                                        <a class="dropdown-item pb-0" href="/products/show/{{ categorie.id }}">{{ categorie.name }}</a>
+                                        <a class="dropdown-item pb-0" href="/product/list/{{ categorie.id }}">{{ categorie.name }}</a>
                                 {% endfor %}
                             </div>
                 </div>
