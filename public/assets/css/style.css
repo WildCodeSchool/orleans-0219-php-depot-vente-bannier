@@ -434,3 +434,16 @@ h6 {
 }
 
 /**End faq**/
+
+/** ADMIN **/
+
+.deleteBTN {
+    background: url("/assets/images/delete-filled.png");
+    background-size: cover;
+    border: none;
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+    color: transparent;
+}
+/**End ADMIN **/

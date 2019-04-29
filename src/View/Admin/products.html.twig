@@ -28,7 +28,13 @@
                     <td>{% if product.date_saled is not null %}{{ product.date_saled|date("d/m/y") }}
                         {% endif %}</td>
                     <td><a href="/adminProduct/update"><img src="/assets/images/edit-filled.png"></a></td>
-                    <td><a href="/adminProduct/delete/{{ product.id }}"><img src="/assets/images//delete-filled.png"></a></td>
+                    <form method="post" action="/AdminProduct/delete/">
+                        <td>
+                            <input class="deleteBTN" type="submit" value="{{ product.id }}" name="id"
+                                   onclick="if(window.confirm('Voulez-vous vraiment supprimer ?'))
+                                   {return true;}else{return false;}">
+                        </td>
+                    </form>
                 </tr>
             {% endfor %}
             </tbody>

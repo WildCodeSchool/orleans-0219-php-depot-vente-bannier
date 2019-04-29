@@ -104,8 +104,14 @@ class ProductManager extends AbstractManager
         }
     }
 
+    /**
+     * Delete product from BDD
+     *
+     * @param int $id
+     */
     public function delete(int $id): void
     {
+
         $query = "DELETE FROM $this->table WHERE `id`=$id";
         $statement = $this->pdo->prepare($query);
         $statement->execute();
