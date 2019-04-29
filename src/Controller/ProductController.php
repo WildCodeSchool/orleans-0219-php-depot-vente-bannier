@@ -46,9 +46,9 @@ class ProductController extends AbstractController
     {
         $name = null;
         $products = [];
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $cleanData = new CleanData();
-            $data = $cleanData->dataCleaner($_POST);
+            $data = $cleanData->dataCleaner($_GET);
 
             $name = $_POST['search_box'];
 
