@@ -51,20 +51,18 @@ class ItemController extends AbstractController
     {
         $categoryManager = new CategoryManager();
         $categories = $categoryManager -> selectAllByAsc();
+
         $productManager = new ProductManager();
         $items = $productManager->showAllById($id);
         $itemImages = $productManager->showProductImagesById($id);
-        $itemsRandom = $productManager->showRandom();
 
         return $this->twig->render(
             'Item/showItem.html.twig',
             ['items' => $items,
                 'itemImages' => $itemImages,
-                'categories' => $categories,
-                'itemsRandom' => $itemsRandom]
+                'categories' => $categories]
         );
     }
-
 
     /**
      * Display item edition page specified by $id

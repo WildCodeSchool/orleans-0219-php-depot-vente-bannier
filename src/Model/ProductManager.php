@@ -77,22 +77,6 @@ class ProductManager extends AbstractManager
     }
 
     /**
-     * Select 3 random products
-     *
-     * @return array
-     */
-    public function showRandom(): array
-    {
-        $query = "SELECT product.name, picture.name AS image, product.description, product.price, product.date_saled
-                    FROM picture
-                    INNER JOIN product 
-                    ON picture.product_id = product.id
-                    ORDER BY RAND()
-                    LIMIT 3";
-        return $this->pdo->query($query)->fetchAll();
-    }
-
-    /**
      * Select all by id
      *
      * @return array
@@ -115,12 +99,9 @@ class ProductManager extends AbstractManager
      */
     public function showProductImagesById($id): array
     {
-        $query = "SELECT pr.* , pi.name AS picture
-	                FROM $this->table pr
-	                JOIN picture pi ON pi.product_id = pr.id
-	                WHERE pr.ahead = 1
-	                ORDER BY pr.id ASC
-	                LIMIT 3";
+        $query = "SELECT picture.id, picture.name
+	                FROM picture
+	                WHERE product_id = $id";
 
         return $this->pdo->query($query)->fetchAll();
     }
