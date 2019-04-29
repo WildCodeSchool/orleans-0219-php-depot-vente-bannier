@@ -43,7 +43,7 @@ class AdminProductController extends AbstractController
     public function add()
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAll();
+        $categories = $categoryManager->selectAllByAsc();
         $data = [];
         $errors = [];
 
@@ -100,7 +100,7 @@ class AdminProductController extends AbstractController
     public function confirmAdding()
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAll();
+        $categories = $categoryManager->selectAllByAsc();
         return $this->twig->render('Admin/add.html.twig', ['categories' => $categories, 'post' => true]);
     }
 
