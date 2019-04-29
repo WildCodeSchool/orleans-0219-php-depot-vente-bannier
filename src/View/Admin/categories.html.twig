@@ -1,31 +1,42 @@
 {% extends 'adminLayout.html.twig' %}
 
-{% block title  %}Mes catégories{% endblock %}
+{% block title %}Mes catégories{% endblock %}
 
 {% block content %}
-<h1 class="text-center my-5">Gestion des catégories</h1>
-    <section class="row justify-content-center">
-    <table class="table col-lg-6">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nom des catégories</th>
-            <th scope="col">Supprimer</th>
-            <th scope="col">Modifier</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-        <tr>
-            <th scope="row">{{ category.id }}</th>
-            <td>{{ category.name }}</td>
-            <td></td>
-            <td></td>
-        </tr>
-        {% endfor %}
+    <h1 class="text-center my-5">Gestion des catégories</h1>
+    <section>
+        <div class="form-row justify-content-center">
+            <table class="table col-lg-6">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom des catégories</th>
+                    <th scope="col">Supprimer</th>
+                    <th scope="col">Modifier</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <th scope="row">{{ category.id }}</th>
+                        <td>{{ category.name }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+        <form class="form-group mx-auto text-center" action="/adminCategory/add" method="post">
+            <div class="form-group">
+                <label for="category" class="text-center"><h2>Ajouter une catégorie</h2></label>
+                <input type="text" class="form-control col-lg-6 mx-auto" id="category" name="category"
+                placeholder="{{ errors }}">
+            </div>
+            <div class="form-group mx-sm-3 ">
+                <button type="submit" class="btn btn-dark justify-content-center">Enregistrer</button>
+            </div>
+        </form>
     </section>
-
 {% endblock %}

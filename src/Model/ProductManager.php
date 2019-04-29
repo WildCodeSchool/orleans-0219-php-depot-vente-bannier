@@ -9,8 +9,6 @@
 
 namespace App\Model;
 
-use App\utils\CleanData;
-
 /**
  *
  */
@@ -37,23 +35,26 @@ class ProductManager extends AbstractManager
     public function showAllWithCategories(): array
     {
         $query = "SELECT product.id, product.name, product.price, product.date_added, product.date_saled, ahead
-                    ,category.name AS categories 
-                    FROM $this->table 
-                    INNER JOIN bannier.category 
-                    ON product.categories_id = category.id 
-                    ORDER BY category.name ASC, product.name ASC;";
+                    ,category.name AS categories
+                    FROM $this->table
+                    JOIN bannier.category
+                    ON product.categories_id = category.id
+                    ORDER BY category.name ASC, product.name ASC";
         return $this->pdo->query($query)->fetchAll();
     }
 
+    /**
+     * Show all products with pictures Association
+     *
+     * @return array
+     */
     public function showAllWithPictures(): array
     {
-        $query = "SELECT product.id, product.name, product.price,  product.description, ahead
-                    ,picture.name AS picture 
-                    FROM $this->table 
-                    INNER JOIN bannier.picture 
-                    ON picture.product_id = product.id
-                    ORDER BY product.id ASC
-                    LIMIT 3;";
+        $query = "SELECT DISTINCT pr.id, pr.name, pr.price,  pr.description, pr.ahead ,min(pi.name) AS picture 
+                    FROM $this->table pr
+                    JOIN picture pi ON pi.product_id = pr.id
+                    GROUP BY pr.id
+                    ORDER BY pr.id ASC";
         return $this->pdo->query($query)->fetchAll();
     }
 
@@ -67,11 +68,41 @@ class ProductManager extends AbstractManager
         $query = "SELECT product.*
 	                ,picture.name AS picture 
 	                FROM $this->table 
-	                INNER JOIN bannier.picture 
-	                ON picture.product_id = product.id
+	                INNER JOIN picture 
+	                ON product_id = product.id
 	                WHERE product.ahead = 1
 	                ORDER BY product.id ASC
-	                LIMIT 3;";
+	                LIMIT 3";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Select all by id
+     *
+     * @return array
+     */
+    public function showAllById($id): array
+    {
+        $query = "SELECT product.id, product.name, product.price,  product.description,
+                    ahead, product.date_added, product.date_saled, category.name as category
+                    FROM $this->table
+                   INNER JOIN category
+                    ON product.categories_id = category.id
+                    WHERE product.id = $id";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Select images of one product
+     *
+     * @return array
+     */
+    public function showProductImagesById($id): array
+    {
+        $query = "SELECT picture.id, picture.name
+	                FROM picture
+	                WHERE product_id = $id";
+
         return $this->pdo->query($query)->fetchAll();
     }
 
@@ -103,5 +134,35 @@ class ProductManager extends AbstractManager
             $id = (int)$this->pdo->lastInsertId();
             return $id;
         }
+    }
+
+    /**
+     * Delete product from BDD
+     *
+     * @param int $id
+     */
+    public function delete(int $id): void
+    {
+
+        $query = "DELETE FROM $this->table WHERE `id`=$id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+    }
+
+    /**
+     * Select Products filtered by categories
+     *
+     * @param int $id
+     * @return array
+     */
+    public function productsFilteredByCategories(int $id): array
+    {
+        $query = "SELECT product.* ,picture.name AS picture ,category.name AS categories
+	                FROM $this->table pr
+	                JOIN picture pi ON pi.product_id = pr.id
+	                JOIN category ca ON pr.categories_id = ca.id
+	                WHERE categories_id = $id
+	                ORDER BY pr.id ASC";
+        return $this->pdo->query($query)->fetchAll();
     }
 }

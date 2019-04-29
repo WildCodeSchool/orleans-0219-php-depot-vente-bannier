@@ -9,7 +9,9 @@
 
 namespace App\Controller;
 
+use App\Model\CategoryManager;
 use App\Model\ItemManager;
+use App\Model\ProductManager;
 
 /**
  * Class ItemController
@@ -30,7 +32,7 @@ class ItemController extends AbstractController
     public function index()
     {
         $itemManager = new ItemManager();
-        $items = $itemManager->selectAll();
+        $items = $itemManager->selectAllByAsc();
 
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
@@ -47,12 +49,20 @@ class ItemController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneById($id);
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager -> selectAllByAsc();
 
-        return $this->twig->render('Item/show.html.twig', ['item' => $item]);
+        $productManager = new ProductManager();
+        $items = $productManager->showAllById($id);
+        $itemImages = $productManager->showProductImagesById($id);
+
+        return $this->twig->render(
+            'Item/showItem.html.twig',
+            ['items' => $items,
+                'itemImages' => $itemImages,
+                'categories' => $categories]
+        );
     }
-
 
     /**
      * Display item edition page specified by $id
