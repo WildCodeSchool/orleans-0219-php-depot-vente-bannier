@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Model\Connection;
 use App\utils\CleanData;
 use App\Model\CategoryManager;
 use App\Model\ProductManager;
@@ -104,6 +105,6 @@ class HomeController extends AbstractController
             }
         }
         return $this->twig->render('Home/index.html.twig', ['errors' => $errors, 'categories' => $categories,
-            'products' => $products,]);
+            'products' => $products]);
     }
 }

@@ -77,6 +77,6 @@ abstract class AbstractManager
      */
     public function selectAllByOcurrence(string $name) : array
     {
-        return $this->pdo->query("SELECT * FROM  $this->table WHERE name LIKE $name")->fetchAll();
+        return $this->pdo->query("SELECT * FROM  $this->table WHERE name LIKE '%$name%'")->fetchAll();
     }
 }
