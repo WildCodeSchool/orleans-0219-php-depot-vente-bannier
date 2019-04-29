@@ -72,6 +72,7 @@ body {
     padding: .25rem 0.5rem;
     font-size: 20px;
     color: #ffffff;
+    display:initial;
 
 }
 
@@ -80,11 +81,11 @@ body {
     column-rule: 2px dashed #555;
 }
 
-.navbar-link a {
+.navbar-link button {
     transition: 0.1s, 0.5s;
 }
 
-.navbar-link a:hover {
+.navbar-link button:hover {
     transition: 0.1s, 0.5s;
     background-color: rgba(255, 255, 255, 0.8);
 }
