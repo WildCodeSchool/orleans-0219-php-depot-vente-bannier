@@ -21,12 +21,11 @@
                 {% include 'Item/_card.html.twig' %}
             {% endfor %}
         </div>
-        <div class="row d-flex justify-content-center">
-            <button class="btn btn-product px-5" type="button">Tous nos produits</button>
+        <div class="form-group row d-flex justify-content-center mt-5 mb-0 ">
+            <button href="product/list" class="btn btn-outline-secondary btn-lg allbuton">Tous nos produits</button>
         </div>
     </section>
     {% include "Item/_ourStore.html.twig" %}
     {% include "Item/_operationDeposit.html.twig" %}
     {% include 'Item/_formContact.html.twig' %}
-
 {% endblock %}

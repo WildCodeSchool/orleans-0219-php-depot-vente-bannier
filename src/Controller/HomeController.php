@@ -27,12 +27,13 @@ class HomeController extends AbstractController
     public function index()
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager -> selectAllByAsc();
+        $categories = $categoryManager->selectAllByAsc();
 
 
         $productManager = new ProductManager();
-        $products= $productManager->showAhead();
+        $products = $productManager->showAhead();
 
+        $data = [];
         $messageSent = false;
         $errors = array();
 
@@ -90,20 +91,21 @@ class HomeController extends AbstractController
                 ->setUsername(APP_SWIFTMAILER_USERNAME)
                 ->setPassword(APP_SWIFTMAILER_PASSWORD);
 
-            $mailer = new \Swift_Mailer($transport);
-
-            $message = (new \Swift_Message($subject))
-                ->setFrom($userEmail)
-                ->setTo([APP_SWIFTMAILER_USERNAME])
-                ->setBody($this->twig->render('Item/emailBody.html.twig', ['data' => $data]), 'text/html');
-
             if (empty($errors)) {
+                $mailer = new \Swift_Mailer($transport);
+                $message = (new \Swift_Message($subject))
+                    ->setFrom($userEmail)
+                    ->setTo([APP_SWIFTMAILER_USERNAME])
+                    ->setBody($this->twig->render('Item/emailBody.html.twig', [
+                        'data' => $data
+                    ]), 'text/html');
                 if ($mailer->send($message)) {
                     $messageSent = true;
+                    $data = [];
                 }
             }
         }
         return $this->twig->render('Home/index.html.twig', ['errors' => $errors, 'categories' => $categories,
-            'products' => $products, 'messageSent' => $messageSent,]);
+            'products' => $products, 'messageSent' => $messageSent, 'data' => $data]);
     }
 }
