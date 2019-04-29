@@ -37,7 +37,7 @@
                 <p>{{ date_saled is null ? '<i class="fas fa-check"></i> Disponible' : '<i class="fas fa-times"></i> Vendu' }} </p>
                 <p><i class="fas fa-tag"></i> {{ items[0].category }}</p>
                 <p><i class="far fa-calendar-alt"></i> En magasin depuis le {{ items[0].date_added }}</p>
-                <p><i class="far fa-eye"></i> Ce produit vous intéresse?</p>
+                <p><i class="far fa-eye"></i> Ce produit vous intéresse ?</p>
             </div>
             <div class="col-12">
                 <a href="/Home/index#contact" class="btn btn-outline-secondary btn-lg mt-5 mb-5" role="button"><i class="far fa-envelope"></i>&nbsp&nbspContactez-nous !</a>
@@ -54,6 +54,37 @@
             <div class="productTitle-product-page col-12 recommendedItems">
                 <h2>D'autres produits de la catégorie qui pourraient vous intéresser</h2>
                 <h3>{{ items[0].category }}</h3>
+            </div>
+
+            <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
+                <div class="card-body text-center">
+                    <div class="card-img">
+                        <img class="img-thumbnail" src="{{ itemsRandom[0].image }}" alt=""/>
+                    </div>
+                    <h5 class="card-title">{{ itemsRandom[0].name }} </h5>
+                    <p class="text">{{ itemsRandom[0].price }}€</p>
+                    <a href="/products/show/{{ itemsRandom[0].id }}" class="btn btn-info">+ d'infos</a>
+                </div>
+            </div>
+            <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
+                <div class="card-body text-center">
+                    <div class="card-img">
+                        <img class="img-thumbnail" src="{{ itemsRandom[1].image }}" alt=""/>
+                    </div>
+                    <h5 class="card-title">{{ itemsRandom[1].name }} </h5>
+                    <p class="text">{{ itemsRandom[1].price }}€</p>
+                    <a href="/products/show/{{ itemsRandom[1].id }}" class="btn btn-info">+ d'infos</a>
+                </div>
+            </div>
+            <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
+                <div class="card-body text-center">
+                    <div class="card-img">
+                        <img class="img-thumbnail" src="{{ itemsRandom[2].image }}" alt=""/>
+                    </div>
+                    <h5 class="card-title">{{ itemsRandom[2].name }} </h5>
+                    <p class="text">{{ itemsRandom[2].price }}€</p>
+                    <a href="/products/show/{{ itemsRandom[2].id }}" class="btn btn-info">+ d'infos</a>
+                </div>
             </div>
         </div>
     </section>
