@@ -8,11 +8,11 @@
 
     <section class="container">
     <div class="col-12 m-5 mx-auto text-center"><i>-- {{ products|length }} produits trouvés</i></div>
-        <div class="row">
+    <div class="row">
             {% for product in products %}
                 {% include 'Item/_card.html.twig' %}
             {% endfor %}
-        </div>
+    </div>
     <section>
 
 {% endblock %}
