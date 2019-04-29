@@ -377,6 +377,73 @@ body {
 
 /******End of Footer******/
 
+/******Single Product******/
+
+.productTitle-product-page h1, h2.price {
+    text-align: center;
+    padding: 3%;
+}
+
+h2.price {
+    margin: 10%;
+    font-weight: bold;
+    font-size: 4vw;
+}
+
+.carousel-inner .carousel-item .img-thumbnail {
+    height: 500px;
+    background-color: transparent;
+    border: none;
+}
+
+.carousel .carousel-control-next,
+.carousel .carousel-control-prev {
+    opacity: 1;
+    background-color: transparent;
+}
+
+.textSingleProduct {
+    text-align: center;
+}
+
+.textSingleProduct + div {
+    display: flex;
+    flex-direction: column;
+}
+
+.productDescription {
+    text-align: center;
+    margin: 5% 20% 0 20%;
+}
+
+.productDescription p {
+    margin: auto 13%;
+}
+
+.border {
+    border: 1px solid gray;
+    width: 60%;
+}
+
+.textSingleProduct p .fas, .textSingleProduct p .far {
+    color: #e6834c;
+}
+
+.recommendedItems h2, .recommendedItems h3 {
+    margin: auto 7%;
+    text-align: center;
+}
+
+.recommendedItems {
+    margin-bottom: 5%;
+}
+
+.recommendedItems h3 {
+    margin-top: 5%;
+}
+
+/******End of Single Product******/
+
 /****Notre boutique****/
 
 .notreboutique {

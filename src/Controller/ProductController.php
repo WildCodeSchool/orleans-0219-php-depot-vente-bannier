@@ -24,7 +24,7 @@ class ProductController extends AbstractController
     public function list()
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAll();
+        $categories = $categoryManager->selectAllByAsc();
 
         $productManager = new ProductManager();
         $products = $productManager->showAllWithPictures();
