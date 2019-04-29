@@ -118,7 +118,7 @@ class ItemController extends AbstractController
     /**
      * Display ocurrences by name
      *
-     * @return
+     * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
