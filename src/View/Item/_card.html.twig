@@ -1,17 +1,16 @@
 <!--Card -->
 
 <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
-
-    <div class="card-body text-center">
-        <div class="card-img">
-            <img class="img-thumbnail" src="{{ product.picture }}" alt=""/>
+    <div class="border-card">
+        <div class="card-body text-center">
+            <div class="card-img">
+                <img class="img-thumbnail" src="{{ product.picture }}" alt=""/>
+                <hr class="horizontaleligne mb-3">
+                <h5 class="card-title mb-4">{{ product.name }} </h5>
+                <p class="text">{{ product.price }} €</p>
+                <a href="/products/show/{{ product.id }}" class="btn btn-outline-secondary btn-lg allbuton">+ d'infos</a>
+            </div>
         </div>
-        <h5 class="card-title">{{ product.name }} </h5>
-        <p class="text">{{ product.price }}</p>
-        <a href="/products/show/{{ product.id }}" class="btn btn-info">+ d'infos</a>
-    </div>
+     </div>
 </div>
-
-
-
 
