@@ -1,0 +1,18 @@
+{% extends 'visitorLayout.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block content %}
+
+    <h2 class="produits">{{ products[0].categories ? products[0].categories : 'Tous nos produits' }}</h2>
+
+    <section class="container">
+    <div class="col-12 m-5 mx-auto text-center"><i>-- {{ products|length }} produits trouvés</i></div>
+        <div class="row">
+            {% for product in products %}
+                {% include 'Item/_card.html.twig' %}
+            {% endfor %}
+        </div>
+    <section>
+
+{% endblock %}

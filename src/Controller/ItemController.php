@@ -32,7 +32,7 @@ class ItemController extends AbstractController
     public function index()
     {
         $itemManager = new ItemManager();
-        $items = $itemManager->selectAll();
+        $items = $itemManager->selectAllByAsc();
 
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
@@ -113,32 +113,5 @@ class ItemController extends AbstractController
         $itemManager = new ItemManager();
         $itemManager->delete($id);
         header('Location:/item/index');
-    }
-
-    /**
-     * Display ocurrences by name
-     *
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
-    public function search(string $name)
-    {
-
-        $name = null;
-        $items = [];
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $cleanData = new CleanData();
-            $data = $cleanData->dataCleaner($_POST);
-
-            $name = $_POST['search_box'];
-
-            $productManager = new ProductManager();
-            $items = $productManager->selectAllByOcurrence($name);
-        }
-
-
-        return $this->twig->render('Item/search.html.twig', ['items' => $items]);
     }
 }

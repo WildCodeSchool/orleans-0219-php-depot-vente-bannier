@@ -12,7 +12,7 @@ class FaqController extends AbstractController
     public function faq()
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager -> selectAll();
+        $categories = $categoryManager -> selectAllByAsc();
 
         $productManager = new ProductManager();
         $products= $productManager->showAhead();

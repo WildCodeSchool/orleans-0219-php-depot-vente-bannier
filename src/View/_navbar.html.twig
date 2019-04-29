@@ -23,11 +23,17 @@
                             <a class="dropdown-item pb-0" href="/products/show/{{ categorie.id }}">{{ categorie.name }}</a>
                         {% endfor %}
                     </div>
+                    <div class="categories-list navbar-link text-center">
+                        <a class="dropdown-item pb-0" href="/product/list">Tous nos produits</a>
+                        {% for categorie in categories %}
+                            <a class="dropdown-item pb-0" href="/product/list/{{ categorie.id }}">{{ categorie.name }}</a>
+                        {% endfor %}
+                    </div>
                 </div>
             </li>
 
             <li class="nav-item col-auto">
-                <a class="nav-link" href="#">Vendre</a>
+                <a class="nav-link" href="/home/index#fonctionnement">Vendre</a>
             </li>
             <li class="nav-item dropdown megamenu-li">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
@@ -53,10 +59,10 @@
         </ul>
         <!-- search bar -->
         <div class="row mx-1 justify-content-center">
-            <form class="form-inline my-2 my-lg-0 justify-content-center" method="post" action="">
+            <form class="form-inline my-2 my-lg-0 justify-content-center" method="post" action="product/search">
                 <input class="form-control mr-sm-2" type="search" placeholder="Recherchez ..."
                        aria-label="Search" name="search_box" id="search_box">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="request">Recherchez</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Recherchez</button>
             </form>
         </div>
     </div>

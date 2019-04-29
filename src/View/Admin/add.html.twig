@@ -6,7 +6,7 @@
     <h1 class="text-center mt-5 mb-3">Ajout de produit</h1>
     {% if post %}<h2 class="text-center mt-5 mb-3">Votre produit à été enregistré</h2>{% endif %}
     <section class="container">
-        <form class="form-row" action="/adminProduct/add" method="post">
+        <form class="form-row" action="/adminProduct/add" enctype="multipart/form-data" method="post">
             <div class="form-group col-md-12">
                 <label for="productName">Nom du produit: {% if errors.name %}
                         <span class="text-danger">{{ errors.name }}</span>{% endif %}
@@ -20,8 +20,15 @@
                 <textarea class="form-control" id="description" name="description"
                           rows="6">{{ data.description }}</textarea>
             </div>
-            <div class="form-row col-md-12 mx-auto">
-                <div class="form col-md-4">
+            <p class="ml-1">Choisissez jusqu'à 8 photos pour votre produit:</p>
+
+            <div class="col-md-12 mb-3 mt-2 custom-file">
+                <label for="upload" class="custom-file-label">Choisir des fichiers {% if errors.picture %}
+                        <span class="text-danger">{{ errors.picture }}</span>{% endif %}</label>
+                <input type="file" multiple="multiple" class="custom-file-input" id="upload" name="upload[]">
+            </div>
+            <div class="form-row col-md-11 mb-4 mx-auto">
+                <div class=" col-md-4 px-2">
                     <label for="category">Categories: {% if errors.categories_id %}
                             <span class="text-danger">{{ errors.categories_id }}</span>{% endif %}
                     </label>
@@ -34,13 +41,13 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="form col-md-4">
+                <div class=" col-md-4 px-2">
                     <label for="price">Prix:{% if errors.price %}
                         <span class="text-danger">{{ errors.price }}</span>{% endif %}
                     </label>
                     <input type="number" class="form-control" id="price" name="price" value="{{ data.price }}">
                 </div>
-                <div class="form col-md-4">
+                <div class="form col-md-4 px-2">
                     <label for="date">Date d'entrée en magasin:{% if errors.date_added %}
                         <span class="text-danger">{{ errors.date_added }}</span>{% endif %}
                     </label>
@@ -48,7 +55,7 @@
                            value="{{ data.date_added }}">
                 </div>
             </div>
-            <div class="form-check ml-1 text-center mt-5 col-md-12">
+            <div class="form-check ml-1 text-center mt-4 col-md-12">
                 <input class="form-check-input" type="checkbox" id="ahead" name="ahead"
                        {% if data.ahead == 1 %}checked{% endif %}>
                 <label class="form-check-label" for="ahead">
@@ -58,8 +65,6 @@
             <div class="text-center mt-5 col-md-12">
                 <button type="submit" class="btn btn-dark justify-content-center">Enregistrer le produit</button>
             </div>
-
-
         </form>
 
     </section>
