@@ -6,7 +6,7 @@ namespace App\Controller;
 use App\Model\CategoryManager;
 use App\Model\ProductManager;
 
-class NotreBoutiqueController extends AbstractController
+class OurStoreController extends AbstractController
 {
 
     public function index()
@@ -17,7 +17,7 @@ class NotreBoutiqueController extends AbstractController
         $productManager = new ProductManager();
         $products= $productManager->showAhead();
 
-        return $this->twig->render('NotreBoutique/index.html.twig', ['categories' => $categories,
+        return $this->twig->render('OurStore/index.html.twig', ['categories' => $categories,
             'products' => $products]);
     }
 }
