@@ -46,12 +46,25 @@ class AdminProductController extends AbstractController
         $categories = $categoryManager->selectAllByAsc();
         $data = [];
         $errors = [];
+        $filesToInsert = [];
+        $maxPictures = 8;
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $validCategories = array_column($categories, 'id');
             $cleanData = new CleanData();
             $data = $cleanData->dataCleaner($_POST);
+
+
+            if (!empty($_FILES['upload']['name'][0])) {
+                if (count($_FILES['upload']['name']) <= $maxPictures) {
+                    $files = $_FILES['upload'];
+                    $pictureManager = new PictureManager();
+                    $filesToInsert = $pictureManager->upload($files);
+                } else {
+                    $errors['picture'] = "$maxPictures photos maximum";
+                }
+            }
             if (empty($data['name'])) {
                 $errors['name'] = 'Veuillez indiquer le nom du produit';
             }
@@ -80,12 +93,14 @@ class AdminProductController extends AbstractController
 
             if (empty($errors)) {
                 $productManager = new ProductManager();
-                $productManager->insert($data);
+                $idNewProduct = $productManager->insert($data);
+                $pictureManager = new PictureManager();
+                $pictureManager->insert($idNewProduct, $filesToInsert);
                 header('location: /AdminProduct/confirmAdding');
             }
         }
         return $this->twig->render('Admin/add.html.twig', ['categories' => $categories,
-            'data' => $data, 'errors' => $errors]);
+            'data' => $data, 'errors' => $errors,]);
     }
 
 
