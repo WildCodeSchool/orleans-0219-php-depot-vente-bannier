@@ -32,7 +32,7 @@ class ItemController extends AbstractController
     public function index()
     {
         $itemManager = new ItemManager();
-        $items = $itemManager->selectAll();
+        $items = $itemManager->selectAllByAsc();
 
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
@@ -50,7 +50,7 @@ class ItemController extends AbstractController
     public function show(int $id)
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager -> selectAll();
+        $categories = $categoryManager -> selectAllByAsc();
         $productManager = new ProductManager();
         $items = $productManager->showAllById($id);
         $itemImages = $productManager->showProductImagesById($id);

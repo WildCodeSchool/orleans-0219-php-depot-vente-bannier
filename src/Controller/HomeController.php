@@ -27,7 +27,7 @@ class HomeController extends AbstractController
     public function index()
     {
         $categoryManager = new CategoryManager();
-        $categories = $categoryManager -> selectAll();
+        $categories = $categoryManager -> selectAllByAsc();
 
 
         $productManager = new ProductManager();
@@ -104,6 +104,6 @@ class HomeController extends AbstractController
             }
         }
         return $this->twig->render('Home/index.html.twig', ['errors' => $errors, 'categories' => $categories,
-            'products' => $products,]);
+            'products' => $products, 'messageSent' => $messageSent,]);
     }
 }
