@@ -62,7 +62,7 @@ class AdminProductController extends AbstractController
                     $pictureManager = new PictureManager();
                     $filesToInsert = $pictureManager->upload($files);
                 } else {
-                    $errors['picture'] = '8 photos maximum';
+                    $errors['picture'] = "$maxPictures photos maximum";
                 }
             }
             if (empty($data['name'])) {
