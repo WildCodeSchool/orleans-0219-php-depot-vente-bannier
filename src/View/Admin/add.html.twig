@@ -6,7 +6,13 @@
     <h1 class="text-center mt-5 mb-3">Ajout de produit</h1>
     {% if post %}<h2 class="text-center mt-5 mb-3">Votre produit à été enregistré</h2>{% endif %}
     <section class="container">
-        <form class="form-row" action="/adminProduct/add" enctype="multipart/form-data" method="post">
+        <form class="form-row" {% if id is not null %}action="/adminProduct/update"
+              {% else %}action="/adminProduct/add"{% endif %} enctype="multipart/form-data" method="post">
+            {% if id is not null %}
+                <label for="id">
+            <input hidden id="id" name="id" value="{{ id }}">
+                </label>
+            {% endif %}
             <div class="form-group col-md-12">
                 <label for="productName">Nom du produit: {% if errors.name %}
                         <span class="text-danger">{{ errors.name }}</span>{% endif %}

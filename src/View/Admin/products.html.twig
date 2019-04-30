@@ -12,7 +12,6 @@
                 <th scope="col">Nom des produits</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Mis en vente</th>
-                <th scope="col">Date de vente</th>
                 <th scope="col">Editer</th>
                 <th scope="col">Supprimer</th>
             </tr>
@@ -25,9 +24,11 @@
                     <td>{{ product.name }}</td>
                     <td>{{ product.price }} €</td>
                     <td>{{ product.date_added|date("d/m/y") }}</td>
-                    <td>{% if product.date_saled is not null %}{{ product.date_saled|date("d/m/y") }}
-                        {% endif %}</td>
-                    <td><a href="/adminProduct/update"><img src="/assets/images/edit-filled.png"></a></td>
+                    <form method="get" action="/AdminProduct/update/">
+                        <td>
+                            <input class="updateBTN" type="submit" value="{{ product.id }}" name="id">
+                        </td>
+                    </form>
                     <form method="post" action="/AdminProduct/delete/">
                         <td>
                             <input class="deleteBTN" type="submit" value="{{ product.id }}" name="id"

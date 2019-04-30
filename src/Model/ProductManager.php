@@ -183,4 +183,23 @@ class ProductManager extends AbstractManager
                     LIMIT 3";
         return $this->pdo->query($query)->fetchAll();
     }
+
+    public function update(array $data)
+    {
+
+        $query = "UPDATE $this->table SET `name` = :name, `categories_id` = :categories_id, 
+                  `description` = :description, `price` = :price, `date_added` = :date_added, `ahead` = :ahead
+                  WHERE `id` = :id";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('name', $data['name'], \PDO::PARAM_STR);
+        $statement->bindValue('categories_id', $data['categories_id'], \PDO::PARAM_STR);
+        $statement->bindValue('description', $data['description'], \PDO::PARAM_STR);
+        $statement->bindValue('price', $data['price'], \PDO::PARAM_STR);
+        $statement->bindValue('date_added', $data['date_added'], \PDO::PARAM_STR);
+        $statement->bindValue('ahead', $data['ahead'], \PDO::PARAM_STR);
+        $statement->bindValue('id', $data['id'], \PDO::PARAM_STR);
+
+        $statement->execute();
+    }
 }
