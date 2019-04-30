@@ -45,16 +45,18 @@ class ProductController extends AbstractController
     public function search()
     {
         $name = null;
-        $products = [];
+        $products = null;
+        $data = null;
+
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $cleanData = new CleanData();
             $data = $cleanData->dataCleaner($_GET);
 
-            $name = $_GET['search_box'];
+            $name = $data['search_box'];
 
             $productManager = new ProductManager();
             $products = $productManager->selectAllByOcurrence($name);
         }
-        return $this->twig->render('Products/_navbar.html.twig', ['products' => $products]);
+        return $this->twig->render('Products/index.html.twig', ['products' => $products, 'data' => $data]);
     }
 }
