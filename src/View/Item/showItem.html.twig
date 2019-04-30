@@ -14,7 +14,7 @@
             </ol>
             <div class="carousel-inner">
                 {% for key, image in itemImages %}
-                    <div class="carousel-item {% if key == 0 %} active {% endif %}">
+                    <div class="carousel-item position-relative {% if key == 0 %} active {% endif %}">
                         <img src="{{ image.name }}" class="img-thumbnail w-100" alt="depot-vente">
                     </div>
                 {% endfor %}
