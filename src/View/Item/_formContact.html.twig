@@ -1,7 +1,5 @@
 <section class="contactForm" id="contact">
-    <div class="col-12 title-contactForm">
-        <h2 class="contactNousAccueil">Contactez-nous</h2>
-    </div>
+        <h2 class="titleheadband">Contactez-nous</h2>
     <div class="col-12 text-contactForm">
         <p>Pour toute question concernant l'achat, la vente, un débarras ou que vous ayez besoin d'informations,
             n'hésitez pas à nous contacter via le formulaire ci-après</p>
@@ -9,12 +7,6 @@
     <div class="col-12 row mt-5 justify-content-center align-content-center">
         <div class="col-lg-8">
             <form action="/home/index#contact" method="post" autocomplete="on" class="contactForm">
-                <div class="form-group">
-                    <label for="message"></label>
-                    <textarea name="message" id="message" placeholder="Votre message" class="form-control" rows="8"
-                              required>{{ data.message }}</textarea>
-                    <div class="text-danger">{{ errors.message }}</div>
-                </div>
                 <div>
                     <select class="form-control mt-4" id="select_form" name="select_form"
                             value="{{ data.select_form }}" required>
@@ -30,6 +22,12 @@
                         </option>
                     </select>
                     <div class="text-danger">{{ errors.select_form }}</div>
+                </div>
+                <div class="form-group">
+                    <label for="message"></label>
+                    <textarea name="message" id="message" placeholder="Votre message" class="form-control" rows="8"
+                              required>{{ data.message }}</textarea>
+                    <div class="text-danger">{{ errors.message }}</div>
                 </div>
                 <div class="form-group form-row">
                     <div class="col-12 col-sm-6">

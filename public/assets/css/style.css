@@ -11,7 +11,7 @@ section.container-fluid {
 }
 
 body {
-    background-color: #FAFAFA;
+    background-image: url("/assets/images/backgroundbody.png");
 }
 
 /*****End of General Style****/
@@ -161,9 +161,6 @@ section.container-fluid.contactForm {
     padding-right: 0;
 }
 
-.contactForm div.title-contactForm {
-    background-color: #212121;
-}
 
 .contactForm div.title-contactForm, .contactForm div.text-contactForm {
     display: flex;
@@ -171,16 +168,6 @@ section.container-fluid.contactForm {
     align-content: center;
 }
 
-.contactForm div h2.contactNousAccueil {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
-}
 
 .contactForm div.text-contactForm p {
     padding: 80px 10% 0 10%;
@@ -211,16 +198,6 @@ section.container-fluid.contactForm {
 /******End of Contact Form******/
 
 /****Card****/
-.nosarticletendance{
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
-}
 .img-thumbnail {
     height: 300px;
     width: 400px;
@@ -291,10 +268,6 @@ h2:nth-child(even) {
     margin: 1px auto;
 }
 
-body {
-    background-color: #FAFAFA;
-}
-
 /**end cards**/
 
 /******Footer******/
@@ -345,7 +318,7 @@ body {
 }
 
 .footer-bs .footer-nav ul.list li {
-    padding: 9px 65px;
+    padding: 2px 65px;
 }
 
 .footer-bs .footer-nav ul.list a {
@@ -451,34 +424,16 @@ h2.price {
 
 /******End of Single Product******/
 
-/****Notre boutique****/
-
-.notreboutique {
+.titleheadband{
     padding-top: 40px;
     padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Great Vibes', cursive;
     text-align: center;
     margin-bottom: 0;
     background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
+    color: #E6844C;
+    font-size: 70px;
 }
-
-/******End of Notre boutique******/
-
-/******Fonctionnement du depot vente******/
-.fonctionnementdepotvente {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
-}
-
-/******End of Fonctionnement du depot vente******/
 
 /******End of Notre boutique******/
 
@@ -504,7 +459,7 @@ h6 {
 
 .list-group-item {
     border: transparent;
-    background: #fafafa;
+    background: transparent;
 }
 
 /**End faq**/
