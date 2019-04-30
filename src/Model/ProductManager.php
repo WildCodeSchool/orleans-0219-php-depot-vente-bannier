@@ -118,9 +118,9 @@ class ProductManager extends AbstractManager
 
         $query = "INSERT INTO $this->table 
                 (`name`, `categories_id`, `description`, `price`, 
-                `date_added`, `ahead`)
+                `date_added`,`date_saled`, `ahead`)
                 VALUES (:name, :categories_id, :description, :price, 
-                :date_added, :ahead)";
+                :date_added, :date_saled, :ahead)";
 
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('name', $data['name'], \PDO::PARAM_STR);
@@ -128,6 +128,7 @@ class ProductManager extends AbstractManager
         $statement->bindValue('description', $data['description'], \PDO::PARAM_STR);
         $statement->bindValue('price', $data['price'], \PDO::PARAM_STR);
         $statement->bindValue('date_added', $data['date_added'], \PDO::PARAM_STR);
+        $statement->bindValue('date_saled', $data['date_saled'], \PDO::PARAM_STR);
         $statement->bindValue('ahead', $data['ahead'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
