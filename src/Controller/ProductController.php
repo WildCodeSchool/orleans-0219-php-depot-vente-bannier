@@ -50,11 +50,11 @@ class ProductController extends AbstractController
             $cleanData = new CleanData();
             $data = $cleanData->dataCleaner($_GET);
 
-            $name = $_POST['search_box'];
+            $name = $_GET['search_box'];
 
             $productManager = new ProductManager();
             $products = $productManager->selectAllByOcurrence($name);
         }
-        return $this->twig->render('Products/index.html.twig', ['products' => $products]);
+        return $this->twig->render('Products/_navbar.html.twig', ['products' => $products]);
     }
 }
