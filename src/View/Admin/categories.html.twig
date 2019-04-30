@@ -1,34 +1,39 @@
 {% extends 'adminLayout.html.twig' %}
 
 {% block title %}Mes catégories{% endblock %}
-
 {% block content %}
     <h1 class="text-center my-5">Gestion des catégories</h1>
     <section>
         <div class="form-row justify-content-center">
-            <table class="table col-lg-6">
+            <table class="table col-lg-6 text-center border-bottom">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nom des catégories</th>
-                    <th scope="col">Supprimer</th>
                     <th scope="col">Modifier</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for category in categories %}
+                {% for category in categories|sort %}
                     <tr>
                         <th scope="row">{{ category.id }}</th>
                         <td>{{ category.name }}</td>
                         <td></td>
-                        <td></td>
+                        <form method="post" action="/AdminCategory/delete/">
+                            <td>
+                                <input class="deleteBTN" type="submit" value="{{ category.id }}" name="id"
+                                       onclick="if(window.confirm('Voulez-vous vraiment supprimer ?'))
+                                   {return true;}else{return false;}">
+                            </td>
+                        </form>
                     </tr>
                 {% endfor %}
 
                 </tbody>
             </table>
         </div>
-        <form class="form-group mx-auto text-center" action="/adminCategory/add" method="post">
+        <form class="form-group mx-auto text-center mt-3" action="/adminCategory/add" method="post">
             <div class="form-group">
                 <label for="category" class="text-center"><h2>Ajouter une catégorie</h2></label>
                 <input type="text" class="form-control col-lg-6 mx-auto" id="category" name="category"
