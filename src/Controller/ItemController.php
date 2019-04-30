@@ -56,7 +56,7 @@ class ItemController extends AbstractController
         $productManager = new ProductManager();
         $items = $productManager->showAllById($id);
         $itemImages = $productManager->showProductImagesById($id);
-        $itemsRandom = $productManager->showRandom($id);
+        $itemsRandom = $productManager->showRandom($items[0]['categories_id']);
 
         return $this->twig->render(
             'Item/showItem.html.twig',

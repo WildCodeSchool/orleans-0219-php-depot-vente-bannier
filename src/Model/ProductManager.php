@@ -84,7 +84,7 @@ class ProductManager extends AbstractManager
     public function showAllById($id): array
     {
         $query = "SELECT product.id, product.name, product.price,  product.description,
-                    ahead, product.date_added, product.date_saled, category.name as category
+                    ahead, product.date_added, product.date_saled, product.categories_id, category.name as category
                     FROM $this->table
                    INNER JOIN category
                     ON product.categories_id = category.id
@@ -178,7 +178,7 @@ class ProductManager extends AbstractManager
                     FROM picture
                     INNER JOIN product ON picture.product_id = product.id
                     INNER JOIN category ON product.categories_id = category.id
-                    WHERE categories_id = 1
+                    WHERE categories_id = $id
                     ORDER BY RAND()
                     LIMIT 3";
         return $this->pdo->query($query)->fetchAll();
