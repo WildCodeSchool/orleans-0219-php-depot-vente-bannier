@@ -81,11 +81,11 @@ body {
     column-rule: 2px dashed #555;
 }
 
-.navbar-link button, a {
+.navbar-link button, .navbar-link a {
     transition: 0.1s, 0.5s;
 }
 
-.navbar-link button:hover , a:hover{
+.navbar-link button:hover , .navbar-link a:hover{
     transition: 0.1s, 0.5s;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -121,7 +121,7 @@ body {
     width: 55%;
 }
 
-.jumbotron div .text-jumbotron h2.card-title {
+.jumbotron div .text-jumbotron h1.card-title {
     font-size: 4.3vw;
     color: #E6844C;
     font-family: 'Raleway', sans-serif;
@@ -129,11 +129,11 @@ body {
     margin-right: 7%;
 }
 
-.jumbotron div .text-jumbotron h2.card-title strong {
+.jumbotron div .text-jumbotron h1.card-title strong {
     border-bottom: 1px solid #E6844C;
 }
 
-.jumbotron div .text-jumbotron h2.card-title + p {
+.jumbotron div .text-jumbotron h1.card-title + p {
     font-family: 'Great Vibes', cursive;
     font-size: 3vw;
     font-weight: 100;
@@ -143,7 +143,7 @@ body {
     text-align: right;
 }
 
-.jumbotron div .text-jumbotron h2.card-title strong {
+.jumbotron div .text-jumbotron h1.card-title strong {
     text-align: right;
 }
 
