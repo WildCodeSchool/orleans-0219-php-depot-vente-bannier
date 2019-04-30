@@ -13,6 +13,7 @@
                 <th scope="col">Prix</th>
                 <th scope="col">Mis en vente</th>
                 <th scope="col">Date de vente</th>
+                <th scope="col">Mis en avant</th>
                 <th scope="col">Editer</th>
                 <th scope="col">Supprimer</th>
             </tr>
@@ -27,6 +28,7 @@
                     <td>{{ product.date_added|date("d/m/y") }}</td>
                     <td>{% if product.date_saled is not null %}{{ product.date_saled|date("d/m/y") }}
                         {% endif %}</td>
+                    <td>{% if product.ahead is same as ('1') %}<img src="/assets/images/ahead-filled.png">{% endif %} </td>
                     <td><a href="/adminProduct/update"><img src="/assets/images/edit-filled.png"></a></td>
                     <form method="post" action="/AdminProduct/delete/">
                         <td>
