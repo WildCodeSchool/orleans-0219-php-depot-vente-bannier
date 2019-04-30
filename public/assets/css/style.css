@@ -162,7 +162,7 @@ section.container-fluid.contactForm {
 }
 
 .contactForm div.title-contactForm {
-    background-color: #8E8477;
+    background-color: #212121;
 }
 
 .contactForm div.title-contactForm, .contactForm div.text-contactForm {
@@ -177,7 +177,7 @@ section.container-fluid.contactForm {
     font-family: 'Raleway', sans-serif;
     text-align: center;
     margin-bottom: 0;
-    background-color: #8E8477;
+    background-color: #212121;
     color: #FAFAFA;
     font-size: 50px;
 }
@@ -459,7 +459,7 @@ h2.price {
     font-family: 'Raleway', sans-serif;
     text-align: center;
     margin-bottom: 0;
-    background-color: #8E8477;
+    background-color: #212121;
     color: #FAFAFA;
     font-size: 50px;
 }
@@ -530,3 +530,7 @@ h6 {
 }
 /**End ADMIN **/
 
+
+.row {
+    margin: 15px;
+}
