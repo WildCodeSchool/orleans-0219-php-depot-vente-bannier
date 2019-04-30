@@ -183,4 +183,56 @@ class ProductManager extends AbstractManager
                     LIMIT 3";
         return $this->pdo->query($query)->fetchAll();
     }
+
+    /**
+     * Sort products by ascending price
+     *
+     * @return array
+     */
+    public function sortProductsAscPrice(): array
+    {
+        $query = "SELECT product.name, product.price
+                    FROM $this->table
+                    ORDER BY product.price ASC";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Sort products by descending price
+     *
+     * @return array
+     */
+    public function sortProductsDscPrice(): array
+    {
+        $query = "SELECT product.name, product.price
+                    FROM $this->table
+                    ORDER BY product.price DESC";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Sort products by ascending date
+     *
+     * @return array
+     */
+    public function sortProductsAscDate(): array
+    {
+        $query = "SELECT product.name, product.price, product.date_added
+                    FROM $this->table
+                    ORDER BY product.date_added ASC";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * Sort products by ascending date
+     *
+     * @return array
+     */
+    public function sortProductsDscDate(): array
+    {
+        $query = "SELECT product.name, product.price, product.date_added
+                    FROM $this->table
+                    ORDER BY product.date_added DESC";
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

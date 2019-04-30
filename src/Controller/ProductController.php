@@ -41,4 +41,30 @@ class ProductController extends AbstractController
         return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
             'products' => $products,]);
     }
+
+    /**
+     *
+     * Return product page sorted by price or date
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function sort($id)
+    {
+        $categories = null;
+        $products = null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            if ($_GET['price_asc']) {
+                $categoryManager = new CategoryManager();
+                $categories = $categoryManager->selectOneById($id);
+
+                $productManager = new ProductManager();
+                $products = $productManager->sortProductsAscPrice();
+            }
+        }
+        return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
+            'products' => $products,]);
+    }
 }
