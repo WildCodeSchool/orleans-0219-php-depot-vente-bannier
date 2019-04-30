@@ -165,4 +165,22 @@ class ProductManager extends AbstractManager
 	                ORDER BY pr.id ASC";
         return $this->pdo->query($query)->fetchAll();
     }
+
+    /**
+     * Select 3 random products
+     *
+     * @return array
+     */
+    public function showRandom(int $id): array
+    {
+        $query = "SELECT product.name, picture.name AS image, product.description,
+                    product.price, product.date_saled, category.name AS category
+                    FROM picture
+                    INNER JOIN product ON picture.product_id = product.id
+                    INNER JOIN category ON product.categories_id = category.id
+                    WHERE categories_id = 1
+                    ORDER BY RAND()
+                    LIMIT 3";
+        return $this->pdo->query($query)->fetchAll();
+    }
 }
