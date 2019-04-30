@@ -36,6 +36,7 @@ body {
 .logo_navbar {
     height: 50px;
     position: relative;
+    transform: rotate(354deg);
 }
 
 .logo_size {
@@ -231,6 +232,22 @@ section.container-fluid.contactForm {
 .card {
     border: #FAFAFA;
     background-color: #FAFAFA;
+    opacity:0;
+    animation: anim 1.5s linear forwards 0.1s;
+    transition-property: opacity;
+    transition-delay: 0.2s;
+}
+
+@keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+
+.dropdown-item {
+    opacity:0;
+    animation: anim 0.3s linear forwards;
+    transition-property: opacity;
+    transition-delay: 0s;
 }
 
 .card-text {
@@ -380,6 +397,8 @@ h2.price {
 .carousel .carousel-control-prev {
     opacity: 1;
     background-color: transparent;
+    filter: invert(40%);
+
 }
 
 .textSingleProduct {
@@ -406,7 +425,16 @@ h2.price {
 }
 
 .textSingleProduct p .fas, .textSingleProduct p .far {
-    color: #e6834c;
+    color: #824913;
+}
+
+
+.textSingleProduct p .fa-check {
+    color: green;
+}
+
+.textSingleProduct p .fa-times {
+    color: #ff193f;
 }
 
 .recommendedItems h2, .recommendedItems h3 {
