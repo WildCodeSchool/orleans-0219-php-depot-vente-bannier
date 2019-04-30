@@ -50,7 +50,8 @@ class ProductManager extends AbstractManager
      */
     public function showAllWithPictures(): array
     {
-        $query = "SELECT DISTINCT pr.id, pr.name, pr.price,  pr.description, pr.ahead ,min(pi.name) AS picture 
+        $query = "SELECT DISTINCT pr.id, pr.name, pr.price,pr.date_saled,
+                    pr.description, pr.ahead ,min(pi.name) AS picture 
                     FROM $this->table pr
                     JOIN picture pi ON pi.product_id = pr.id
                     GROUP BY pr.id
