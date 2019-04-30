@@ -62,6 +62,17 @@
                 <h2>D'autres produits de la catégorie qui pourraient vous intéresser</h2>
                 <h3>{{ items[0].category }}</h3>
             </div>
-        </div>
+            {% for itemRandom in itemsRandom %}
+            <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
+                <div class="card-body text-center">
+                    <div class="card-img">
+                        <img class="img-thumbnail" src="{{ itemRandom['image'] }}" alt=""/>
+                    </div>
+                    <h5 class="card-title">{{ itemRandom['name'] }} </h5>
+                    <p class="text">{{ itemRandom['price'] }}€</p>
+                    <a href="/products/show/{{ itemRandom['id'] }}" class="btn btn-info">+ d'infos</a>
+                </div>
+            </div>
+            {% endfor %}
     </section>
 {% endblock %}

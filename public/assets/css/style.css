@@ -73,6 +73,7 @@ body {
     padding: .25rem 0.5rem;
     font-size: 20px;
     color: #ffffff;
+    display:initial;
 
 }
 
@@ -81,11 +82,11 @@ body {
     column-rule: 2px dashed #555;
 }
 
-.navbar-link a {
+.navbar-link button {
     transition: 0.1s, 0.5s;
 }
 
-.navbar-link a:hover {
+.navbar-link button:hover {
     transition: 0.1s, 0.5s;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -190,7 +191,6 @@ section.container-fluid.contactForm {
 
 .contactForm textarea, .contactForm input.form-control, .contactForm select.form-control {
     border: 1px solid #212121;
-    box-shadow: 1px 1px 1px gray;
 }
 
 .contactForm div div button {
@@ -212,13 +212,21 @@ section.container-fluid.contactForm {
 /******End of Contact Form******/
 
 /****Card****/
-
-
+.nosarticletendance{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #212121;
+    color: #FAFAFA;
+    font-size: 50px;
+}
 .img-thumbnail {
     height: 300px;
     width: 400px;
     object-fit: contain;
-
+    border: 0px;
 }
 
 .card {
@@ -259,46 +267,13 @@ h2:nth-child(even) {
     font-size: 50px;
 }
 
-.produits {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
-}
-
 .container {
     padding-top: 80px;
     padding-bottom: 80px;
 }
 
-.btn-info {
-    border: solid #212121 2px;
-    background-color: #FAFAFA;
-    color: #212121;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: 'Raleway', sans-serif;
-}
-
-.btn-product {
-    border: solid #212121 2px;
-    color: #212121;
-    background-color: #FAFAFA;
-    font-size: 25px;
-    border-radius: 15px;
-    font-weight: bold;
-    margin-top: 50px;
-}
-
-.btn-product:hover, .btn-info:hover {
-    background-color: #8e8477;
-    color: #FAFAFA;
-    border-color: #212121;
+.border-card{
+    border: solid #212121 1px;
 }
 
 .card-body {
@@ -306,10 +281,15 @@ h2:nth-child(even) {
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
 }
-
+.horizontaleligne{
+    margin: 1px auto;
+    width: 50%;
+    height: 1px;
+    background-color: #212121;
+}
 .card-title {
     font-weight: bold;
-    margin-top: 30px;
+    margin: 1px auto;
 }
 
 body {
@@ -530,6 +510,14 @@ h6 {
 
 /**End faq**/
 
+.allbuton.btn:hover{
+    background-color: #8E8477;
+}
+.allbuton{
+    margin: 40px;
+    color: black;
+}
+
 /** ADMIN **/
 
 .deleteBTN {
@@ -542,3 +530,4 @@ h6 {
     color: transparent;
 }
 /**End ADMIN **/
+
