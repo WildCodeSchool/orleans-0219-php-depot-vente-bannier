@@ -51,4 +51,19 @@ class CategoryManager extends AbstractManager
         $query = "SELECT * FROM $this->table ORDER BY name ASC";
         return $this->pdo->query($query)->fetchAll();
     }
+
+    /**
+     * Delete category from BDD
+     *
+     * @param int $id
+     */
+    public function delete(int $id): void
+    {
+
+        $query = "DELETE FROM $this->table WHERE `id`=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+
+        $statement->execute();
+    }
 }
