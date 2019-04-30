@@ -1,0 +1,82 @@
+<!-- Navbar -->
+
+<!--Logo -->
+<nav class="navbar navbar-expand-xl navbar-dark">
+    <div class="logo_size">
+        <a class="navbar-brand" href="/home/index"><img class="logo_navbar" src="/assets/images/logo.png"
+                                                        alt="logo du site"></a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--Link -->
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mx-auto">
+
+            <li class="nav-item dropdown megamenu-li">
+                <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Acheter</a>
+                <div class="dropdown-menu megamenu" aria-labelledby="dropdown acheter">
+                
+                    <div class="categories-list navbar-link text-center">
+                        {% for categorie in categories %}
+                            <a class="dropdown-item pb-0" href="/products/show/{{ categorie.id }}">{{ categorie.name }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="categories-list navbar-link text-center">
+                        <a class="dropdown-item pb-0" href="/product/list">Tous nos produits</a>
+                        {% for categorie in categories %}
+                            <a class="dropdown-item pb-0" href="/product/list/{{ categorie.id }}">{{ categorie.name }}</a>
+                        {% endfor %}
+                    </div>
+                    <form method="get" action="/Product/list/">
+                        <div class="categories-list navbar-link text-center">
+                            <button class="dropdown-item pb-0"
+                                    value="">Tous nos produits
+                            </button>
+                            {% for categorie in categories %}
+                                <button name="category" class="dropdown-item pb-0"
+                                        value="{{ categorie.id }}">{{ categorie.name }}</button>
+                            {% endfor %}
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+            <li class="nav-item col-auto">
+                <a class="nav-link" href="/home/index#fonctionnement">Vendre</a>
+            </li>
+            <li class="nav-item dropdown megamenu-li">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Notre boutique</a>
+                <div class="dropdown-menu megamenu" aria-labelledby="dropdown notre boutique">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-auto navbar-link">
+                            <a class="dropdown-item" href="/ourStore/index#story">Notre histoire</a>
+                            <a class="dropdown-item" href="/ourStore/index#visite">Visite de la boutique</a>
+                            <a class="dropdown-item" href="/ourStore/index#fonctionnement">Fonctionnement du dépôt-vente</a>
+                            <a class="dropdown-item" href="/ourStore/index#where">Ou sommes nous ?</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item col-auto">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item col-auto">
+                <a class="nav-link" href="http://debarrasorleans.fr/" target="_blank">Débarras</a>
+            </li>
+        </ul>
+        <!-- search bar -->
+        <div class="row mx-1 justify-content-center">
+            <form class="form-inline my-2 my-lg-0 justify-content-center" method="get" action="/product/search/">
+                <input class="form-control mr-sm-2" type="search" placeholder="Recherchez ..."
+                       aria-label="" name="search_box" id="search_box">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Recherchez</button>
+            </form>
+        </div>
+    </div>
+</nav>
+

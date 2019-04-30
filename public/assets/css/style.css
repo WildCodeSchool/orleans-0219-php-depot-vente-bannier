@@ -1,0 +1,532 @@
+/*****General Style****/
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+section.container-fluid {
+    background-color: #fafafa;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+/*****End of General Style****/
+
+
+/******Navbar******/
+.navbar {
+    background-color: #212121;
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #FAFAFA;
+}
+
+.logo_navbar {
+    height: 50px;
+    position: relative;
+    transform: rotate(354deg);
+}
+
+.logo_size {
+    width: 371px;
+}
+
+.dropdown.has-megamenu {
+    position: static;
+}
+
+.dropdown-toggle::after {
+    vertical-align: .1em;
+}
+
+.megamenu-li {
+    position: static;
+}
+
+.megamenu {
+    background-color: rgb(33, 33, 33, 0.8);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 73px;
+    padding: 15px;
+}
+
+.form-inline .form-control {
+    width: auto;
+}
+
+.dropdown-item {
+    padding: .25rem 0.5rem;
+    font-size: 20px;
+    color: #ffffff;
+
+}
+
+.categories-list {
+    column-count: 4;
+    column-rule: 2px dashed #555;
+}
+
+.navbar-link button, .navbar-link a {
+    transition: 0.1s, 0.5s;
+}
+
+.navbar-link button:hover , .navbar-link a:hover{
+    transition: 0.1s, 0.5s;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media screen and (max-width: 800px) {
+    .logo_size {
+        width: auto;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .categories-list {
+        column-count: initial;
+    }
+}
+
+
+/******End of Navbar******/
+
+/******Jumbotron******/
+
+.jumbotron {
+    background-image: url('../images/jumbotron-furniture.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    margin-bottom: 0;
+}
+
+.jumbotron div .text-jumbotron {
+    margin: auto 0 auto auto;
+    width: 55%;
+}
+
+.jumbotron div .text-jumbotron h1.card-title {
+    font-size: 4.3vw;
+    color: #E6844C;
+    font-family: 'Raleway', sans-serif;
+    text-align: right;
+    margin-right: 7%;
+}
+
+.jumbotron div .text-jumbotron h1.card-title strong {
+    border-bottom: 1px solid #E6844C;
+}
+
+.jumbotron div .text-jumbotron h1.card-title + p {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3vw;
+    font-weight: 100;
+    width: 76%;
+    margin: auto 7% auto auto;
+    padding: 2% 0 5% 1%;
+    text-align: right;
+}
+
+.jumbotron div .text-jumbotron h1.card-title strong {
+    text-align: right;
+}
+
+.jumbotron div .text-jumbotron .card-title {
+    margin-bottom: 0;
+}
+
+/******End of Jumbotron******/
+
+/******Contact Form******/
+
+section.container-fluid.contactForm {
+    background-color: #fafafa;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.contactForm div.title-contactForm {
+    background-color: #8E8477;
+}
+
+.contactForm div.title-contactForm, .contactForm div.text-contactForm {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.contactForm div h2.contactNousAccueil {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #8E8477;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+
+.contactForm div.text-contactForm p {
+    padding: 80px 10% 0 10%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.contactForm textarea, .contactForm input.form-control, .contactForm select.form-control {
+    border: 1px solid #212121;
+}
+
+.contactForm div div button {
+    margin: 40px;
+    color: black;
+}
+
+.contactForm div div button.btn:hover {
+    background-color: #8E8477;
+}
+
+.text-danger {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: -ms-fill-available;
+    width: -o-fill-available;
+}
+
+/******End of Contact Form******/
+
+/****Card****/
+.nosarticletendance{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #212121;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+.img-thumbnail {
+    height: 300px;
+    width: 400px;
+    object-fit: contain;
+    border: 0px;
+}
+
+.card {
+    border: #FAFAFA;
+    background-color: #FAFAFA;
+    opacity:0;
+    animation: anim 1.5s linear forwards 0.1s;
+    transition-property: opacity;
+    transition-delay: 0.2s;
+}
+
+@keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+
+.dropdown-item {
+    opacity:0;
+    animation: anim 0.3s linear forwards;
+    transition-property: opacity;
+    transition-delay: 0s;
+}
+
+.card-text {
+    width: 250px;
+    height: 110px;
+    overflow: scroll;
+}
+
+h2:nth-child(even) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #212121;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+
+.container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.border-card{
+    border: solid #212121 1px;
+}
+
+.card-body {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+.horizontaleligne{
+    margin: 1px auto;
+    width: 50%;
+    height: 1px;
+    background-color: #212121;
+}
+.card-title {
+    font-weight: bold;
+    margin: 1px auto;
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+/**end cards**/
+
+/******Footer******/
+.logo_footer {
+    height: auto;
+    max-width: 60%
+}
+
+.footer-bs {
+    background-color: #212121;
+    padding: 15px 10px;
+    color: rgba(255, 255, 255, 1.00);
+}
+
+
+.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns {
+    border-color: transparent;
+}
+
+.footer-bs .footer-brand p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.footer-bs .footer-nav ul.pages {
+    list-style: none;
+    padding: 0px;
+}
+
+.footer-bs .footer-nav ul.pages li {
+    padding: 5px 0px;
+}
+
+.footer-bs .footer-nav ul.pages a {
+    color: rgba(255, 255, 255, 1.00);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.footer-bs .footer-nav ul.pages a:hover {
+    color: rgba(255, 255, 255, 0.80);
+    text-decoration: none;
+}
+
+.footer-bs .footer-nav ul.list {
+    list-style: none;
+    padding: 0px;
+}
+
+.footer-bs .footer-nav ul.list li {
+    padding: 9px 65px;
+}
+
+.footer-bs .footer-nav ul.list a {
+    color: rgba(255, 255, 255, 0.80);
+}
+
+.footer-bs .footer-nav ul.list a:hover {
+    color: rgba(255, 255, 255, 0.60);
+    text-decoration: none;
+}
+
+.footer-bs .footer-social a {
+    color: rgba(255, 255, 255, 1.00);
+}
+
+.footer-bs .footer-social a:hover {
+    color: rgba(255, 255, 255, 0.80);
+    text-decoration: none;
+}
+
+.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns {
+    border-left: solid 1px rgba(255, 255, 255, 0.10);
+}
+
+
+/******End of Footer******/
+
+/******Single Product******/
+
+.productTitle-product-page h1, h2.price {
+    text-align: center;
+    padding: 3%;
+}
+
+h2.price {
+    margin: 10%;
+    font-weight: bold;
+    font-size: 4vw;
+}
+
+.carousel-inner .carousel-item .img-thumbnail {
+    height: 500px;
+    background-color: transparent;
+    border: none;
+}
+
+.carousel .carousel-control-next,
+.carousel .carousel-control-prev {
+    opacity: 1;
+    background-color: transparent;
+    filter: invert(40%);
+
+}
+
+.textSingleProduct {
+    text-align: center;
+}
+
+.textSingleProduct + div {
+    display: flex;
+    flex-direction: column;
+}
+
+.productDescription {
+    text-align: center;
+    margin: 5% 20% 0 20%;
+}
+
+.productDescription p {
+    margin: auto 13%;
+}
+
+.border {
+    border: 1px solid gray;
+    width: 60%;
+}
+
+.textSingleProduct p .fas, .textSingleProduct p .far {
+    color: #824913;
+}
+
+
+.textSingleProduct p .fa-check {
+    color: green;
+}
+
+.textSingleProduct p .fa-times {
+    color: #ff193f;
+}
+
+.recommendedItems h2, .recommendedItems h3 {
+    margin: auto 7%;
+    text-align: center;
+}
+
+.recommendedItems {
+    margin-bottom: 5%;
+}
+
+.recommendedItems h3 {
+    margin-top: 5%;
+}
+
+/******End of Single Product******/
+
+/****Notre boutique****/
+
+.notreboutique {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #8E8477;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+
+/******End of Notre boutique******/
+
+/******Fonctionnement du depot vente******/
+.fonctionnementdepotvente {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: #212121;
+    color: #FAFAFA;
+    font-size: 50px;
+}
+
+/******End of Fonctionnement du depot vente******/
+
+/******End of Notre boutique******/
+
+/***FAQ***/
+
+h6 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.faq {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.listfaq:hover {
+    background-color: #212121;
+    color: #fafafa;
+    font-weight: bold;
+}
+
+.list-group-item {
+    border: transparent;
+    background: #fafafa;
+}
+
+/**End faq**/
+
+.allbuton.btn:hover{
+    background-color: #8E8477;
+}
+.allbuton{
+    margin: 40px;
+    color: black;
+}
+
+/** ADMIN **/
+
+.deleteBTN {
+    background: url("/assets/images/delete-filled.png");
+    background-size: cover;
+    border: none;
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+    color: transparent;
+}
+/**End ADMIN **/
+

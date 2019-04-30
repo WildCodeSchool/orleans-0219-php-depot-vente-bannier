@@ -1,0 +1,21 @@
+{% extends 'visitorLayout.html.twig' %}
+{% block title %}Notre boutique{% endblock %}
+{% block content %}
+        <h1 class="fonctionnementdepotvente" id="story">Notre histoire</h1>
+        <div class="container pb-3">
+            <p class="text-justify">
+                Ouvert depuis 1983 par M. LECONTE père, la société DEPOT VENTE BANNIER est une institution aussi bien pour les chineurs que pour les professionnels.<br>
+                Il faut dire que la passion de l'ancien se révèle être une affaire de famille puisque depuis quelques années,Frédérick, le fils, a repris le magasin et en développe l'activité autour de l'antiquité, des objets d'art, rares, anciens ou contemporains.
+                La boutique du DEPOT VENTE BANNIER est située au coeur de la ville d'Orléans.<br>
+                Sa surface, l'une des plus grandes de la Région Centre, lui permet d'exposer un très grand volume de marchandises.<br>
+                Ses années d'expérience permettent aujourd'hui à Frédérick de proposer gratuitement une expertise à domicile,<br>
+                une activité très appréciée par les clients désireux de vendre des meubles ou objets de valeur à un juste prix.<br>
+                Il fait aussi profiter à ses clients de prix négociés avec des professionnels de qualité (tapissiers, ébénistes etc.).<br>
+                Concernant les personnes hésitantes pour l'acquisition d'un objet en magasin, il saura les conseiller au mieux en fonction de la décoration de leur habitation et de leur budget.<br>
+            </p>
+    </div>
+    <h1 class="fonctionnementdepotvente" id="visite">Visite de la boutique</h1>
+    {% include "Item/_ourStore.html.twig" %}
+    {% include "Item/_operationDeposit.html.twig" %}
+    {% include 'Item/_formContact.html.twig' %}
+{% endblock %}

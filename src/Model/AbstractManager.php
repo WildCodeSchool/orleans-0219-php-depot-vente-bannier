@@ -46,7 +46,7 @@ abstract class AbstractManager
      *
      * @return array
      */
-    public function selectAll(): array
+    public function selectAllByAsc(): array
     {
         return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll();
     }
@@ -66,5 +66,20 @@ abstract class AbstractManager
         $statement->execute();
 
         return $statement->fetch();
+    }
+
+    /**
+     * Get ocurrences.
+     *
+     * @param  string $name
+     *
+     * @return array
+     */
+    public function selectAllByOcurrence(string $name) : array
+    {
+        return $this->pdo->query("SELECT DISTINCT product.id, product.name, product.price, picture.name AS picture
+                                            FROM $this->table
+                                            INNER JOIN picture ON picture.product_id = product.id
+                                            WHERE product.name LIKE '%$name%'")->fetchAll();
     }
 }

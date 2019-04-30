@@ -1,0 +1,30 @@
+{% extends 'visitorLayout.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block content %}
+
+    <h2 class="produits">{{ category ? category.name : 'Tous nos produits' }}</h2>
+    <div class="col-12 m-5 mx-auto text-center"><i>-- {{ products|length }} produits trouvés</i></div>
+    
+    <section class="container">
+    
+        <form method="get" action="/Product/list/">
+            <select name="category" class="form-control text-align-center">
+                <option value="" selected>Tous nos produits</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {% if category.id is same as(products[0].categories_id) %}
+                    selected {% endif %}>{{ category.name }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit">
+        </form>
+
+        <div class="row">
+            {% for product in products %}
+                {% include 'Item/_card.html.twig' %}
+            {% endfor %}
+      </div>
+    </section>
+
+{% endblock %}
