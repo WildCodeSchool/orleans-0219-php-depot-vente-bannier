@@ -12,6 +12,7 @@ namespace App\Controller;
 use App\Model\CategoryManager;
 use App\Model\ItemManager;
 use App\Model\ProductManager;
+use App\utils\CleanData;
 
 /**
  * Class ItemController
