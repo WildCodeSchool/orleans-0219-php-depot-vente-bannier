@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Model\CategoryManager;
 use App\Model\ProductManager;
+use App\utils\CleanData;
 
 class ProductController extends AbstractController
 {
@@ -40,5 +41,31 @@ class ProductController extends AbstractController
 
         return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
             'products' => $products,]);
+    }
+
+    /**
+     * Display ocurrences by name
+     *
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function search()
+    {
+        $name = null;
+        $products = null;
+        $data = null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $cleanData = new CleanData();
+            $data = $cleanData->dataCleaner($_GET);
+
+            $name = $data['search_box'];
+
+            $productManager = new ProductManager();
+            $products = $productManager->selectAllByOcurrence($name);
+        }
+        return $this->twig->render('Products/index.html.twig', ['products' => $products, 'data' => $data]);
     }
 }
