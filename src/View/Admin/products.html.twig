@@ -24,11 +24,7 @@
                     <td>{{ product.name }}</td>
                     <td>{{ product.price }} €</td>
                     <td>{{ product.date_added|date("d/m/y") }}</td>
-                    <form method="get" action="/AdminProduct/update/">
-                        <td>
-                            <input class="updateBTN" type="submit" value="{{ product.id }}" name="id">
-                        </td>
-                    </form>
+                    <td><a href="/adminProduct/update/{{ product.id }}"><img src="/assets/images/edit-filled.png"></a></td>
                     <form method="post" action="/AdminProduct/delete/">
                         <td>
                             <input class="deleteBTN" type="submit" value="{{ product.id }}" name="id"

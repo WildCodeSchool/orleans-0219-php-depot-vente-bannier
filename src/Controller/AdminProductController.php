@@ -135,26 +135,31 @@ class AdminProductController extends AbstractController
         }
     }
 
-    public function update()
+    /**
+     *
+     * Update products from BDD
+     *
+     * @param int $id
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function update(int $id = 0)
     {
-
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllByAsc();
         $data = [];
         $errors = [];
-        $id= [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $id = $_GET['id'];
-            $productManager = new ProductManager();
-            $data = $productManager->selectOneById($id);
-        }
+        $productManager = new ProductManager();
+        $data = $productManager->selectOneById($id);
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $validCategories = array_column($categories, 'id');
             $cleanData = new CleanData();
             $data = $cleanData->dataCleaner($_POST);
-
 
             if (empty($data['name'])) {
                 $errors['name'] = 'Veuillez indiquer le nom du produit';
@@ -185,11 +190,12 @@ class AdminProductController extends AbstractController
             if (empty($errors)) {
                 $productManager = new ProductManager();
                 $productManager->update($data);
-                header('location: /AdminProduct/confirmAdding');
+                header('location: /AdminProduct/list');
+                exit();
             }
         }
 
         return $this->twig->render('Admin/add.html.twig', ['categories' => $categories,
-            'data' => $data, 'errors' => $errors, 'id'=> $id]);
+            'data' => $data, 'errors' => $errors, 'id' => $id]);
     }
 }
