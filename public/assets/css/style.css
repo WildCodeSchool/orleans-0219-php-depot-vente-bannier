@@ -528,6 +528,16 @@ h6 {
     cursor: pointer;
     color: transparent;
 }
+
+.updateBTN {
+    background: url("/assets/images/edit-filled.png");
+    background-size: cover;
+    border: none;
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+    color: transparent;
+}
 /**End ADMIN **/
 
 
