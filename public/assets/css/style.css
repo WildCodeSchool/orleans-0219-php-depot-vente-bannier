@@ -36,6 +36,7 @@ body {
 .logo_navbar {
     height: 50px;
     position: relative;
+    transform: rotate(354deg);
 }
 
 .logo_size {
@@ -72,7 +73,6 @@ body {
     padding: .25rem 0.5rem;
     font-size: 20px;
     color: #ffffff;
-    display:initial;
 
 }
 
@@ -81,11 +81,11 @@ body {
     column-rule: 2px dashed #555;
 }
 
-.navbar-link button {
+.navbar-link button, .navbar-link a {
     transition: 0.1s, 0.5s;
 }
 
-.navbar-link button:hover {
+.navbar-link button:hover , .navbar-link a:hover{
     transition: 0.1s, 0.5s;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -121,7 +121,7 @@ body {
     width: 55%;
 }
 
-.jumbotron div .text-jumbotron h2.card-title {
+.jumbotron div .text-jumbotron h1.card-title {
     font-size: 4.3vw;
     color: #E6844C;
     font-family: 'Raleway', sans-serif;
@@ -129,11 +129,11 @@ body {
     margin-right: 7%;
 }
 
-.jumbotron div .text-jumbotron h2.card-title strong {
+.jumbotron div .text-jumbotron h1.card-title strong {
     border-bottom: 1px solid #E6844C;
 }
 
-.jumbotron div .text-jumbotron h2.card-title + p {
+.jumbotron div .text-jumbotron h1.card-title + p {
     font-family: 'Great Vibes', cursive;
     font-size: 3vw;
     font-weight: 100;
@@ -143,7 +143,7 @@ body {
     text-align: right;
 }
 
-.jumbotron div .text-jumbotron h2.card-title strong {
+.jumbotron div .text-jumbotron h1.card-title strong {
     text-align: right;
 }
 
@@ -162,7 +162,7 @@ section.container-fluid.contactForm {
 }
 
 .contactForm div.title-contactForm {
-    background-color: #8E8477;
+    background-color: #212121;
 }
 
 .contactForm div.title-contactForm, .contactForm div.text-contactForm {
@@ -177,7 +177,7 @@ section.container-fluid.contactForm {
     font-family: 'Raleway', sans-serif;
     text-align: center;
     margin-bottom: 0;
-    background-color: #8E8477;
+    background-color: #212121;
     color: #FAFAFA;
     font-size: 50px;
 }
@@ -231,6 +231,22 @@ section.container-fluid.contactForm {
 .card {
     border: #FAFAFA;
     background-color: #FAFAFA;
+    opacity:0;
+    animation: anim 1.5s linear forwards 0.1s;
+    transition-property: opacity;
+    transition-delay: 0.2s;
+}
+
+@keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+
+.dropdown-item {
+    opacity:0;
+    animation: anim 0.3s linear forwards;
+    transition-property: opacity;
+    transition-delay: 0s;
 }
 
 .card-text {
@@ -380,6 +396,8 @@ h2.price {
 .carousel .carousel-control-prev {
     opacity: 1;
     background-color: transparent;
+    filter: invert(40%);
+
 }
 
 .textSingleProduct {
@@ -406,7 +424,16 @@ h2.price {
 }
 
 .textSingleProduct p .fas, .textSingleProduct p .far {
-    color: #e6834c;
+    color: #824913;
+}
+
+
+.textSingleProduct p .fa-check {
+    color: green;
+}
+
+.textSingleProduct p .fa-times {
+    color: #ff193f;
 }
 
 .recommendedItems h2, .recommendedItems h3 {
@@ -461,7 +488,7 @@ h2.price {
     font-family: 'Raleway', sans-serif;
     text-align: center;
     margin-bottom: 0;
-    background-color: #8E8477;
+    background-color: #212121;
     color: #FAFAFA;
     font-size: 50px;
 }
@@ -532,3 +559,52 @@ h6 {
 }
 /**End ADMIN **/
 
+
+.row {
+    margin: 15px;
+}
+
+/*** Bandeau Vendu ***/
+
+.corner-ribbon{
+    width: 100px;
+    background: #cc322e;
+    position: absolute;
+    top: 25px;
+    left: -50px;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+/* Custom styles */
+
+/*.corner-ribbon.sticky{*/
+/*    position: fixed;*/
+/*}*/
+
+.corner-ribbon.shadow{
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.corner-ribbon.top-right{
+    top: 10px;
+    right: -15px;
+    left: auto;
+    transform: rotate(23deg);
+    -webkit-transform: rotate(23deg);
+    position: absolute;
+    overflow: hidden;
+}
+
+/* Colors */
+
+.corner-ribbon.red {background: #e43;}
+
+
+/*** End of Bandeau Vendu ***/

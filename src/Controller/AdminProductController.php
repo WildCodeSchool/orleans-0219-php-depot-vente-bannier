@@ -80,11 +80,16 @@ class AdminProductController extends AbstractController
             if (empty($data['date_added'])) {
                 $errors['date_added'] = 'veuillez choisir une date';
             } else {
-                $date = DateTime::createFromFormat('Y-m-d', $data['date_added']);
-                if ($date === false) {
+                $dateAdded = DateTime::createFromFormat('Y-m-d', $data['date_added']);
+                if ($dateAdded === false) {
                     $errors['date_added'] = 'Veuillez choisir une date';
                 }
             }
+            $dateSaled = DateTime::createFromFormat('Y-m-d', $data['date_saled']);
+            if ($dateSaled === false) {
+                $errors['date_Saled'] = 'Veuillez choisir une date';
+            }
+
             if (isset($data['ahead'])) {
                 $data['ahead'] = 1;
             } else {

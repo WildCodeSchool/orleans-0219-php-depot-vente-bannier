@@ -50,7 +50,8 @@ class ProductManager extends AbstractManager
      */
     public function showAllWithPictures(): array
     {
-        $query = "SELECT DISTINCT pr.id, pr.name, pr.price,  pr.description, pr.ahead ,min(pi.name) AS picture 
+        $query = "SELECT DISTINCT pr.id, pr.name, pr.price,pr.date_saled,
+                    pr.description, pr.ahead ,min(pi.name) AS picture 
                     FROM $this->table pr
                     JOIN picture pi ON pi.product_id = pr.id
                     GROUP BY pr.id
@@ -87,7 +88,7 @@ class ProductManager extends AbstractManager
                     ahead, DATE_FORMAT(product.date_added, \"%d/%m/%Y\") AS date_added,
                     DATE_FORMAT(product.date_saled, \"%d/%m/%Y\") AS date_saled, category.name as category
                     FROM $this->table
-                   INNER JOIN category
+                    INNER JOIN category
                     ON product.categories_id = category.id
                     WHERE product.id = $id";
         return $this->pdo->query($query)->fetchAll();
@@ -119,9 +120,9 @@ class ProductManager extends AbstractManager
 
         $query = "INSERT INTO $this->table 
                 (`name`, `categories_id`, `description`, `price`, 
-                `date_added`, `ahead`)
+                `date_added`,`date_saled`, `ahead`)
                 VALUES (:name, :categories_id, :description, :price, 
-                :date_added, :ahead)";
+                :date_added, :date_saled, :ahead)";
 
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('name', $data['name'], \PDO::PARAM_STR);
@@ -129,6 +130,7 @@ class ProductManager extends AbstractManager
         $statement->bindValue('description', $data['description'], \PDO::PARAM_STR);
         $statement->bindValue('price', $data['price'], \PDO::PARAM_STR);
         $statement->bindValue('date_added', $data['date_added'], \PDO::PARAM_STR);
+        $statement->bindValue('date_saled', $data['date_saled'], \PDO::PARAM_STR);
         $statement->bindValue('ahead', $data['ahead'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
@@ -179,7 +181,7 @@ class ProductManager extends AbstractManager
                     FROM picture
                     INNER JOIN product ON picture.product_id = product.id
                     INNER JOIN category ON product.categories_id = category.id
-                    WHERE categories_id = 1
+                    WHERE categories_id = $id
                     ORDER BY RAND()
                     LIMIT 3";
         return $this->pdo->query($query)->fetchAll();

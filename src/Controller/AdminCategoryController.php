@@ -52,4 +52,19 @@ class AdminCategoryController extends AbstractController
             }
         }
     }
+
+    /**
+     *
+     * Delete category from bdd
+     */
+    public function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $categoryManager = new CategoryManager();
+            $categoryManager->delete($id);
+
+            header('location: /adminCategory/list');
+        }
+    }
 }
