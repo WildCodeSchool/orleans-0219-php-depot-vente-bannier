@@ -454,9 +454,21 @@ h2.price {
 }
 
 .overlay {
-    color: white;
-    font-size: 3vw;
-    text-align: center;
+    position: absolute;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .9;
+}
+
+.overlay-img {
+    position: absolute;
+    z-index: 1000;
 }
 
 /******End of Single Product******/

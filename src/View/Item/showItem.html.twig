@@ -16,6 +16,9 @@
                 {% for key, image in itemImages %}
                     <div class="carousel-item position-relative {% if key == 0 %} active {% endif %}">
                         <img src="{{ image.name }}" class="img-thumbnail w-100" alt="depot-vente">
+                        <div class="overlay {{ items[0].date_saled is null ?  'd-none'}}">
+                            <img class="overlay-img w-25" alt="vendu" src="http://www.crashcars93.com/modules/catalogue_etendu_15/views/navigate/customs/default/vendu.png" >
+                        </div>
                     </div>
                 {% endfor %}
             </div>
@@ -33,8 +36,7 @@
                 <h2 class="price">{{ items[0].price }}€</h2>
             </div>
             <div class="textSingleProduct">
-                <p>{{ items[0].date_saled }}</p>
-                <p>{{ date_saled is null ? '<i class="fas fa-check"></i> Disponible' : '<i class="fas fa-times"></i> Vendu' }} </p>
+                <p>{% if items[0].date_saled is null %} <i class="fas fa-check"></i> Disponible  {% else %} <i class="fas fa-times"></i> Vendu le {{ items[0].date_saled }} {% endif %}</p>
                 <p><i class="fas fa-tag"></i> {{ items[0].category }}</p>
                 <p><i class="far fa-calendar-alt"></i> En magasin depuis le {{ items[0].date_added }}</p>
                 <p><i class="far fa-eye"></i> Ce produit vous intéresse ?</p>
