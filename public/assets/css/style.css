@@ -179,15 +179,6 @@ section.container-fluid.contactForm {
     border: 1px solid #212121;
 }
 
-.contactForm div div button {
-    margin: 40px;
-    color: black;
-}
-
-.contactForm div div button.btn:hover {
-    background-color: #8E8477;
-}
-
 .text-danger {
     width: -webkit-fill-available;
     width: -moz-available;

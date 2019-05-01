@@ -1,14 +1,15 @@
 <!--Card -->
 
-<div class="card col-lg-4 col-md-6 col-sm-8 mx-auto">
+<div class="card col-lg-4 col-md-5 col-sm-8 mx-auto">
     <div class="border-card">
         <div class="card-body text-center">
             <div class="card-img">
                 <img class="img-thumbnail" src="{{ product.picture }}" alt=""/>
                 <hr class="horizontaleligne mb-3">
-                <h5 class="card-title mb-4">{{ product.name }} </h5>
+                <h5 class="card-title mb-4">{{ product.name }}</h5>
                 <p class="text">{{ product.price }} €</p>
-                <a href="/item/show/{{ product.id }}" class="btn btn-outline-secondary btn-lg allbuton">+ d'infos</a>
+                <a href="/item/show/{{ product.id }}" class="btn btn-dark justify-content-center">+ d'infos</a>
             </div>
-         </div>
+        </div>
     </div>
+<div>
