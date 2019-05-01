@@ -118,4 +118,20 @@ class AdminProductController extends AbstractController
         $categories = $categoryManager->selectAllByAsc();
         return $this->twig->render('Admin/add.html.twig', ['categories' => $categories, 'post' => true]);
     }
+
+    /**
+     *
+     * Delete product from bdd
+     */
+    public function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $pictureManager = new PictureManager();
+            $pictureManager->delete($id);
+            $productManager = new ProductManager();
+            $productManager->delete($id);
+            header('location: /adminProduct/list');
+        }
+    }
 }

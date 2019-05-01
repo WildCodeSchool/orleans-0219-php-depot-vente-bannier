@@ -28,6 +28,24 @@ class PictureManager extends AbstractManager
     }
 
     /**
+     * Delete pictures from BDD and local path
+     *
+     * @param int $id
+     */
+    public function delete(int $id): void
+    {
+        $path = '../public';
+        $query = "SELECT name FROM $this->table WHERE `product_id`=$id";
+        $picturesToDelete = $this->pdo->query($query)->fetchAll();
+        foreach ($picturesToDelete as $key => $picture) {
+            unlink($path . $picture['name']);
+        }
+        $query = "DELETE FROM $this->table WHERE `product_id`=$id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+    }
+
+    /**
      * Upload product's pictures in DIR
      * @param array $files
      * @return array

@@ -138,6 +138,19 @@ class ProductManager extends AbstractManager
     }
 
     /**
+     * Delete product from BDD
+     *
+     * @param int $id
+     */
+    public function delete(int $id): void
+    {
+
+        $query = "DELETE FROM $this->table WHERE `id`=$id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+    }
+
+    /**
      * Select Products filtered by categories
      *
      * @param int $id
@@ -145,7 +158,7 @@ class ProductManager extends AbstractManager
      */
     public function productsFilteredByCategories(int $id): array
     {
-        $query = "SELECT product.* ,picture.name AS picture ,category.name AS categories
+        $query = "SELECT pr.*, pi.name AS picture, ca.name AS categories
 	                FROM $this->table pr
 	                JOIN picture pi ON pi.product_id = pr.id
 	                JOIN category ca ON pr.categories_id = ca.id
