@@ -1,19 +1,14 @@
 <!--Card -->
 
-
-    <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
-        <div class="border-card">
-            <div class="card-body text-center">
-                <div class="card-img ">
-                    <div class="position-relative">
-                        {% if product.date_saled is not null  %} <div class="corner-ribbon top-right sticky">Vendu</div> {% endif %}
-                        <img class="img-thumbnail" src="{{ product.picture }}" alt=""/>
-                    </div>
-                    <hr class="horizontaleligne mb-3">
-                    <h5 class="card-title mb-4">{{ product.name }} </h5>
-                    <p class="text">{{ product.price }} €</p>
-                    <a href="/item/show/{{ product.id }}" class="btn btn-outline-secondary btn-lg allbuton">+ d'infos</a>
-                </div>
+<div class="card col-lg-4 col-md-6 col-sm-8 mx-auto">
+    <div class="border-card">
+        <div class="card-body text-center">
+            <div class="card-img">
+                <img class="img-thumbnail" src="{{ product.picture }}" alt=""/>
+                <hr class="horizontaleligne mb-3">
+                <h5 class="card-title mb-4">{{ product.name }} </h5>
+                <p class="text">{{ product.price }} €</p>
+                <a href="/item/show/{{ product.id }}" class="btn btn-outline-secondary btn-lg allbuton">+ d'infos</a>
             </div>
          </div>
     </div>
