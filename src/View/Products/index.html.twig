@@ -9,15 +9,15 @@
     
     <section class="container">
     
-        <form method="get" action="/Product/list/">
-            <select name="category" class="form-control text-align-center">
+        <form method="get" action="/Product/list/" id="categoriesForm">
+            <select name="category" class="form-control text-align-center"
+                    onChange="document.getElementById('categoriesForm').submit()">
                 <option value="" selected>Tous nos produits</option>
                 {% for category in categories %}
                     <option value="{{ category.id }}" {% if category.id is same as(products[0].categories_id) %}
                     selected {% endif %}>{{ category.name }}</option>
                 {% endfor %}
             </select>
-            <input type="submit">
         </form>
 
         <div class="row">

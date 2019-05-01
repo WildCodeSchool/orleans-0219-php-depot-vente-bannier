@@ -85,9 +85,10 @@ class ProductManager extends AbstractManager
     public function showAllById($id): array
     {
         $query = "SELECT product.id, product.name, product.price,  product.description,
-                    ahead, product.date_added, product.date_saled, product.categories_id, category.name as category
+                    ahead, DATE_FORMAT(product.date_added, \"%d/%m/%Y\") AS date_added,
+                    DATE_FORMAT(product.date_saled, \"%d/%m/%Y\") AS date_saled, category.name as category
                     FROM $this->table
-                   INNER JOIN category
+                    INNER JOIN category
                     ON product.categories_id = category.id
                     WHERE product.id = $id";
         return $this->pdo->query($query)->fetchAll();
@@ -184,5 +185,24 @@ class ProductManager extends AbstractManager
                     ORDER BY RAND()
                     LIMIT 3";
         return $this->pdo->query($query)->fetchAll();
+    }
+
+    public function update(array $data)
+    {
+
+        $query = "UPDATE $this->table SET `name` = :name, `categories_id` = :categories_id, 
+                  `description` = :description, `price` = :price, `date_added` = :date_added, `ahead` = :ahead
+                  WHERE `id` = :id";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('name', $data['name'], \PDO::PARAM_STR);
+        $statement->bindValue('categories_id', $data['categories_id'], \PDO::PARAM_STR);
+        $statement->bindValue('description', $data['description'], \PDO::PARAM_STR);
+        $statement->bindValue('price', $data['price'], \PDO::PARAM_STR);
+        $statement->bindValue('date_added', $data['date_added'], \PDO::PARAM_STR);
+        $statement->bindValue('ahead', $data['ahead'], \PDO::PARAM_STR);
+        $statement->bindValue('id', $data['id'], \PDO::PARAM_STR);
+
+        $statement->execute();
     }
 }

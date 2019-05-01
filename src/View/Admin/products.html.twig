@@ -29,7 +29,7 @@
                     <td>{% if product.date_saled is not null %}{{ product.date_saled|date("d/m/y") }}
                         {% endif %}</td>
                     <td>{% if product.ahead is same as ('1') %}<img src="/assets/images/ahead-filled.png">{% endif %} </td>
-                    <td><a href="/adminProduct/update"><img src="/assets/images/edit-filled.png"></a></td>
+                    <td><a href="/adminProduct/update/{{ product.id }}"><img src="/assets/images/edit-filled.png"></a></td>
                     <form method="post" action="/AdminProduct/delete/">
                         <td>
                             <input class="deleteBTN" type="submit" value="{{ product.id }}" name="id"
