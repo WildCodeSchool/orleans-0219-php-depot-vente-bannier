@@ -1,10 +1,27 @@
 <!--Card -->
 <div class="col-lg-4 col-md-6 col-sm-8 text-center">
-    <div class="card card--z-1">
-        <img class="img-thumbnail" src="{{ product.picture }}" alt=""/>
-        <hr class="horizontalelignemb-3">
-        <h5 class="card-title mb-4">{{ product.name }}</h5>
-        <p class="text">{{ product.price }} €</p>
-        <a href="/item/show/{{ product.id }}" class="btn btn-dark justify-content-center">+ d'infos</a>
-    </div>
+    <ul class="cards clearfix">
+        <li>
+            <figure class="product-card">
+                <a href="/item/show/{{ product.id }}">
+                    <img class="product-card-img" src="{{ product.picture }}"/>
+                    <figcaption>
+                        <h5 class="product-card-title">{{ product.name }}</h5>
+                        <p>Lorem ipsum dolor sit amet, nisl rebum moderatius ut pri, ius te dico exerci, legimus facilis
+                            expetendis</p>
+                        <p class="product-card-address">
+                            <i class="fa fa-map-marker"></i>Dépôt-Vente Bannier
+                        </p>
+                        <div class="product-card-price">
+                            <s class="original-price">{{ product.price }} €</s>
+                        </div>
+                    </figcaption>
+                </a>
+            </figure>
+            <div class="text-center">
+                <a href="/item/show/{{ product.id }}" class="btn btn-dark">+ d'infos</a>
+            </div>
+        </li>
+    </ul>
 </div>
+
