@@ -13,8 +13,8 @@
             </div>
         </div>
     </section>
-    <h2 class="titleheadband">Nos articles tendances</h2>
-    <section class="container">
+    <section>
+        <h2 class="titleheadband">Nos articles tendances</h2>
         <div class="row">
             {% for product in products if product.ahead == 1 %}
                 {% include 'Item/_card.html.twig' %}
