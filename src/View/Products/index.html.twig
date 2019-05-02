@@ -8,23 +8,46 @@
     <div class="col-12 m-5 mx-auto text-center"><i>-- {{ products|length }} produits trouvés</i></div>
     
     <section class="container">
+
     
-        <form method="get" action="/Product/list/" id="categoriesForm">
+        <form method="get" action="/Product/list/" id="categoriesForm" class="form-group col-md-8 m-auto">
             <select name="category" class="form-control text-align-center"
                     onChange="document.getElementById('categoriesForm').submit()">
                 <option value="" selected>Tous nos produits</option>
                 {% for category in categories %}
-                    <option value="{{ category.id }}" {% if category.id is same as(products[0].categories_id) %}
+                    <option value="{{ category.id }}" {% if category.id is same as (products[0].categories_id) %}
                     selected {% endif %}>{{ category.name }}</option>
                 {% endfor %}
             </select>
+            <div class="form-group form-row mt-3 mb-5">
+
+                <div class="form-group col-md-3">
+                    <select class="form-control" name="sortBy">
+                        <option value="">Trier par... </option>
+                        <option value="ascPrice">Prix &#8599;</option>
+                        <option value="descPrice">Prix &#8600;</option>
+                        <option value="ascDateAdded">Plus recents</option>
+                        <option value="descDateAdded">Plus anciens</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-7">
+                    <input type="search" class="form-control" id="search" name="request" value="" placeholder="&#128270; Votre recherche ici...">
+                </div>
+                <div class="form-group col-md-2 justify-content-center align-item-center">
+                    <input class="btn btn-outline-secondary w-100" name="search" type="submit" value="Rechercher"/>
+                </div>
+            </div>
         </form>
 
-        <div class="row">
+        <hr class="border mb-5">
+
+        <div class="row mt-5">
             {% for product in products %}
                 {% include 'Item/_card.html.twig' %}
             {% endfor %}
       </div>
     </section>
+
 
 {% endblock %}

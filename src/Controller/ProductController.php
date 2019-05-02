@@ -26,21 +26,15 @@ class ProductController extends AbstractController
     {
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllByAsc();
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['category'])) {
-            $id = $_GET['category'];
-            $productManager = new ProductManager();
-            $products = $productManager->productsFilteredByCategories($id);
-            $categorySelected = $categoryManager->selectOneById($id);
-            return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
-                'products' => $products,'category' => $categorySelected]);
-        }
-
+        $products = null;
+        $id = $_GET['category'] ?? null;
+        $search = $_GET['request'] ?? null;
+        $sort = $_GET['sortBy'] ?? null;
         $productManager = new ProductManager();
-        $products = $productManager->showAllWithPictures();
+        $products = $productManager->productsFiltered($id, $search, $sort);
 
         return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
-            'products' => $products,]);
+            'products' => $products]);
     }
 
     /**
