@@ -15,14 +15,16 @@
     </section>
     <section>
         <h2 class="titleheadband">Nos articles tendances</h2>
-        <div class="row">
-            {% for product in products if product.ahead == 1 %}
-                {% include 'Item/_card.html.twig' %}
-            {% endfor %}
-        </div>
-        <div class="form-group row d-flex justify-content-center mt-5 mb-0 ">
-            <a href="/product/list/" class="btn btn-dark justify-content-center">
-                Tous nos produits</a>
+        <div class="container pb-4">
+            <div class="row">
+                {% for product in products if product.ahead == 1 %}
+                    {% include 'Item/_card.html.twig' %}
+                {% endfor %}
+                <div class="form-group row mx-auto mt-5">
+                    <a href="/product/list/" class="btn btn-dark justify-content-center">
+                        Tous nos produits</a>
+                </div>
+            </div>
         </div>
     </section>
 
