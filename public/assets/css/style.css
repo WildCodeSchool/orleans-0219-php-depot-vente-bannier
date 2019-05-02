@@ -85,7 +85,7 @@ body {
     transition: 0.1s, 0.5s;
 }
 
-.navbar-link button:hover , .navbar-link a:hover{
+.navbar-link button:hover, .navbar-link a:hover {
     transition: 0.1s, 0.5s;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -208,19 +208,23 @@ section.container-fluid.contactForm {
 .card {
     border: #FAFAFA;
     background-color: #FAFAFA;
-    opacity:0;
+    opacity: 0;
     animation: anim 1.5s linear forwards 0.1s;
     transition-property: opacity;
     transition-delay: 0.2s;
 }
 
 @keyframes anim {
-    0%  {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .dropdown-item {
-    opacity:0;
+    opacity: 0;
     animation: anim 0.3s linear forwards;
     transition-property: opacity;
     transition-delay: 0s;
@@ -248,7 +252,7 @@ h2:nth-child(even) {
     padding-bottom: 80px;
 }
 
-.border-card{
+.border-card {
     border: solid #212121 1px;
 }
 
@@ -257,18 +261,33 @@ h2:nth-child(even) {
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
 }
-.horizontaleligne{
+
+.horizontaleligne {
     margin: 1px auto;
     width: 50%;
     height: 1px;
     background-color: #212121;
 }
+
 .card-title {
     font-weight: bold;
     margin: 1px auto;
 }
 
 /**end cards**/
+/** OpenMaps **/
+
+.homeFrame {
+    width: 100%;
+    height: 400px;
+}
+
+.footerFrame {
+    width: 100%;
+    height: 250px;
+    }
+
+/** end of OpenMaps **/
 
 /******Footer******/
 .logo_footer {
@@ -453,7 +472,7 @@ h2.price {
 
 /******End of Single Product******/
 
-.titleheadband{
+.titleheadband {
     padding-top: 40px;
     padding-bottom: 40px;
     font-family: 'Great Vibes', cursive;
@@ -493,10 +512,11 @@ h6 {
 
 /**End faq**/
 
-.allbuton.btn:hover{
+.allbuton.btn:hover {
     background-color: #8E8477;
 }
-.allbuton{
+
+.allbuton {
     margin: 40px;
     color: black;
 }
@@ -522,6 +542,7 @@ h6 {
     cursor: pointer;
     color: transparent;
 }
+
 /**End ADMIN **/
 
 
@@ -531,7 +552,7 @@ h6 {
 
 /*** Bandeau Vendu ***/
 
-.corner-ribbon{
+.corner-ribbon {
     width: 100px;
     background: #cc322e;
     position: absolute;
@@ -551,13 +572,13 @@ h6 {
 /*    position: fixed;*/
 /*}*/
 
-.corner-ribbon.shadow{
-    box-shadow: 0 0 3px rgba(0,0,0,.3);
+.corner-ribbon.shadow {
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
 }
 
 /* Different positions */
 
-.corner-ribbon.top-right{
+.corner-ribbon.top-right {
     top: 10px;
     right: -15px;
     left: auto;
@@ -569,7 +590,9 @@ h6 {
 
 /* Colors */
 
-.corner-ribbon.red {background: #e43;}
+.corner-ribbon.red {
+    background: #e43;
+}
 
 
 /*** End of Bandeau Vendu ***/
