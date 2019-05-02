@@ -60,16 +60,30 @@
                 <h3>{{ items[0].category }}</h3>
             </div>
             {% for itemRandom in itemsRandom %}
-            <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
-                <div class="card-body text-center">
-                    <div class="card-img">
-                        <img class="img-thumbnail" src="{{ itemRandom['image'] }}" alt=""/>
-                    </div>
-                    <h5 class="card-title">{{ itemRandom['name'] }} </h5>
-                    <p class="text">{{ itemRandom['price'] }}€</p>
-                    <a href="/products/show/{{ itemRandom['id'] }}" class="btn btn-info">+ d'infos</a>
+                <div class="col-lg-4 col-md-7 col-sm-8 text-center">
+                    <ul class="cards clearfix pl-0">
+                        <li class="mr-0 mb-0">
+                            <figure class="product-card">
+                                <a href="/item/show/{{ itemRandom['id'] }}">
+                                    <img class="product-card-img" src="{{ itemRandom['image'] }}"/>
+                                    <dev>
+                                        <div class="horizontaleligne mt-4"></div>
+                                        <h5 class="product-card-title mt-3">{{ itemRandom['name'] }}</h5>
+                                        <p class="product-card-address mt-3">
+                                            <i class="fa fa-map-marker"></i>Dépôt-Vente Bannier
+                                        </p>
+                                        <div class="mt-5">
+                                            <p class="pricecard">{{ itemRandom['price'] }} €</p>
+                                        </div>
+                                    </dev>
+                                </a>
+                            </figure>
+                            <div class="text-center">
+                                <a href="/item/show/{{ itemRandom['id'] }}" class="btn btn-dark">+ d'infos</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>
             {% endfor %}
     </section>
 {% endblock %}
