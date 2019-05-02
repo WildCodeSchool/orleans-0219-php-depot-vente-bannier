@@ -6,7 +6,7 @@
     <h1 class="text-center mt-5 mb-3">Ajout de produit</h1>
     {% if post %}<h2 class="text-center mt-5 mb-3">Votre produit à été enregistré</h2>{% endif %}
     <section class="container">
-        <form class="form-row" action="/adminProduct/update" enctype="multipart/form-data" method="post">
+        <form class="form-row" action="" enctype="multipart/form-data" method="post">
             {% if id is not null %}
             <input hidden id="id" name="id" value="{{ id }}">
             {% endif %}
