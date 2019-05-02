@@ -85,9 +85,13 @@ class AdminProductController extends AbstractController
                     $errors['date_added'] = 'Veuillez choisir une date';
                 }
             }
-            $dateSaled = DateTime::createFromFormat('Y-m-d', $data['date_saled']);
-            if ($dateSaled === false) {
-                $errors['date_Saled'] = 'Veuillez choisir une date';
+            if (empty($data['date_saled'])) {
+                $data['date_saled'] = null;
+            } else {
+                $dateSaled = DateTime::createFromFormat('Y-m-d', $data['date_saled']);
+                if ($dateSaled === false) {
+                    $errors['date_Saled'] = 'Veuillez choisir une date';
+                }
             }
 
             if (isset($data['ahead'])) {
@@ -184,6 +188,14 @@ class AdminProductController extends AbstractController
                 $date = DateTime::createFromFormat('Y-m-d', $data['date_added']);
                 if ($date === false) {
                     $errors['date_added'] = 'Veuillez choisir une date';
+                }
+            }
+            if (empty($data['date_saled'])) {
+                $data['date_saled'] = null;
+            } else {
+                $dateSaled = DateTime::createFromFormat('Y-m-d', $data['date_saled']);
+                if ($dateSaled === false) {
+                    $errors['date_Saled'] = 'Veuillez choisir une date';
                 }
             }
             if (isset($data['ahead'])) {

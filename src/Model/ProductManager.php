@@ -191,7 +191,8 @@ class ProductManager extends AbstractManager
     {
 
         $query = "UPDATE $this->table SET `name` = :name, `categories_id` = :categories_id, 
-                  `description` = :description, `price` = :price, `date_added` = :date_added, `ahead` = :ahead
+                  `description` = :description, `price` = :price, `date_added` = :date_added,
+                   `date_saled` = :date_saled, `ahead` = :ahead
                   WHERE `id` = :id";
 
         $statement = $this->pdo->prepare($query);
@@ -200,6 +201,7 @@ class ProductManager extends AbstractManager
         $statement->bindValue('description', $data['description'], \PDO::PARAM_STR);
         $statement->bindValue('price', $data['price'], \PDO::PARAM_STR);
         $statement->bindValue('date_added', $data['date_added'], \PDO::PARAM_STR);
+        $statement->bindValue('date_saled', $data['date_saled'], \PDO::PARAM_STR);
         $statement->bindValue('ahead', $data['ahead'], \PDO::PARAM_STR);
         $statement->bindValue('id', $data['id'], \PDO::PARAM_STR);
 
