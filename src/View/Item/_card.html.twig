@@ -1,21 +1,20 @@
 <!--Card -->
-<div class="col-lg-4 col-md-6 col-sm-8 text-center">
-    <ul class="cards clearfix">
-        <li>
+<div class="col-lg-4 col-md-7 col-sm-8 text-center">
+    <ul class="cards clearfix pl-0">
+        <li class="mr-0 mb-0">
             <figure class="product-card">
                 <a href="/item/show/{{ product.id }}">
                     <img class="product-card-img" src="{{ product.picture }}"/>
-                    <figcaption>
-                        <h5 class="product-card-title">{{ product.name }}</h5>
-                        <p>Lorem ipsum dolor sit amet, nisl rebum moderatius ut pri, ius te dico exerci, legimus facilis
-                            expetendis</p>
-                        <p class="product-card-address">
+                    <dev>
+                        <div class="horizontaleligne mt-4"></div>
+                        <h5 class="product-card-title mt-3">{{ product.name }}</h5>
+                        <p class="product-card-address mt-3">
                             <i class="fa fa-map-marker"></i>Dépôt-Vente Bannier
                         </p>
-                        <div class="product-card-price">
-                            <s class="original-price">{{ product.price }} €</s>
+                        <div class="mt-5">
+                            <p class="pricecard">{{ product.price }} €</p>
                         </div>
-                    </figcaption>
+                    </dev>
                 </a>
             </figure>
             <div class="text-center">
