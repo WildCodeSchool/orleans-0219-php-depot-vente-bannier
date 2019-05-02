@@ -32,8 +32,7 @@
                     <div class="col-12 col-sm-6">
                         <label for="name"></label>
                         <div class="input-group">
-                            <select class="form-control mt-6" id="civility" name="civility"
-                                    value="{{ data.civility }}" required>
+                            <select class="form-control mt-6" id="civility" name="civility" required>
                                 <option value="">Mme / Mr.</option>
                                 <option {% if data.select_form == 'Mme.' %}selected {% endif %} value="Mme.">Mme.
                                 </option>
