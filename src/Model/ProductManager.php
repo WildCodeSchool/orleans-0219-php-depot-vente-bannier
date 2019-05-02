@@ -176,7 +176,7 @@ class ProductManager extends AbstractManager
      */
     public function showRandom(int $id): array
     {
-        $query = "SELECT product.name, picture.name AS image, product.description,
+        $query = "SELECT product.name, picture.name AS image, product.description, product.id, 
                     product.price, product.date_saled, category.name AS category
                     FROM picture
                     INNER JOIN product ON picture.product_id = product.id
