@@ -80,11 +80,20 @@ class AdminProductController extends AbstractController
             if (empty($data['date_added'])) {
                 $errors['date_added'] = 'veuillez choisir une date';
             } else {
-                $date = DateTime::createFromFormat('Y-m-d', $data['date_added']);
-                if ($date === false) {
+                $dateAdded = DateTime::createFromFormat('Y-m-d', $data['date_added']);
+                if ($dateAdded === false) {
                     $errors['date_added'] = 'Veuillez choisir une date';
                 }
             }
+            if (empty($data['date_saled'])) {
+                $data['date_saled'] = null;
+            } else {
+                $dateSaled = DateTime::createFromFormat('Y-m-d', $data['date_saled']);
+                if ($dateSaled === false) {
+                    $errors['date_Saled'] = 'Veuillez choisir une date';
+                }
+            }
+
             if (isset($data['ahead'])) {
                 $data['ahead'] = 1;
             } else {
@@ -133,5 +142,77 @@ class AdminProductController extends AbstractController
             $productManager->delete($id);
             header('location: /adminProduct/list');
         }
+    }
+
+    /**
+     *
+     * Update products from BDD
+     *
+     * @param int $id
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function update(int $id = 0)
+    {
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAllByAsc();
+        $data = [];
+        $errors = [];
+
+        $productManager = new ProductManager();
+        $data = $productManager->selectOneById($id);
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $validCategories = array_column($categories, 'id');
+            $cleanData = new CleanData();
+            $data = $cleanData->dataCleaner($_POST);
+
+            if (empty($data['name'])) {
+                $errors['name'] = 'Veuillez indiquer le nom du produit';
+            }
+            if (empty($data['categories_id']) || !in_array($data['categories_id'], $validCategories)) {
+                $errors['categories_id'] = 'Veuillez choisir une categorie';
+            }
+            if (empty($data['description'])) {
+                $errors['description'] = 'veuillez donner une description au produit';
+            }
+            if (empty($data['price']) || $data['price'] < 0) {
+                $errors['price'] = 'veuillez donner un prix au produit';
+            }
+            if (empty($data['date_added'])) {
+                $errors['date_added'] = 'veuillez choisir une date';
+            } else {
+                $date = DateTime::createFromFormat('Y-m-d', $data['date_added']);
+                if ($date === false) {
+                    $errors['date_added'] = 'Veuillez choisir une date';
+                }
+            }
+            if (empty($data['date_saled'])) {
+                $data['date_saled'] = null;
+            } else {
+                $dateSaled = DateTime::createFromFormat('Y-m-d', $data['date_saled']);
+                if ($dateSaled === false) {
+                    $errors['date_Saled'] = 'Veuillez choisir une date';
+                }
+            }
+            if (isset($data['ahead'])) {
+                $data['ahead'] = 1;
+            } else {
+                $data['ahead'] = 0;
+            }
+
+            if (empty($errors)) {
+                $productManager = new ProductManager();
+                $productManager->update($data);
+                header('location: /AdminProduct/list');
+                exit();
+            }
+        }
+
+        return $this->twig->render('Admin/add.html.twig', ['categories' => $categories,
+            'data' => $data, 'errors' => $errors, 'id' => $id]);
     }
 }

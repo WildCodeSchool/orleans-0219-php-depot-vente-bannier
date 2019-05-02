@@ -1,40 +1,43 @@
 {% extends 'visitorLayout.html.twig' %}
-
+{% block title %}Notre produit{% endblock %}
 {% block content %}
-
 <section class="container">
     <div class="row justify-content-center">
         <div class="productTitle-product-page col-12">
             <h1>{{ items[0].name }}</h1>
         </div>
         <div id="carouselExampleIndicators" class="carousel slide col-12 col-md-6" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            </ol>
+           <ol class="carousel-indicators">
+                    {% for key, image in itemImages %}
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ image.id }}" {% if key == 0 %}
+                            class="active"{% endif %}></li>
+                    {% endfor %}
+             </ol>
             <div class="carousel-inner">
                 {% for key, image in itemImages %}
-                    <div class="carousel-item {% if key == 0 %} active {% endif %}">
-                        <img src="{{ image.name }}" class="img-thumbnail w-100" alt="depot-vente">
+                    <div class="carousel-item position-relative {% if key == 0 %} active {% endif %}">
+                        <img src="/{{ image.name }}" class="img-thumbnail w-100" alt="depot-vente">
+                        <div class="overlay {{ items[0].date_saled is null ?  'd-none'}}">
+                            <img class="overlay-img w-25" alt="vendu" src="http://www.crashcars93.com/modules/catalogue_etendu_15/views/navigate/customs/default/vendu.png" >
+                        </div>
                     </div>
                 {% endfor %}
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         <div class="col-12 col-md-5">
             <div>
                 <h2 class="price">{{ items[0].price }}€</h2>
             </div>
             <div class="textSingleProduct">
-                <p>{{ items[0].date_saled }}</p>
-                <p>{{ date_saled is null ? '<i class="fas fa-check"></i> Disponible' : '<i class="fas fa-times"></i> Vendu' }} </p>
+                <p>{% if items[0].date_saled is null %} <i class="fas fa-check"></i> Disponible  {% else %} <i class="fas fa-times"></i> Vendu le {{ items[0].date_saled }} {% endif %}</p>
                 <p><i class="fas fa-tag"></i> {{ items[0].category }}</p>
                 <p><i class="far fa-calendar-alt"></i> En magasin depuis le {{ items[0].date_added }}</p>
                 <p><i class="far fa-eye"></i> Ce produit vous intéresse ?</p>
@@ -47,7 +50,8 @@
             <p>{{ items[0].description }}</p>
         </div>
     </div>
-</section>
+    </section>
+    
     <hr class="border">
     <section class="container">
         <div class="row justify-content-center">
@@ -56,16 +60,30 @@
                 <h3>{{ items[0].category }}</h3>
             </div>
             {% for itemRandom in itemsRandom %}
-            <div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
-                <div class="card-body text-center">
-                    <div class="card-img">
-                        <img class="img-thumbnail" src="{{ itemRandom['image'] }}" alt=""/>
-                    </div>
-                    <h5 class="card-title">{{ itemRandom['name'] }} </h5>
-                    <p class="text">{{ itemRandom['price'] }}€</p>
-                    <a href="/products/show/{{ itemRandom['id'] }}" class="btn btn-info">+ d'infos</a>
+                <div class="col-lg-4 col-md-7 col-sm-8 text-center">
+                    <ul class="cards clearfix pl-0">
+                        <li class="mr-0 mb-0">
+                            <figure class="product-card">
+                                <a href="/item/show/{{ itemRandom['id'] }}">
+                                    <img class="product-card-img" src="/{{ itemRandom['image'] }}">
+                                    <dev>
+                                        <div class="horizontaleligne mt-4"></div>
+                                        <h5 class="product-card-title mt-3">{{ itemRandom['name'] }}</h5>
+                                        <p class="product-card-address mt-3">
+                                            <i class="fa fa-map-marker"></i>Dépôt-Vente Bannier
+                                        </p>
+                                        <div class="mt-5">
+                                            <p class="pricecard">{{ itemRandom['price'] }} €</p>
+                                        </div>
+                                    </dev>
+                                </a>
+                            </figure>
+                            <div class="text-center">
+                                <a href="/item/show/{{ itemRandom['id'] }}" class="btn btn-dark">+ d'infos</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>
             {% endfor %}
     </section>
 {% endblock %}

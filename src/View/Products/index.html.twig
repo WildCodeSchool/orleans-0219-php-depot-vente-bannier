@@ -1,20 +1,24 @@
 {% extends 'visitorLayout.html.twig' %}
+
 {% block title %}Nos produits{% endblock %}
+
 {% block content %}
 
-    <h2 class="produits">{{ category ? category.name : 'Tous nos produits' }}</h2>
-
+    <h2 class="titleheadband">{{ category ? category.name : 'Tous nos produits' }}</h2>
+    <div class="col-12 m-5 mx-auto text-center"><i>-- {{ products|length }} produits trouvés</i></div>
+    
     <section class="container">
-        <form method="get" action="/Product/list/" class="form-group col-md-8 m-auto">
 
-            <select name="category" class="form-control text-align-center" onchange="location = this.value;">
-                <option value="">Tous nos produits</option>
+    
+        <form method="get" action="/Product/list/" id="categoriesForm" class="form-group col-md-8 m-auto">
+            <select name="category" class="form-control text-align-center"
+                    onChange="document.getElementById('categoriesForm').submit()">
+                <option value="" selected>Tous nos produits</option>
                 {% for category in categories %}
                     <option value="{{ category.id }}" {% if category.id is same as (products[0].categories_id) %}
                     selected {% endif %}>{{ category.name }}</option>
                 {% endfor %}
             </select>
-
             <div class="form-group form-row mt-3 mb-5">
 
                 <div class="form-group col-md-3">
@@ -35,7 +39,6 @@
                 </div>
             </div>
         </form>
-{#        <pre>{{ dump(data) }}</pre>#}
 
         <hr class="border mb-5">
 
@@ -43,8 +46,8 @@
             {% for product in products %}
                 {% include 'Item/_card.html.twig' %}
             {% endfor %}
-        </div>
-
+      </div>
     </section>
+
 
 {% endblock %}

@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Model\Connection;
 use App\utils\CleanData;
 use App\Model\CategoryManager;
 use App\Model\ProductManager;

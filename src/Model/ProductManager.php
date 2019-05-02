@@ -50,7 +50,8 @@ class ProductManager extends AbstractManager
      */
     public function showAllWithPictures(): array
     {
-        $query = "SELECT DISTINCT pr.id, pr.name, pr.price,  pr.description, pr.ahead ,min(pi.name) AS picture 
+        $query = "SELECT DISTINCT pr.id, pr.name, pr.price,pr.date_saled,
+                    pr.description, pr.ahead ,min(pi.name) AS picture 
                     FROM $this->table pr
                     JOIN picture pi ON pi.product_id = pr.id
                     GROUP BY pr.id
@@ -84,9 +85,10 @@ class ProductManager extends AbstractManager
     public function showAllById($id): array
     {
         $query = "SELECT product.id, product.name, product.price,  product.description,
-                    ahead, product.date_added, product.date_saled, category.name as category
+                    ahead, product.categories_id, DATE_FORMAT(product.date_added, \"%d/%m/%Y\") AS date_added,
+                    DATE_FORMAT(product.date_saled, \"%d/%m/%Y\") AS date_saled, category.name as category
                     FROM $this->table
-                   INNER JOIN category
+                    INNER JOIN category
                     ON product.categories_id = category.id
                     WHERE product.id = $id";
         return $this->pdo->query($query)->fetchAll();
@@ -118,9 +120,9 @@ class ProductManager extends AbstractManager
 
         $query = "INSERT INTO $this->table 
                 (`name`, `categories_id`, `description`, `price`, 
-                `date_added`, `ahead`)
+                `date_added`,`date_saled`, `ahead`)
                 VALUES (:name, :categories_id, :description, :price, 
-                :date_added, :ahead)";
+                :date_added, :date_saled, :ahead)";
 
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('name', $data['name'], \PDO::PARAM_STR);
@@ -128,6 +130,7 @@ class ProductManager extends AbstractManager
         $statement->bindValue('description', $data['description'], \PDO::PARAM_STR);
         $statement->bindValue('price', $data['price'], \PDO::PARAM_STR);
         $statement->bindValue('date_added', $data['date_added'], \PDO::PARAM_STR);
+        $statement->bindValue('date_saled', $data['date_saled'], \PDO::PARAM_STR);
         $statement->bindValue('ahead', $data['ahead'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
@@ -209,7 +212,7 @@ class ProductManager extends AbstractManager
      */
     public function showRandom(int $id): array
     {
-        $query = "SELECT product.name, picture.name AS image, product.description,
+        $query = "SELECT product.name, picture.name AS image, product.description, product.id, 
                     product.price, product.date_saled, category.name AS category
                     FROM picture
                     INNER JOIN product ON picture.product_id = product.id
@@ -218,5 +221,26 @@ class ProductManager extends AbstractManager
                     ORDER BY RAND()
                     LIMIT 3";
         return $this->pdo->query($query)->fetchAll();
+    }
+
+    public function update(array $data)
+    {
+
+        $query = "UPDATE $this->table SET `name` = :name, `categories_id` = :categories_id, 
+                  `description` = :description, `price` = :price, `date_added` = :date_added,
+                   `date_saled` = :date_saled, `ahead` = :ahead
+                  WHERE `id` = :id";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('name', $data['name'], \PDO::PARAM_STR);
+        $statement->bindValue('categories_id', $data['categories_id'], \PDO::PARAM_STR);
+        $statement->bindValue('description', $data['description'], \PDO::PARAM_STR);
+        $statement->bindValue('price', $data['price'], \PDO::PARAM_STR);
+        $statement->bindValue('date_added', $data['date_added'], \PDO::PARAM_STR);
+        $statement->bindValue('date_saled', $data['date_saled'], \PDO::PARAM_STR);
+        $statement->bindValue('ahead', $data['ahead'], \PDO::PARAM_STR);
+        $statement->bindValue('id', $data['id'], \PDO::PARAM_STR);
+
+        $statement->execute();
     }
 }

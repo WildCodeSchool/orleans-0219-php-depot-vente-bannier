@@ -12,6 +12,7 @@ namespace App\Controller;
 use App\Model\CategoryManager;
 use App\Model\ItemManager;
 use App\Model\ProductManager;
+use App\utils\CleanData;
 
 /**
  * Class ItemController
@@ -55,7 +56,7 @@ class ItemController extends AbstractController
         $productManager = new ProductManager();
         $items = $productManager->showAllById($id);
         $itemImages = $productManager->showProductImagesById($id);
-        $itemsRandom = $productManager->showRandom($id);
+        $itemsRandom = $productManager->showRandom($items[0]['categories_id']);
 
         return $this->twig->render(
             'Item/showItem.html.twig',

@@ -11,7 +11,7 @@ section.container-fluid {
 }
 
 body {
-    background-color: #FAFAFA;
+    background-image: url("/assets/images/backgroundbody.png");
 }
 
 /*****End of General Style****/
@@ -36,6 +36,7 @@ body {
 .logo_navbar {
     height: 50px;
     position: relative;
+    transform: rotate(354deg);
 }
 
 .logo_size {
@@ -72,7 +73,6 @@ body {
     padding: .25rem 0.5rem;
     font-size: 20px;
     color: #ffffff;
-    display:initial;
 
 }
 
@@ -81,11 +81,11 @@ body {
     column-rule: 2px dashed #555;
 }
 
-.navbar-link button {
+.navbar-link button, .navbar-link a {
     transition: 0.1s, 0.5s;
 }
 
-.navbar-link button:hover {
+.navbar-link button:hover, .navbar-link a:hover {
     transition: 0.1s, 0.5s;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -121,7 +121,7 @@ body {
     width: 55%;
 }
 
-.jumbotron div .text-jumbotron h2.card-title {
+.jumbotron div .text-jumbotron h1.card-title {
     font-size: 4.3vw;
     color: #E6844C;
     font-family: 'Raleway', sans-serif;
@@ -129,11 +129,11 @@ body {
     margin-right: 7%;
 }
 
-.jumbotron div .text-jumbotron h2.card-title strong {
+.jumbotron div .text-jumbotron h1.card-title strong {
     border-bottom: 1px solid #E6844C;
 }
 
-.jumbotron div .text-jumbotron h2.card-title + p {
+.jumbotron div .text-jumbotron h1.card-title + p {
     font-family: 'Great Vibes', cursive;
     font-size: 3vw;
     font-weight: 100;
@@ -143,7 +143,7 @@ body {
     text-align: right;
 }
 
-.jumbotron div .text-jumbotron h2.card-title strong {
+.jumbotron div .text-jumbotron h1.card-title strong {
     text-align: right;
 }
 
@@ -161,9 +161,6 @@ section.container-fluid.contactForm {
     padding-right: 0;
 }
 
-.contactForm div.title-contactForm {
-    background-color: #8E8477;
-}
 
 .contactForm div.title-contactForm, .contactForm div.text-contactForm {
     display: flex;
@@ -171,16 +168,6 @@ section.container-fluid.contactForm {
     align-content: center;
 }
 
-.contactForm div h2.contactNousAccueil {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #8E8477;
-    color: #FAFAFA;
-    font-size: 50px;
-}
 
 .contactForm div.text-contactForm p {
     padding: 80px 10% 0 10%;
@@ -190,15 +177,6 @@ section.container-fluid.contactForm {
 
 .contactForm textarea, .contactForm input.form-control, .contactForm select.form-control {
     border: 1px solid #212121;
-}
-
-.contactForm div div button {
-    margin: 40px;
-    color: black;
-}
-
-.contactForm div div button.btn:hover {
-    background-color: #8E8477;
 }
 
 .text-danger {
@@ -211,16 +189,6 @@ section.container-fluid.contactForm {
 /******End of Contact Form******/
 
 /****Card****/
-.nosarticletendance{
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
-}
 .img-thumbnail {
     height: 300px;
     width: 400px;
@@ -231,6 +199,26 @@ section.container-fluid.contactForm {
 .card {
     border: #FAFAFA;
     background-color: #FAFAFA;
+    opacity: 0;
+    animation: anim 1.5s linear forwards 0.1s;
+    transition-property: opacity;
+    transition-delay: 0.2s;
+}
+
+@keyframes anim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.dropdown-item {
+    opacity: 0;
+    animation: anim 0.3s linear forwards;
+    transition-property: opacity;
+    transition-delay: 0s;
 }
 
 .card-text {
@@ -239,23 +227,12 @@ section.container-fluid.contactForm {
     overflow: scroll;
 }
 
-h2:nth-child(even) {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
-}
-
 .container {
     padding-top: 80px;
     padding-bottom: 80px;
 }
 
-.border-card{
+.border-card {
     border: solid #212121 1px;
 }
 
@@ -264,22 +241,33 @@ h2:nth-child(even) {
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
 }
-.horizontaleligne{
+
+.horizontaleligne {
     margin: 1px auto;
     width: 50%;
     height: 1px;
     background-color: #212121;
 }
+
 .card-title {
     font-weight: bold;
     margin: 1px auto;
 }
 
-body {
-    background-color: #FAFAFA;
+/**end cards**/
+/** OpenMaps **/
+
+.homeFrame {
+    width: 100%;
+    height: 400px;
 }
 
-/**end cards**/
+.footerFrame {
+    width: 100%;
+    height: 250px;
+    }
+
+/** end of OpenMaps **/
 
 /******Footer******/
 .logo_footer {
@@ -329,7 +317,7 @@ body {
 }
 
 .footer-bs .footer-nav ul.list li {
-    padding: 9px 65px;
+    padding: 2px 65px;
 }
 
 .footer-bs .footer-nav ul.list a {
@@ -380,6 +368,8 @@ h2.price {
 .carousel .carousel-control-prev {
     opacity: 1;
     background-color: transparent;
+    filter: invert(40%);
+
 }
 
 .textSingleProduct {
@@ -406,7 +396,16 @@ h2.price {
 }
 
 .textSingleProduct p .fas, .textSingleProduct p .far {
-    color: #e6834c;
+    color: #824913;
+}
+
+
+.textSingleProduct p .fa-check {
+    color: green;
+}
+
+.textSingleProduct p .fa-times {
+    color: #ff193f;
 }
 
 .recommendedItems h2, .recommendedItems h3 {
@@ -422,36 +421,47 @@ h2.price {
     margin-top: 5%;
 }
 
-/******End of Single Product******/
+.overlay {
+    background-color: black;
+    opacity: 0.4;
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-/****Notre boutique****/
-
-.notreboutique {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #8E8477;
-    color: #FAFAFA;
-    font-size: 50px;
 }
 
-/******End of Notre boutique******/
+.overlay {
+    position: absolute;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .9;
+}
 
-/******Fonctionnement du depot vente******/
-.fonctionnementdepotvente {
+.overlay-img {
+    position: absolute;
+    z-index: 1000;
+}
+
+/******End of Single Product******/
+
+.titleheadband {
     padding-top: 40px;
     padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Great Vibes', cursive;
     text-align: center;
     margin-bottom: 0;
     background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
+    color: #fff;
+    font-size: 70px;
 }
-
-/******End of Fonctionnement du depot vente******/
 
 /******End of Notre boutique******/
 
@@ -477,15 +487,16 @@ h6 {
 
 .list-group-item {
     border: transparent;
-    background: #fafafa;
+    background: transparent;
 }
 
 /**End faq**/
 
-.allbuton.btn:hover{
+.allbuton.btn:hover {
     background-color: #8E8477;
 }
-.allbuton{
+
+.allbuton {
     margin: 40px;
     color: black;
 }
@@ -501,5 +512,143 @@ h6 {
     cursor: pointer;
     color: transparent;
 }
+
+.updateBTN {
+    background: url("/assets/images/edit-filled.png");
+    background-size: cover;
+    border: none;
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+    color: transparent;
+}
+
 /**End ADMIN **/
 
+
+.row {
+    margin: 15px;
+}
+
+/*** Bandeau Vendu ***/
+
+.corner-ribbon {
+    width: 100px;
+    background: #cc322e;
+    position: absolute;
+    top: 25px;
+    left: -50px;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+/* Custom styles */
+
+/*.corner-ribbon.sticky{*/
+/*    position: fixed;*/
+/*}*/
+
+.corner-ribbon.shadow {
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+}
+
+/* Different positions */
+
+.corner-ribbon.top-right {
+    top: 10px;
+    right: -15px;
+    left: auto;
+    transform: rotate(23deg);
+    -webkit-transform: rotate(23deg);
+    position: absolute;
+    overflow: hidden;
+}
+
+/* Colors */
+
+.corner-ribbon.red {
+    background: #e43;
+}
+
+
+/*** End of Bandeau Vendu ***/
+
+/*** card ***/
+.cards {
+    margin: 27px;
+    width: 600px;
+    list-style-type: none;
+}
+
+.cards li {
+    float: left;
+    width: 46%;
+    display: block;
+    margin-right: 2%;
+    margin-bottom: 0px;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+/* End-of-ignore-styles */
+
+.product-card {
+    max-width: 280px;
+    font-size: 12px;
+}
+
+.product-card > a {
+    background: #efefef;
+    color: #333;
+    transition: all 100ms;
+    position: relative;
+    display: block;
+    z-index: 0;
+    padding-bottom: 5px;
+}
+
+.product-card > a:hover {
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+.product-card .product-card-img {
+    display: block;
+    height: auto;
+    max-height: 250px;
+    width: 100%;
+}
+
+.product-card dev {
+    display: block;
+    padding: 0 10px;
+}
+
+.product-card .product-card-address {
+    color: #888;
+
+}
+
+.product-card .product-card-address i {
+    font-size: 14px;
+    margin-right: 2px;
+    line-height: 1.2;
+}
+
+.pricecard {
+    color: #212121;
+    font-size: 20px;
+    display: block;
+    text-align: right;
+}
+
+.product-card-title{
+    font-size: 29px;
+}
