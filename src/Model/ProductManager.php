@@ -85,7 +85,7 @@ class ProductManager extends AbstractManager
     public function showAllById($id): array
     {
         $query = "SELECT product.id, product.name, product.price,  product.description,
-                    ahead, DATE_FORMAT(product.date_added, \"%d/%m/%Y\") AS date_added,
+                    ahead, product.categories_id, DATE_FORMAT(product.date_added, \"%d/%m/%Y\") AS date_added,
                     DATE_FORMAT(product.date_saled, \"%d/%m/%Y\") AS date_saled, category.name as category
                     FROM $this->table
                     INNER JOIN category
