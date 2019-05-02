@@ -8,8 +8,7 @@
         <div class="col-lg-8">
             <form action="/home/index#contact" method="post" autocomplete="on" class="contactForm">
                 <div>
-                    <select class="form-control mt-4" id="select_form" name="select_form"
-                            value="{{ data.select_form }}" required>
+                    <select class="form-control mt-4" id="select_form" name="select_form" required>
                         <option value="">Je vous contacte pour...</option>
                         <option {% if data.select_form == 'acheter' %}selected {% endif %} value="acheter">Acheter
                         </option>
@@ -47,7 +46,7 @@
                         <label for="name"></label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend"><i class="far fa-user"></i></span>
+                                <span class="input-group-text" ><i class="far fa-user"></i></span>
                             </div>
                             <input type="text" class="form-control" id="name" aria-describedby="inputGroupPrepend"
                                    name="name" value="{{ data.name }}" required>
@@ -60,7 +59,7 @@
                         <label for="telephone"></label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                <span class="input-group-text"><i
                                             class="fas fa-phone-volume"></i></span>
                             </div>
                             <input type="tel" class="form-control" id="telephone" aria-describedby="inputGroupPrepend"
@@ -73,7 +72,7 @@
                         <label for="email"></label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-at"></i></span>
+                                <span class="input-group-text"><i class="fas fa-at"></i></span>
                             </div>
                             <input type="email" class="form-control" id="email" name="email"
                                    aria-describedby="inputGroupPrepend" value="{{ data.email }}" required>
