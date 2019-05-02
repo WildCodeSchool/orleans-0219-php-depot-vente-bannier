@@ -53,6 +53,9 @@ class ProductController extends AbstractController
      */
     public function search()
     {
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAllByAsc();
+
         $name = null;
         $products = null;
         $data = null;
@@ -66,6 +69,7 @@ class ProductController extends AbstractController
             $productManager = new ProductManager();
             $products = $productManager->selectAllByOcurrence($name);
         }
-        return $this->twig->render('Products/index.html.twig', ['products' => $products, 'data' => $data]);
+        return $this->twig->render('Products/index.html.twig', ['products' => $products,
+            'categories' => $categories,'data' => $data]);
     }
 }
