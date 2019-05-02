@@ -223,17 +223,6 @@ section.container-fluid.contactForm {
     overflow: scroll;
 }
 
-h2:nth-child(even) {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    margin-bottom: 0;
-    background-color: #212121;
-    color: #FAFAFA;
-    font-size: 50px;
-}
-
 .container {
     padding-top: 80px;
     padding-bottom: 80px;
