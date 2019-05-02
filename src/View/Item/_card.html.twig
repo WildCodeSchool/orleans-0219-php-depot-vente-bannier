@@ -1,15 +1,26 @@
 <!--Card -->
-
-<div class="card col-lg-4 col-sm-8 col-md-4 mx-auto">
-    <div class="border-card">
-        <div class="card-body text-center">
-            <div class="card-img">
-                <img class="img-thumbnail" src="{{ product.picture }}" alt=""/>
-                <hr class="horizontaleligne mb-3">
-                <h5 class="card-title mb-4">{{ product.name }} </h5>
-                <p class="text">{{ product.price }} €</p>
-                <a href="/item/show/{{ product.id }}" class="btn btn-outline-secondary btn-lg allbuton">+ d'infos</a>
+<div class="col-lg-4 col-md-7 col-sm-8 text-center">
+    <ul class="cards clearfix pl-0">
+        <li class="mr-0 mb-0">
+            <figure class="product-card">
+                <a href="/item/show/{{ product.id }}">
+                    <img class="product-card-img" src="/{{ product.picture }}"/>
+                    <dev>
+                        <div class="horizontaleligne mt-4"></div>
+                        <h5 class="product-card-title mt-3">{{ product.name }}</h5>
+                        <p class="product-card-address mt-3">
+                            <i class="fa fa-map-marker"></i>Dépôt-Vente Bannier
+                        </p>
+                        <div class="mt-5">
+                            <p class="pricecard">{{ product.price }} €</p>
+                        </div>
+                    </dev>
+                </a>
+            </figure>
+            <div class="text-center">
+                <a href="/item/show/{{ product.id }}" class="btn btn-dark">+ d'infos</a>
             </div>
-        </div>
-     </div>
+        </li>
+    </ul>
 </div>
+

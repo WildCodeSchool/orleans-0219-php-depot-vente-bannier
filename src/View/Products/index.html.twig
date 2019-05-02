@@ -4,20 +4,20 @@
 
 {% block content %}
 
-    <h2 class="produits">{{ category ? category.name : 'Tous nos produits' }}</h2>
+    <h2 class="titleheadband">{{ category ? category.name : 'Tous nos produits' }}</h2>
     <div class="col-12 m-5 mx-auto text-center"><i>-- {{ products|length }} produits trouvés</i></div>
     
     <section class="container">
     
-        <form method="get" action="/Product/list/">
-            <select name="category" class="form-control text-align-center">
+        <form method="get" action="/Product/list/" id="categoriesForm">
+            <select name="category" class="form-control text-align-center"
+                    onChange="document.getElementById('categoriesForm').submit()">
                 <option value="" selected>Tous nos produits</option>
                 {% for category in categories %}
                     <option value="{{ category.id }}" {% if category.id is same as(products[0].categories_id) %}
                     selected {% endif %}>{{ category.name }}</option>
                 {% endfor %}
             </select>
-            <input type="submit">
         </form>
 
         <div class="row">
