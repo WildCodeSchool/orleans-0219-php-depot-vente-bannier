@@ -32,9 +32,10 @@ class ProductController extends AbstractController
         $sort = $_GET['sortBy'] ?? null;
         $productManager = new ProductManager();
         $products = $productManager->productsFiltered($id, $search, $sort);
+        $categorySelected = $categoryManager->selectOneById($id);
 
         return $this->twig->render('Products/index.html.twig', ['categories' => $categories,
-            'products' => $products]);
+            'products' => $products, 'category' => $categorySelected]);
     }
 
     /**
