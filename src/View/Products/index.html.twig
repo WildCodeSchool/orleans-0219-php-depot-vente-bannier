@@ -1,15 +1,16 @@
 {% extends 'visitorLayout.html.twig' %}
 {% block title %}Nos produits{% endblock %}
 {% block content %}
+
     <h2 class="produits">{{ category ? category.name : 'Tous nos produits' }}</h2>
 
     <section class="container">
         <form method="get" action="/Product/list/" class="form-group col-md-8 m-auto">
 
             <select name="category" class="form-control text-align-center" onchange="location = this.value;">
-                <option value="" selected>Tous nos produits</option>
+                <option value="">Tous nos produits</option>
                 {% for category in categories %}
-                    <option value="{{ category.id }}" {% if category.id is same as(products[0].categories_id) %}
+                    <option value="{{ category.id }}" {% if category.id is same as (products[0].categories_id) %}
                     selected {% endif %}>{{ category.name }}</option>
                 {% endfor %}
             </select>
@@ -17,23 +18,24 @@
             <div class="form-group form-row mt-3 mb-5">
 
                 <div class="form-group col-md-3">
-                    <select id="sortBy" class="form-control" name="sortBy">
+                    <select class="form-control" name="sortBy">
                         <option value="">Trier par... </option>
-                        <option value="price_asc">Prix &#8599;</option>
-                        <option value="price_dsc">Prix &#8600;</option>
-                        <option value="recent_items">Plus recents</option>
-                        <option value="older_items">Plus anciens</option>
+                        <option value="ascPrice">Prix &#8599;</option>
+                        <option value="descPrice">Prix &#8600;</option>
+                        <option value="ascDateAdded">Plus recents</option>
+                        <option value="descDateAdded">Plus anciens</option>
                     </select>
                 </div>
 
                 <div class="form-group col-md-7">
-                    <input type="search" class="form-control" id="search" name="search_box" value="" placeholder="&#128270; Votre recherche ici...">
+                    <input type="search" class="form-control" id="search" name="request" value="" placeholder="&#128270; Votre recherche ici...">
                 </div>
                 <div class="form-group col-md-2 justify-content-center align-item-center">
                     <input class="btn btn-outline-secondary w-100" name="search" type="submit" value="Rechercher"/>
                 </div>
             </div>
         </form>
+{#        <pre>{{ dump(data) }}</pre>#}
 
         <hr class="border mb-5">
 

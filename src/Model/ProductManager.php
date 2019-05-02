@@ -155,15 +155,51 @@ class ProductManager extends AbstractManager
      * @param int $id
      * @return array
      */
-    public function productsFilteredByCategories(int $id): array
+    public function productsFiltered(int $id = null, string $search = null, string $sort = null): array
     {
-        $query = "SELECT pr.*, pi.name AS picture, ca.name AS categories
-	                FROM $this->table pr
-	                JOIN picture pi ON pi.product_id = pr.id
-	                JOIN category ca ON pr.categories_id = ca.id
-	                WHERE categories_id = $id
-	                ORDER BY pr.id ASC";
-        return $this->pdo->query($query)->fetchAll();
+        $query = "SELECT *, picture.name AS image, category.name AS categories, product.date_added,
+                    product.price, product.name
+	                FROM $this->table
+	                INNER JOIN picture ON picture.product_id = product.id
+	                INNER JOIN category ON product.categories_id = category.id
+	                WHERE 1=1 ";
+        if ($id) {
+            $query .= " AND product.categories_id =:id";
+        }
+
+        if ($search) {
+            $query .= " AND product.name LIKE :search";
+        }
+
+        if ($sort === 'ascPrice') {
+            $query .= " ORDER BY product.price ASC";
+        }
+
+        if ($sort === 'descPrice') {
+            $query .= " ORDER BY product.price DESC";
+        }
+
+        if ($sort === 'ascDateAdded') {
+            $query .= " ORDER BY product.date_added ASC";
+        }
+
+        if ($sort === 'descDateAdded') {
+            $query .= " ORDER BY product.date_added DESC";
+        }
+
+        $statement = $this->pdo->prepare($query);
+
+        if ($id) {
+            $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        }
+
+        if ($search) {
+            $statement->bindValue('search', '%'. $search .'%', \PDO::PARAM_STR);
+        }
+
+        $statement->execute();
+
+        return $statement->fetchAll();
     }
 
     /**
@@ -178,61 +214,9 @@ class ProductManager extends AbstractManager
                     FROM picture
                     INNER JOIN product ON picture.product_id = product.id
                     INNER JOIN category ON product.categories_id = category.id
-                    WHERE categories_id = 1
+                    WHERE categories_id = $id
                     ORDER BY RAND()
                     LIMIT 3";
-        return $this->pdo->query($query)->fetchAll();
-    }
-
-    /**
-     * Sort products by ascending price
-     *
-     * @return array
-     */
-    public function sortProductsAscPrice(): array
-    {
-        $query = "SELECT product.name, product.price
-                    FROM $this->table
-                    ORDER BY product.price ASC";
-        return $this->pdo->query($query)->fetchAll();
-    }
-
-    /**
-     * Sort products by descending price
-     *
-     * @return array
-     */
-    public function sortProductsDscPrice(): array
-    {
-        $query = "SELECT product.name, product.price
-                    FROM $this->table
-                    ORDER BY product.price DESC";
-        return $this->pdo->query($query)->fetchAll();
-    }
-
-    /**
-     * Sort products by ascending date
-     *
-     * @return array
-     */
-    public function sortProductsAscDate(): array
-    {
-        $query = "SELECT product.name, product.price, product.date_added
-                    FROM $this->table
-                    ORDER BY product.date_added ASC";
-        return $this->pdo->query($query)->fetchAll();
-    }
-
-    /**
-     * Sort products by ascending date
-     *
-     * @return array
-     */
-    public function sortProductsDscDate(): array
-    {
-        $query = "SELECT product.name, product.price, product.date_added
-                    FROM $this->table
-                    ORDER BY product.date_added DESC";
         return $this->pdo->query($query)->fetchAll();
     }
 }
